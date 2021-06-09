@@ -61,37 +61,5 @@ export default {
 </script>
 
 <style scoped>
-.container{
-  width: 100%;
-}
-p {
-  font-size: 2em;
-  text-align: center;
-}
 
-.button{
-  margin: 0 auto;
-  width:  100%;
-  
-}
-
-.yoko{
-  display: inline-block;
-  margin: 5px;
-  border: 1px solid orange;
-  line-height: 80px;
-  width: 80px;
-  height: 80px;
-  border-radius: 5px;
-  transition: all .4s;
-  user-select: none;
-}
-.fast-shuffle-enter, .fast-shuffle-leave-to
-/* .fast-shuffle-leave-active for below version 2.1.8 */ {
-  opacity: 0;
-  transform: translateY(-100px);
-}
-.fast-shuffle-leave-active {
-  position: absolute;
-}
 </style>
