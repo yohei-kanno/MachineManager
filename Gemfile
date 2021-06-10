@@ -10,6 +10,10 @@ gem 'webpacker', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
+gem 'slim-rails'
+gem 'html2slim'
+gem 'bootstrap', '~> 4.1.1'
+gem 'jquery-rails'
 
 group :production do
   gem 'pg'
@@ -18,6 +22,7 @@ end
 group :development, :test do
   gem 'sqlite3', '~> 1.4'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry-rails'
 end
 
 group :development do

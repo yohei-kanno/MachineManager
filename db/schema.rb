@@ -14,8 +14,8 @@ ActiveRecord::Schema.define(version: 2021_06_08_141202) do
 
   create_table "stores", force: :cascade do |t|
     t.string "name"
-    t.integer "number_of_pachinko_machines"
-    t.integer "number_of_slot_machines"
+    t.integer "pachinko_num"
+    t.integer "slot_num"
     t.integer "store_code"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
