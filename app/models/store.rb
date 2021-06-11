@@ -1,6 +1,7 @@
 class Store < ApplicationRecord
   
   has_many :users
+  has_many :machines
   
   validates :name, presence: true
   validates :pachinko_num, presence: true, numericality: true, length:{maximum: 4}

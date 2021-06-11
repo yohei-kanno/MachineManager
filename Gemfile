@@ -15,6 +15,9 @@ gem 'html2slim'
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
 gem 'sorcery'
+gem 'rails-i18n'
+gem 'enum_help'
+
 
 group :production do
   gem 'pg'
