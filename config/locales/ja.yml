@@ -1,0 +1,6 @@
+ja:
+  enums:
+    machine:
+      form_type:
+        pachinko: パチンコ
+        slot: スロット

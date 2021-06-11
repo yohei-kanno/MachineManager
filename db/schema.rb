@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_10_032647) do
+ActiveRecord::Schema.define(version: 2021_06_10_224922) do
+
+  create_table "machines", force: :cascade do |t|
+    t.integer "store_id", null: false
+    t.string "maker"
+    t.integer "form_type", default: 0
+    t.string "name"
+    t.integer "machine_status", default: 0
+    t.integer "parts_status", default: 0
+    t.integer "place", default: 0
+    t.boolean "certification", default: false
+    t.string "remarks"
+    t.string "front_number"
+    t.string "flame_number"
+    t.string "board_number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["store_id"], name: "index_machines_on_store_id"
+  end
 
   create_table "stores", force: :cascade do |t|
     t.string "name", null: false
@@ -35,4 +53,5 @@ ActiveRecord::Schema.define(version: 2021_06_10_032647) do
     t.index ["store_id"], name: "index_users_on_store_id"
   end
 
+  add_foreign_key "machines", "stores"
 end
