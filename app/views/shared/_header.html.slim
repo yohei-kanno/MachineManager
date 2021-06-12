@@ -1,0 +1,6 @@
+.container-header 
+  h1.header 
+    = "MachineManager"
+    - if logged_in?
+      span.header-operator
+        =  "操作指名者:#{current_user.store.name}店  #{current_user.first_name}"

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   
   resources :stores, only: [:new, :create] do
     resources :users
+    resources :machines
   
     namespace :admin do
       resources :users

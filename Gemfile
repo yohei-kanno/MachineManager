@@ -17,7 +17,7 @@ gem 'jquery-rails'
 gem 'sorcery'
 gem 'rails-i18n'
 gem 'enum_help'
-
+gem 'draper'
 
 group :production do
   gem 'pg'
