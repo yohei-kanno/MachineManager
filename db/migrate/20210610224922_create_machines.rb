@@ -8,7 +8,7 @@ class CreateMachines < ActiveRecord::Migration[6.1]
       t.integer :machine_status, default: 0
       t.integer :parts_status, default: 0
       t.integer :place, default: 0
-      t.boolean :certification, default: false
+      t.integer :certification, default: 0
       t.string :remarks
       t.string :front_number
       t.string :flame_number

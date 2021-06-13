@@ -1,1 +1,18 @@
-p = "#{current_user.first_name}"
+h2 = "#{@store.name}店 在庫一覧"
+= render "new"
+
+table.table.table-hover.small-font
+  thead.thead-light
+    th style="width:8%;" ="形式"
+    th style="width:14%;" = "メーカー"
+    th style="width:22%;" = "形式名"
+    th style="width:7%;" = "状態①"
+    th style="width:5%;" = "状態②"
+    th style="width:5%;" = "場所"
+    th style="width:5%;" = "認定"
+    th style="width:22%;" = "備考"
+    th style="width:4%;"= "番号"
+    th style="width:4%;"
+    th style="width:4%;"
+
+    = render @machines,{store: @store}

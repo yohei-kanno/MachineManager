@@ -1,0 +1,77 @@
+  button.btn.btn-primary data-target="#Modal" data-toggle="modal" type="button"
+    | 在庫を新規登録する
+  #Modal.modal.fade  aria-labelledby="Modal" tabindex="-1" 
+    .modal-dialog.modal-lg.modal-dialog-fluid role="document" 
+      .modal-content
+        .modal-header
+          h2.modal-title
+            | 在庫新規登録
+            span(style="font-size:10px; margin-left: 30px;") = "※印は入力必須"
+          button.close data-dismiss="modal" type="button"  ✖️
+            
+        .modal-body
+          = form_with model: [@store,@machine], local: true do |f|
+            .form-group.flex
+              .col-sm-4
+                .text-left
+                  = f.label :maker, "※メーカー"
+                  = f.text_field :maker, class: "form-control"
+                  
+              .col-sm-2
+                .text-left
+                  = f.label :form_type, "※形式"
+                  = f.select :form_type, Machine.form_types_i18n.invert,{},class: "form-control"
+                  
+              .col-sm-6
+                .text-left
+                    = f.label :name, "※形式名"
+                    = f.text_field :name, class: "form-control"
+                    
+            .form-group.flex
+              .col-sm-3
+                .text-left
+                  = f.label :machine_status, "※状態①"
+                  = f.select :parts_status, Machine.machine_statuses_i18n.invert,{},class: "form-control"
+                  
+              .col-sm-3
+                .text-left
+                  = f.label :parts_status, "※状態②"
+                  = f.select :parts_status, Machine.parts_statuses_i18n.invert,{},class: "form-control"
+                  
+              .col-sm-3
+                .text-left
+                    = f.label :place, "※場所"
+                    = f.select :place, Machine.places_i18n.invert,{},class: "form-control"
+                    
+              .col-sm-3
+                .text-left
+                    = f.label :certification, "※認定"
+                    = f.select :certification, Machine.certifications_i18n.invert, {}, class: "form-control"
+                    
+            .form-group
+              .col-sm-12
+                .text-left
+                  = f.label :remarks, "備考"
+                  = f.text_field :remarks, class: "form-control"
+            .form-group.flex
+              .col-sm-4
+                .text-left
+                  = f.label :front_number, "遊技版番号/本体製造番号(回胴部)"
+                  = f.text_field :front_number, class: "form-control"
+                  
+              .col-sm-4
+                .text-left
+                  = f.label :flame_number, "遊技機の枠番号/本体製造番号(筐体部)"
+                  = f.text_field :flame_number, class: "form-control"
+
+              .col-sm-4
+                .text-left
+                  = f.label :board_number, "主基盤番号"
+                  = f.text_field :board_number, class: "form-control"
+              
+            = f.submit "登録する", class: "btn btn-primary"
+
+          .text-right
+            .button
+              span
+              button.close data-dismiss="modal" type="button" ✖️

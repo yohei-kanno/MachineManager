@@ -3,4 +3,5 @@
     = "MachineManager"
     - if logged_in?
       span.header-operator
-        =  "操作指名者:#{current_user.store.name}店  #{current_user.first_name}"
+        =  "操作者氏名:#{current_user.store.name}店  #{current_user.decorate.full_name}"
+        = link_to "ログアウト", logout_path, method: :delete

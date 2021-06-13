@@ -1,0 +1,27 @@
+button.btn.btn-primary data-target="#Modal-#{machine.id}" data-toggle="modal" type="button"
+    | 番号
+.modal.fade id="Modal-#{machine.id}"  aria-labelledby="Modal" tabindex="-2" 
+  .modal-dialog.modal-lg.modal-dialog role="document" 
+    .modal-content
+      .modal-header
+        h2.modal-title
+          = machine.name
+        button.close data-dismiss="modal" type="button"  ✖️
+          
+      .modal-body
+        .form-group.big-font.text-left
+          = "遊技版番号/本体製造番号(回胴部)"
+        .form-group.big-font.text-left
+          = machine.front_number
+          hr/
+              
+        .form-group.big-font.text-left
+          = "遊技版番号/本体製造番号(回胴部)"
+        .form-group.big-font.text-left
+          = machine.flame_number
+          hr/
+        .form-group.big-font.text-left
+          = "遊技機の枠番号/本体製造番号(筐体部)"
+        .form-group.big-font.text-left
+          = machine.board_number
+          hr/

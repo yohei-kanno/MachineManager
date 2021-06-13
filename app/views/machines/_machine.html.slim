@@ -1,0 +1,12 @@
+tbody
+  td = machine.form_type_i18n
+  td = machine.maker
+  td = machine.name
+  td = machine.machine_status_i18n
+  td = machine.parts_status_i18n
+  td = machine.place_i18n
+  td = machine.certification_i18n
+  td = machine.remarks
+  td = render "number", {machine: machine}
+  td = render "edit", {machine: machine}
+  td = render "destroy", {machine: machine, store: store}
