@@ -7,6 +7,7 @@ import "channels"
 //= require popper
 //= require bootstrap
 
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()

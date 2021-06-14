@@ -5,6 +5,8 @@ class MachinesController < ApplicationController
     @store = Store.find_by(params[:store_id])
     @machines = @store.machines.all
     @machine = @store.machines.build
+    
+    gon.machines = @machines
   end
   
   def new; end
