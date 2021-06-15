@@ -19,6 +19,7 @@ gem 'rails-i18n'
 gem 'enum_help'
 gem 'draper'
 gem 'seed-fu'
+gem 'ransack'
 
 group :production do
   gem 'pg'

@@ -1,0 +1,49 @@
+button.btn.btn-primary data-target="#Modal-search" data-toggle="modal" type="button"
+    | 検索する
+.modal.fade id="Modal-search"  aria-labelledby="Modal" tabindex="-2" 
+  .modal-dialog.modal-lg.modal-dialog role="document" 
+    .modal-content
+      .modal-header
+        h2.modal-title
+          = "検索フォーム"
+        button.close data-dismiss="modal" type="button"  ✖️
+          
+      .modal-body
+        = search_form_for(@q,url: store_machines_path) do |f|
+            
+          .form-group.flex
+            .text-left.col-sm-4
+              = f.label :name_cont, "名前"
+              = f.search_field :name_cont, class: "form-control",value: ""
+            
+            .text-left.col-sm-4
+              = f.label :maker, "メーカー"
+              = f.search_field :maker_cont, class: "form-control",value: ""
+              
+            .text-left.col-sm-4
+              = f.label :form_type_eq, "形式"
+              = f.select :form_type_eq, Machine.form_types_i18n.invert.map{|key, value| [key, Machine.form_types[value]]}, { include_blank: "指定無し" }, { class: 'form-control' }
+              
+          .form-group.flex
+            .text-left.col-sm-4
+              = f.label :machine_status_eq, "状態①"
+              = f.select :machine_status_eq, Machine.machine_statuses_i18n.invert.map{|key, value| [key, Machine.machine_statuses[value]]}, { include_blank: "指定無し" }, { class: 'form-control' }
+              
+            .text-left.col-sm-4
+              = f.label :parts_status_eq, "状態②"
+              = f.select :parts_status_eq, options_for_select(Machine.parts_statuses_i18n.invert.map{|key, value| [key, Machine.parts_statuses[value]]},nil), { include_blank: "指定無し" }, { class: 'form-control' }
+              
+            .text-left.col-sm-4
+              = f.label :place_eq, "場所"
+              = f.select :place_eq, options_for_select(Machine.places_i18n.invert.map{|key, value| [key, Machine.places[value]]},nil), { include_blank: "指定無し" }, { class: 'form-control' }
+              
+          .form-group.flex
+            .text-left.col-sm-4
+              = f.label :certification_eq, "認定"
+              = f.select :certification_eq, options_for_select(Machine.certifications_i18n.invert.map{|key, value| [key, Machine.certifications[value]]},nil), { include_blank: "指定無し" }, { class: 'form-control' }
+              
+            .text-left.col-sm-8
+              = f.label :remarks_cont, "備考", value: ""
+              = f.search_field :remarks_cont, class: "form-control"
+              
+          = f.submit "検索",class: "btn btn-primary"

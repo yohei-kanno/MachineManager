@@ -1,25 +1,33 @@
-
-  h1 = "店舗新規作成"
-  = form_with model: @store, local: true do |f|
-    .form-group
-      = f.label :name, "店舗名を入力して下さい"
-      .row.justify-content-center
-        .col-sm-4
-          = f.text_field :name, class: "form-control"
-    .form-group
-      = f.label :pachinko_num, "パチンコの設置台数を入力して下さい"
-      .row.justify-content-center
-        .col-sm-4
-          = f.number_field :pachinko_num, class: "form-control"
-    .form-group
-      = f.label :slot_num, "スロットの設置台数を入力して下さい"
-      .row.justify-content-center
-        .col-sm-4
-          = f.number_field :slot_num, class: "form-control"
-    .form-group
-      = f.label :store_code, "店舗コードを入力して下さい"
-      .row.justify-content-center
-        .col-sm-4
-          = f.number_field :store_code, class: "form-control"
+= render "shared/errors",{object: @user}
+h1 = "一般ユーザー作成画面"
+= form_with model: [@store, @user], local: true do |f|
+  .form-group
+    = f.label :first_name, "名字"
+    .row.justify-content-center
+      .col-sm-4
+        = f.text_field :first_name, class: "form-control"
+  .form-group
+    = f.label :last_name, "名前"
+    .row.justify-content-center
+      .col-sm-4
+        = f.text_field :last_name, class: "form-control"
+        
+  .form-group
+    = f.label :email, "メールアドレス"
+    .row.justify-content-center
+      .col-sm-4
+        = f.email_field :email, class: "form-control"
+        
+  .form-group
+    = f.label :store_code, "パスワード"
+    .row.justify-content-center
+      .col-sm-4
+        = f.password_field :password, class: "form-control"
+  .form-group
   
-    = f.submit "登録", class: "btn btn-primary"
+    = f.label :store_code, "パスワード(確認)"
+    .row.justify-content-center
+      .col-sm-4
+        = f.password_field :password, class: "form-control"
+
+  = f.submit "登録", class: "btn btn-primary"

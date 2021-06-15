@@ -1,0 +1,8 @@
+tbody
+  td = user.first_name
+  td = user.last_name
+  td = user.email
+  td = user.created_at.to_s(:datetime_jp)
+  td = user.updated_at.to_s(:datetime_jp)
+  td = render "edit",{user: user}
+  td = render "destroy", {user: user, store: store}

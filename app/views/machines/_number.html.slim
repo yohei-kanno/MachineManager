@@ -12,15 +12,25 @@ button.btn.btn-primary data-target="#Modal-#{machine.id}" data-toggle="modal" ty
         .form-group.big-font.text-left
           = "遊技版番号/本体製造番号(回胴部)"
         .form-group.big-font.text-left
-          = machine.front_number
+          - if machine.front_number == ""
+            = "登録されていません"
+          - else
+            = machine.front_number
           hr/
+            
         .form-group.big-font.text-left
           = "遊技版番号/本体製造番号(回胴部)"
         .form-group.big-font.text-left
-          = machine.flame_number
+          - if machine.flame_number  == ""
+            = "まだ登録されていません"
+          - else 
+            = machine.flame_number
           hr/
+            
         .form-group.big-font.text-left
           = "遊技機の枠番号/本体製造番号(筐体部)"
         .form-group.big-font.text-left
-          = machine.board_number
-          hr/
+          - if machine.board_number == ""
+            = "まだ登録されていません"
+          - else
+            = machine.board_number

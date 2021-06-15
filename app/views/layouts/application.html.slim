@@ -6,7 +6,6 @@ html
     meta[name="viewport" content="width=device-width,initial-scale=1"]
     = csrf_meta_tags
     = csp_meta_tag
-    = include_gon
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     
@@ -14,4 +13,7 @@ html
     script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" 
   body
     = render 'shared/header'
+    - flash.each do |key, value|
+      p class=("alert alert-#{key}") 
+        = value
     = yield

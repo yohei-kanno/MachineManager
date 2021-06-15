@@ -16,7 +16,7 @@ class Machine < ApplicationRecord
   validates :place, presence: true
   validates :certification, presence: true
   
-  validates :front_number, presence: true, uniqueness: true
-  validates :flame_number, presence: true, uniqueness: true
-  validates :board_number, presence: true, uniqueness: true
+  validates :front_number, uniqueness: true
+  validates :flame_number, uniqueness: true
+  validates :board_number, uniqueness: true
 end

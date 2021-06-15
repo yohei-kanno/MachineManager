@@ -1,7 +1,19 @@
 .container-header 
-  h1.header 
-    = "MachineManager"
-    - if logged_in?
-      span.header-operator
-        =  "操作者氏名:#{current_user.store.name}店  #{current_user.decorate.full_name}"
-        = link_to "ログアウト", logout_path, method: :delete
+  h1.header-container
+    .header
+      = "MachineManager"
+      - if logged_in?  && current_user.admin?
+        span.header-operator
+          =  "操作者氏名:#{current_user.store.name}店  #{current_user.decorate.full_name}(管理者)"
+        span.cer
+          = link_to "ログアウト", logout_path, method: :delete
+        span.cer
+          = link_to "ユーザー作成", new_store_user_path, method: :get
+        span.cer
+          = link_to "ユーザー一覧", store_users_path, method: :get
+          
+      - elsif logged_in? && !current_user.admin
+        span.header-operator
+          =  "操作者氏名:#{current_user.store.name}店  #{current_user.decorate.full_name}(一般)"
+        span.cer
+          = link_to "ログアウト", logout_path, method: :delete
