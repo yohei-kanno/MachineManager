@@ -17,3 +17,7 @@
           =  "操作者氏名:#{current_user.store.name}店  #{current_user.decorate.full_name}(一般)"
         span.cer
           = link_to "ログアウト", logout_path, method: :delete
+          
+      -else
+        span.cer
+          = link_to "ログイン", login_path, method: :get
