@@ -2,6 +2,9 @@ class SessionsController < ApplicationController
   skip_before_action :user_admin?
   
   def new
+    if current_user
+      redirect_to store_machines_path(current_user.store.id)
+    end
   end
   
   def create

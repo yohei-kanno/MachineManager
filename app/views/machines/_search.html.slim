@@ -8,7 +8,7 @@ button.btn.btn-primary data-target="#Modal-search" data-toggle="modal" type="but
           = "検索フォーム"
         button.close data-dismiss="modal" type="button"  ✖️
           
-      .modal-body
+      .modal-body.text-center
         = search_form_for(@q,url: store_machines_path) do |f|
             
           .form-group.flex
