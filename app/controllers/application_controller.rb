@@ -5,12 +5,14 @@ class ApplicationController < ActionController::Base
   protected
   
   def not_authenticated
-    # redirect_to login_url
+    redirect_to login_url
+    flash[:mydanger] = "ログインをして下さい"
   end
   
   def user_admin?
-    if !current_user.admin?
+    if !current_user || !current_user.admin?
       redirect_to root_url
+      flash[:mydanger] = "権限がありません"
     end
   end
 end

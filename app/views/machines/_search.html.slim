@@ -1,4 +1,4 @@
-button.btn.btn-primary data-target="#Modal-search" data-toggle="modal" type="button"
+button.btn-search-modal data-target="#Modal-search" data-toggle="modal" type="button"
     | 検索する
 .modal.fade id="Modal-search"  aria-labelledby="Modal" tabindex="-2" 
   .modal-dialog.modal-lg.modal-dialog role="document" 
@@ -35,7 +35,7 @@ button.btn.btn-primary data-target="#Modal-search" data-toggle="modal" type="but
               
             .text-left.col-sm-4
               = f.label :place_eq, "場所"
-              = f.select :place_eq, options_for_select(Machine.places_i18n.invert.map{|key, value| [key, Machine.places[value]]},nil), { include_blank: "指定無し" }, { class: 'form-control' }
+              = f.select :place_eq, options_for_select(store.places.pluck(:name).reverse.map),{include_blank:"指定無し"},class: "form-control"
               
           .form-group.flex
             .text-left.col-sm-4
@@ -45,5 +45,5 @@ button.btn.btn-primary data-target="#Modal-search" data-toggle="modal" type="but
             .text-left.col-sm-8
               = f.label :remarks_cont, "備考", value: ""
               = f.search_field :remarks_cont, class: "form-control"
-              
-          = f.submit "検索",class: "btn btn-primary"
+          .text-center    
+            = f.submit "検索",class: "btn-search"

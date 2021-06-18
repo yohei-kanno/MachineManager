@@ -1,33 +1,5 @@
 = render "shared/errors",{object: @user}
 h1 = "一般ユーザー作成画面"
 = form_with model: [@store, @user], local: true do |f|
-  .form-group
-    = f.label :first_name, "名字"
-    .row.justify-content-center
-      .col-sm-4
-        = f.text_field :first_name, class: "form-control"
-  .form-group
-    = f.label :last_name, "名前"
-    .row.justify-content-center
-      .col-sm-4
-        = f.text_field :last_name, class: "form-control"
-        
-  .form-group
-    = f.label :email, "メールアドレス"
-    .row.justify-content-center
-      .col-sm-4
-        = f.email_field :email, class: "form-control"
-        
-  .form-group
-    = f.label :store_code, "パスワード"
-    .row.justify-content-center
-      .col-sm-4
-        = f.password_field :password, class: "form-control"
-  .form-group
-  
-    = f.label :store_code, "パスワード(確認)"
-    .row.justify-content-center
-      .col-sm-4
-        = f.password_field :password, class: "form-control"
-
-  = f.submit "登録", class: "btn btn-primary"
+   = render 'shared/user_form',{f: f}
+   = f.submit "登録", class: "btn-primary button-submit"

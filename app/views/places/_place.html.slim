@@ -1,0 +1,9 @@
+tbody id="place-#{place.id}"
+  td = place.name
+  td = "#{count_of_pachinko(place)}台"
+  td = "#{count_of_slot(place)}台"
+  td = "#{count_of_all(place)}台"
+  td = place.created_at.to_s(:datetime_jp)
+  td = place.updated_at.to_s(:datetime_jp)
+  td = render "edit",{place: place}
+  td = button_to "削除する", store_place_path(@store, place), method: :delete, data:{confirm: "本当に削除しますか？"}, class: "btn-danger btn-submit"

@@ -1,1 +1,1 @@
-= button_to "削除", store_machine_path(store, machine ) ,class: "btn btn-danger", method: :delete
+= button_to "削除", store_machine_path(store, machine),data: { confirm: '本当に削除しますか？'} ,remote: true, class: "btn-danger btn-submit", method: :delete

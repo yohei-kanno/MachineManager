@@ -17,6 +17,11 @@ ja:
         code: 店舗コード
           
   enums:
+    user:
+      admin:
+        general: 一般
+        admin: 管理者
+        
     machine:
       form_type:
         pachinko: パチンコ

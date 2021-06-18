@@ -1,0 +1,188 @@
+// ==============ボタン設定==============
+@import "index";
+
+// -------------------------------------------
+.btn-menu {
+  @include btn;
+  background-color: #9ec34b;
+  border: 2px solid #9ec34b;
+  
+}
+.btn-menu:after{
+  @include btn-after
+}
+.btn-menu:hover{
+  color: #9ec34b;
+}
+.btn-menu:hover:after{
+  @include btn-hover-after
+}
+.btn-menu:active:after{
+  @include btn-hover-after
+}
+// -------------------------------------------
+.btn-success-modal {
+  @include btn;
+  background-color: #007bff;
+  border: 2px solid #007bff;
+}
+
+.btn-success-modal:after{
+  @include btn-after;
+}
+
+.btn-success-modal:hover{
+  color: #007bff;
+}
+
+.btn-success-modal:hover:after{
+  @include btn-hover-after
+}
+
+.btn-success-modal:active:after{
+  @include btn-hover-after
+}
+// -------------------------------------------
+.btn-warning-modal {
+  @include btn;
+  background-color:#17a2b8;
+  border: 2px solid#17a2b8;
+}
+
+.btn-warning-modal:after{
+  @include btn-after;
+}
+
+.btn-warning-modal:hover{
+  color:#17a2b8;
+}
+
+.btn-warning-modal:hover:after{
+  @include btn-hover-after
+}
+
+.btn-warning-modal:active:after{
+  @include btn-hover-after
+}
+
+// -------------------------------------------
+.btn-search-modal {
+  @include btn;
+  background-color:#ffd700;
+  border: 2px solid#ffd700;
+}
+
+.btn-search-modal:after{
+  @include btn-after;
+}
+
+.btn-search-modal:hover{
+  color:#ffd700;
+}
+
+.btn-search-modal:hover:after{
+  @include btn-hover-after
+}
+
+.btn-search-modal:active:after{
+  @include btn-hover-after
+}
+// -------------------------------------------
+
+// ==============ボタン設定==============
+
+.btn-primary {
+  @include button-custom;
+  border: 2px solid #007bff;
+  color: #007bff;
+  
+}
+
+.btn-primary:hover {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: #FFF;
+}
+
+.btn-warning {
+  @include button-custom;
+  border: 2px solid #ffc107;
+  color: #ffc107;
+  
+}
+
+.btn-warning:hover {
+  background-color: #ffc107;
+  border-color: #ffc107;
+  color: #FFF;
+}
+
+.btn-danger {
+  @include button-custom;
+  border: 2px solid #dc3545;
+  color: #dc3545;
+}
+
+.btn-danger:hover {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  color: #FFF;
+}
+
+.btn-success {
+  @include button-custom;
+  border: 2px solid #28a745;
+  color: #28a745;
+}
+
+.btn-success:hover {
+  background-color: #28a745;
+  border-color: #28a745;
+  color: #FFF;
+}
+
+.btn-info {
+  @include button-custom;
+  border: 2px solid #17a2b8;
+  color: #17a2b8;
+}
+
+.btn-search:hover {
+  background-color: #ffd700;
+  border-color: #ffd700;
+  color: #FFF;
+}
+.btn-search {
+  @include button-custom;
+  border: 2px solid #ffd700;
+  color: #ffd700;
+}
+
+.btn-info:hover {
+  background-color: #17a2b8;
+  border-color: #17a2b8;
+  color: #FFF;
+}
+
+
+
+.button-100{
+  margin-bottom: 2px;
+  width: 100%;
+}
+
+.button-submit{
+  margin-bottom: 20px;
+  padding: 2px 40px;
+}
+  
+
+
+.in{
+  color: #ffc107;
+  color: #17a2b8;
+  color: #17a2b8;
+  color: #f8f9fa;
+  color: #ffc107;
+  
+}

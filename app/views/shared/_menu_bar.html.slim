@@ -1,0 +1,14 @@
+  - if logged_in?  && current_user.admin?
+
+    = button_to "ユーザー作成", new_store_user_path, method: :get, class: "btn-info button-100"
+    = button_to "ユーザー一覧", store_users_path, method: :get, class: "btn-info button-100"
+    = button_to "在庫一覧", store_machines_path, method: :get, class: "btn-info button-100"
+    = button_to "店舗倉庫一覧", store_places_path, method: :get, class: "btn-info button-100"
+    = button_to "ログアウト", logout_path, method: :delete, class: "btn-info button-100"
+
+  - elsif logged_in? && !current_user.admin
+    = button_to "ログアウト", logout_path, method: :delete, class: "btn-info button-100"
+    = button_to "在庫一覧", store_machines_path, method: :get, class: "btn-info button-100"
+      
+  -else
+    = button_to "ログイン", login_path, method: :get, class: "btn-info button-100"

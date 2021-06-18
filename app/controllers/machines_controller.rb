@@ -3,7 +3,7 @@ class MachinesController < ApplicationController
   skip_before_action :user_admin?
   
   def index
-    @store = current_user.store
+    @place = @store.places.build
     @machine = @store.machines.build
     @q = @store.machines.ransack(params[:q])
     @machines = @q.result(distinct: true)
@@ -14,12 +14,12 @@ class MachinesController < ApplicationController
   def create
     @machine = @store.machines.build(params_machine)
     if @machine.save
-      binding.pry
+      PlaceMachine.create_place_machine(@machine, @store)
       redirect_to store_machines_path(current_user.store.id)
-      flash[:success] = "登録が完了しました"
+      flash[:mysuccess] = "登録が完了しました"
     else
       redirect_to store_machines_path(current_user.store.id)
-      flash[:danger] = "入力内容に不備があり登録出来ませんでした"
+      flash[:mydanger] = "入力内容に不備があり登録出来ませんでした"
     end
   end
   
@@ -28,21 +28,21 @@ class MachinesController < ApplicationController
   
   def update
     @machine = @store.machines.find(params[:id])
-    if @machine.update(params_machine) 
+    if @machine.update(params_machine)
+      PlaceMachine.update_place_machine(@machine,@store)
       redirect_to store_machines_path(current_user.store.id)
-      flash[:success] = "更新が完了しました"
+      flash[:mysuccess] = "更新が完了しました"
     else
       redirect_to store_machines_path(current_user.store.id)
-      flash[:danger] = "入力内容に不備があり更新出来ませんでした"
+      flash[:mydanger] = "入力内容に不備があり更新出来ませんでした"
     end
   end
   
   
   def destroy
     @machine = Machine.find(params[:id])
+    @success_msg = "#{@machine.name}(#{@machine.machine_status_i18n})を削除しました"
     @machine.destroy!
-    redirect_to store_machines_path(current_user.store.id)
-    flash[:success] = "削除しました"
   end
     
     

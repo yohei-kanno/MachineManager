@@ -6,11 +6,27 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   
   resources :stores, only: [:new, :create] do
-    resources :users
+    resources :users do
+      member do
+        patch :add_admin
+        patch :add_general
+      end
+    end
     resources :machines
+    resources :places
+      
   
     namespace :admin do
       resources :users
+    end
+  end
+  
+  namespace :api, {format: 'json'} do
+    namespace :v1 do
+      resources :stores do
+        resources :machines, only: [:index]
+      end
+        
     end
   end
   
