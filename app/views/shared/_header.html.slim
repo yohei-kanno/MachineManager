@@ -1,7 +1,7 @@
 .container-header 
   h1.header-container
     .header
-      = "MachineManager"
+      = link_to "MachineManager",root_path,class:"disabled"
       - if logged_in?  && current_user.admin?
         span.header-operator
           =  "操作者氏名:#{current_user.store.name}店  #{current_user.decorate.full_name}(管理者)"
