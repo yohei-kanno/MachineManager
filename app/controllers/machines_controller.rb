@@ -1,6 +1,8 @@
 class MachinesController < ApplicationController
   before_action :set_store, only: %i[ index create update destroy]
   skip_before_action :user_admin?
+  skip_before_action :current_user?
+  
   
   def index
     @place = @store.places.build

@@ -2,6 +2,7 @@ class PlacesController < ApplicationController
   
   before_action :set_store, only: %i[ index new create update destroy]
   before_action :set_place, only: %i[ update destroy ]
+  skip_before_action :current_user?
   
   def index
     @places = @store.places.all

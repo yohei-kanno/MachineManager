@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :require_login
   before_action :user_admin?
+  before_action :current_user?
   
   protected
   
@@ -13,6 +14,12 @@ class ApplicationController < ActionController::Base
     if !current_user || !current_user.admin?
       redirect_to root_url
       flash[:mydanger] = "権限がありません"
+    end
+  end
+  
+  def current_user?
+    if current_user
+      redirect_to store_machines_path(current_user.store.id) 
     end
   end
 end

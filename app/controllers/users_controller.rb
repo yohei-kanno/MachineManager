@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
+  skip_before_action :current_user?
   before_action :set_store, only: [:index, :new, :create, :update, :destroy, :add_admin, :add_general]
   before_action :set_user, only: [ :update, :destroy, :add_admin, :add_general]
   

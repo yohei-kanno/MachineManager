@@ -1,11 +1,9 @@
 class SessionsController < ApplicationController
   skip_before_action :user_admin?
   skip_before_action :require_login
+  skip_before_action :logged_in?, only: [:destroy]
   
   def new
-    if current_user
-      redirect_to store_machines_path(current_user.store.id)
-    end
   end
   
   def create
