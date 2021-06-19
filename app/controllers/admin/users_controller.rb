@@ -30,7 +30,7 @@ class Admin::UsersController < ApplicationController
   end
     
   def previous_url?
-    if !request.referer&.include?(new_store_path)
+    if !request.referer&.include?(new_store_path) && current_user
       redirect_to root_url
       flash[:mydanger] = "#{current_user.first_name}さん...何か悪い事しようとしてませんか？"
     end
