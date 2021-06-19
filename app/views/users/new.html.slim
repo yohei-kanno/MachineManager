@@ -1,5 +1,6 @@
 = render "shared/errors",{object: @user}
-h1 = "一般ユーザー作成画面"
+h3 = "一般ユーザー作成画面"
 = form_with model: [@store, @user], local: true do |f|
    = render 'shared/user_form',{f: f}
-   = f.submit "登録", class: "btn-primary button-submit"
+   .text-center
+      = f.submit "登録", class: "btn-primary button-submit"

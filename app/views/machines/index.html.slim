@@ -1,27 +1,25 @@
 #alert-message
-h2 = "#{@store.name}店 在庫一覧"
+h4 = "#{@store.name}店 在庫一覧"
 .flex
-  .flex-left
-    .text-right style="margin: 5px 10px;"
-      = render "new"
-    .text-right style="margin: 5px 10px;"
-      = render "new_place"
-  .flex-right
-    .text-right style="margin: 5px 10px;"
-      = render "search",{store: @store}
+  .text-right style="margin: 5px 10px;"
+    = render "new"
+  .text-right style="margin: 5px 10px;"
+    = render "new_place"
+  .text-right style="margin: 5px 10px;"
+    = render "search",{store: @store}
 
 table.table.table-hover.small-font
   thead.thead-light
-    th style="width:8%;" = sort_link(@q, :form_type, "形式")
+    th style="width:9%;" = sort_link(@q, :form_type, "形式")
     th style="width:14%;" = sort_link(@q, :maker, "メーカー")
-    th style="width:20%;" = sort_link(@q, :name, "形式名")
+    th style="width:14%;" = sort_link(@q, :name, "形式名")
     th style="width:7%;" =  sort_link(@q, :machine_status, "状態①")
     th style="width:6%;" = sort_link(@q, :parts_status, "状態②") 
     th style="width:6%;" = sort_link(@q, :place, "場所")
     th style="width:6%;" = sort_link(@q, :certification, "認定")
-    th style="width:20%;" = sort_link(@q, :remarks, "備考")
-    th style="width:4%;" =
-    th style="width:4%;" = 
-    th style="width:4%;" =
+    th style="width:16%;" = sort_link(@q, :remarks, "備考")
+    th style="width:5%;" = 
+    th style="width:5%;" = 
+    th style="width:5%;" =
 
   = render @machines,{store: @store}

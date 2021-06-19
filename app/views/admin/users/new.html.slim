@@ -2,4 +2,4 @@
 h1 = "管理者作成画面"
 = form_with model: [@store, :admin, @user], local: true do |f|
   = render 'shared/user_form',{f: f}
-  = f.submit "登録", class: "btn-primary btn-submit"
+  = f.submit "登録する", class: "btn-primary btn-submit"

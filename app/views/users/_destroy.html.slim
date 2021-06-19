@@ -1,1 +1,1 @@
-= button_to "削除", store_user_path(store, user), data: { confirm: '本当に削除しますか？'} ,class: "btn-danger button-submit", method: :delete
+= link_to "削除する", store_user_path(store, user), data: { confirm: '本当に削除しますか？'} , class:"link-danger", method: :delete

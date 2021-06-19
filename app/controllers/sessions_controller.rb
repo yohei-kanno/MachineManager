@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   skip_before_action :user_admin?
   skip_before_action :require_login
-  skip_before_action :logged_in?, only: [:destroy]
+  skip_before_action :current_user?, only: [:destroy]
   
   def new
   end

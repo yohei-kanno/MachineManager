@@ -1,4 +1,4 @@
-button.btn.btn-primary data-target="#Modal-#{machine.id}" data-toggle="modal" type="button"
+button.btn-primary data-target="#Modal-#{machine.id}" data-toggle="modal" type="button"
     | 番号
 .modal.fade id="Modal-#{machine.id}"  aria-labelledby="Modal" tabindex="-2" 
   .modal-dialog.modal-lg.modal-dialog role="document" 
@@ -10,7 +10,7 @@ button.btn.btn-primary data-target="#Modal-#{machine.id}" data-toggle="modal" ty
           
       .modal-body
         .form-group.big-font.text-left
-          = "遊技版番号/本体製造番号(回胴部)"
+          = "セル番号/製造番号(回胴)"
         .form-group.big-font.text-left
           - if machine.front_number == ""
             = "登録されていません"
@@ -19,7 +19,7 @@ button.btn.btn-primary data-target="#Modal-#{machine.id}" data-toggle="modal" ty
           hr/
             
         .form-group.big-font.text-left
-          = "遊技版番号/本体製造番号(回胴部)"
+          = "枠番号/製造番号(筐体)"
         .form-group.big-font.text-left
           - if machine.flame_number  == ""
             = "まだ登録されていません"
@@ -28,7 +28,7 @@ button.btn.btn-primary data-target="#Modal-#{machine.id}" data-toggle="modal" ty
           hr/
             
         .form-group.big-font.text-left
-          = "遊技機の枠番号/本体製造番号(筐体部)"
+          = "基盤番号"
         .form-group.big-font.text-left
           - if machine.board_number == ""
             = "まだ登録されていません"

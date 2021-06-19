@@ -95,7 +95,7 @@
   @include button-custom;
   border: 2px solid #007bff;
   color: #007bff;
-  
+  margin-top: 5px;
 }
 
 .btn-primary:hover {
@@ -133,6 +133,7 @@
   @include button-custom;
   border: 2px solid #28a745;
   color: #28a745;
+  margin-top: 5px;
 }
 
 .btn-success:hover {
@@ -141,11 +142,6 @@
   color: #FFF;
 }
 
-.btn-info {
-  @include button-custom;
-  border: 2px solid #17a2b8;
-  color: #17a2b8;
-}
 
 .btn-search:hover {
   background-color: #ffd700;
@@ -156,6 +152,13 @@
   @include button-custom;
   border: 2px solid #ffd700;
   color: #ffd700;
+  margin-top: 5px;
+}
+
+.btn-info {
+  @include button-custom;
+  border: 2px solid #17a2b8;
+  color: #17a2b8;
 }
 
 .btn-info:hover {

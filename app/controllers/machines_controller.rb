@@ -2,6 +2,7 @@ class MachinesController < ApplicationController
   before_action :set_store, only: %i[ index create update destroy]
   skip_before_action :user_admin?
   skip_before_action :current_user?
+  before_action :detect_mobile_variant
   
   
   def index
@@ -43,8 +44,9 @@ class MachinesController < ApplicationController
   
   def destroy
     @machine = Machine.find(params[:id])
-    @success_msg = "#{@machine.name}(#{@machine.machine_status_i18n})を削除しました"
-    @machine.destroy!
+    @machine.destroy
+    redirect_to store_machines_path(current_user.store.id)
+    flash[:mysuccess] = "#{@machine.name}(#{@machine.machine_status_i18n})を削除しました"
   end
     
     
@@ -58,6 +60,10 @@ class MachinesController < ApplicationController
   
   def set_store
     @store = current_user.store
+  end
+  
+  def detect_mobile_variant
+    request.variant = :mobile if request.user_agent =~ / iPhone | android /
   end
   
 end

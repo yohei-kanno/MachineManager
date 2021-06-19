@@ -1,0 +1,63 @@
+button.btn-primary.pad-mobile data-target="#Modal-#{machine.id}" data-toggle="modal" type="button"  data-backdrop="static"
+    | 操作
+.modal.fade id="Modal-#{machine.id}"  aria-labelledby="Modal" tabindex="-1" 
+  .modal-dialog.modal-dialog-fluid role="document" 
+    .modal-content
+      .modal-header
+        h6.modal-title
+          = machine.name
+        button.close data-dismiss="modal" type="button"  ✖️
+          
+      .modal-body
+        .mobile-table-show
+          hr/
+          = "形式:"
+          = machine.form_type_i18n
+        .mobile-table-show
+          = "メーカー:"
+          = machine.maker
+        .mobile-table-show
+          = "状態①:"
+          = machine.machine_status_i18n
+        .mobile-table-show
+          = "状態②:"
+          = machine.parts_status_i18n
+        .mobile-table-show
+          = "場所:"
+          = machine.place
+        .mobile-table-show
+          = "認定:"
+          = machine.certification_i18n
+        .mobile-table-show
+          = "備考:"
+          - if machine.remarks == ""
+              = "登録されていません"
+          - else
+              = machine.remarks 
+          
+        .mobile-table-show
+          = "セル番号/製造番号(回胴):"
+          - if machine.front_number == ""
+              = "登録されていません"
+          - else
+              = machine.front_number
+              
+        .mobile-table-show
+          = "枠番号/製造番号(筐体):"
+          - if machine.flame_number == ""
+              = "登録されていません"
+          - else
+              = machine.flame_number
+              
+        .mobile-table-show
+          = "基盤番号:"
+          - if machine.board_number == ""
+              = "登録されていません"
+          - else
+              = machine.board_number
+        .flex      
+          .mobile-table-show
+            = render "machines/machine_mobile/edit_mobile",{machine: machine}
+          .mobile-table-show
+            = render "machines/machine_mobile/destroy_mobile", {machine: machine, store: @store}
+        hr/

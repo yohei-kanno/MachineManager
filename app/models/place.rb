@@ -7,6 +7,6 @@ class Place < ApplicationRecord
   validates :name, presence: true
   
   def count_of_place_is_0?
-    self.machines.count == 0
+    machines.count == 0
   end
 end

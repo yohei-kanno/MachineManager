@@ -1,0 +1,17 @@
+  button.btn-success-modal data-target="#Modal-new-mobile" data-toggle="modal" type="button"  
+    | 在庫登録
+  .modal.fade id="Modal-new-mobile" aria-labelledby="Modal" tabindex="-1" 
+    .modal-dialog.modal-lg role="document" 
+      .modal-content
+        .modal-header
+          h4.modal-title
+            | 新規登録
+            span(style="font-size:8px; margin-left: 30px;") = "※印は入力必須"
+          button.close data-dismiss="modal" type="button"  ×
+            
+        .modal-body
+          = form_with model: [@store,@machine], local: true do |f|
+            = render 'machines/machine_mobile/form_mobile' ,{f: f}
+            .text-center 
+              = f.submit "登録する", class: "btn btn-primary"
+          button.close data-dismiss="modal" type="button"  ×

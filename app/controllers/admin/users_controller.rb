@@ -11,7 +11,7 @@ class Admin::UsersController < ApplicationController
   def create
     @user = @store.users.build(user_params)
     if @user.save
-      redirect_to root_url
+      redirect_to login_url
       flash[:mysuccess] = "管理者登録が完了しました"
     else
       flash.now[:mydanger] = "登録出来ませんでした"

@@ -3,6 +3,7 @@ class PlacesController < ApplicationController
   before_action :set_store, only: %i[ index new create update destroy]
   before_action :set_place, only: %i[ update destroy ]
   skip_before_action :current_user?
+  skip_before_action :user_admin?
   
   def index
     @places = @store.places.all
@@ -14,15 +15,22 @@ class PlacesController < ApplicationController
   end
   
   def create 
-    place = @store.places.build(params_place)
-    if place.save
-      redirect_to store_machines_path
-      flash[:mysuccess] = "登録が完了しました"
+    unless @store.places.pluck(:name).include?(params[:place][:name])
+      place = @store.places.build(params_place)
+      if place.save
+        redirect_to store_machines_path
+        flash[:mysuccess] = "登録が完了しました"
+      else
+        redirect_to store_machines_path
+        flash[:mydanger] = "入力内容に不備があり登録出来ませんでした"
+      end
     else
       redirect_to store_machines_path
-      flash[:mydanger] = "入力内容に不備があり登録出来ませんでした"
+      flash[:mydanger] = "店舗内に同じ倉庫があります"
     end
   end
+
+      
     
   
   

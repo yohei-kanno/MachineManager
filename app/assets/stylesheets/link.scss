@@ -1,0 +1,13 @@
+@mixin link-custom{
+  display: inline-block;
+  text-decoration: none;
+  font-size: 12px;
+  padding: 2px 10px;
+  background-color: #FFF;
+  border-radius: 4px;
+  transition: .4s;
+}
+
+@media screen and (min-width:600px){
+  
+}

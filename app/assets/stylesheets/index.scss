@@ -1,5 +1,5 @@
 @mixin button-custom{
-  font-size: 14px;
+  font-size: 12px;
   text-decoration: none;
   padding: 2px 10px;
   border-radius: 4px;
@@ -9,16 +9,16 @@
 }
 
 @mixin btn{
-  cursor: pointer;
   display: inline-block;
-  border-radius: 5px;
-  padding: 2px 10px;
   text-align: center;
-  font-size: 16px;
-  color: #FFF;
   text-decoration: none;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 2px 10px;
+  font-size: 16px;
+  color: #FFF;
   z-index: 1;
   
 }

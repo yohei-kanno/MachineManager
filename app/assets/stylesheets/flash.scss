@@ -9,3 +9,21 @@
   border: solid 3px #2b00ff;
   color: #fff;
 }
+
+@media screen and (max-width:600px){
+  .alert-mydanger{
+    background-color: orangered;
+    border: solid 1px #ff0000;
+    color: #fff;
+    padding: 0;
+    font-size: 14px;
+  }
+  
+  .alert-mysuccess{
+    background-color: #0055ff;
+    border: solid 1px #2b00ff;
+    color: #fff;
+    padding: 0;
+    font-size: 14px;
+  }
+}
