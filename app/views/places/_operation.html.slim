@@ -1,0 +1,37 @@
+button.btn-primary.pad-mobile data-target="#Modal-#{place.id}" data-toggle="modal" type="button"  data-backdrop="static"
+    | 操作
+.modal.fade id="Modal-#{place.id}"  aria-labelledby="Modal" tabindex="-1" 
+  .modal-dialog.modal-dialog-fluid role="document" 
+    .modal-content
+      .modal-header
+        h6.modal-title
+          = place.name
+        button.close data-dismiss="modal" type="button"  ✖️
+          
+      .modal-body
+        hr/
+        .mobile-table-show
+          = "パチンコ台数:"
+          = "#{count_of_pachinko(place)}台"
+          
+        .mobile-table-show
+          = "スロット台数:"
+          = "#{count_of_slot(place)}台"
+          
+        .mobile-table-show
+          = "合計台数:"
+          = "#{count_of_all(place)}台"
+          
+        .mobile-table-show
+          = "作成日時:"
+          = place.created_at.to_s(:datetime_jp)
+          
+        .mobile-table-show
+          = "更新日時:"
+          = place.updated_at.to_s(:datetime_jp)
+          
+        .flex      
+          .mobile-table-show
+            = render "edit_mobile",{place: place}
+            = link_to "削除する", store_place_path(@store, place), method: :delete, data:{confirm: "本当に削除しますか？"}, class: "link-danger"
+        hr/

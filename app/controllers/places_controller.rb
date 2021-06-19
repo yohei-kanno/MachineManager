@@ -2,6 +2,7 @@ class PlacesController < ApplicationController
   
   before_action :set_store, only: %i[ index new create update destroy]
   before_action :set_place, only: %i[ update destroy ]
+  before_action :detect_mobile_variant
   skip_before_action :current_user?
   skip_before_action :user_admin?
   
@@ -65,6 +66,10 @@ class PlacesController < ApplicationController
   
   def set_place
     @place = @store.places.find(params[:id])
+  end
+  
+  def detect_mobile_variant
+    request.variant = :mobile if request.user_agent =~ / iPhone | android /
   end
   
 end

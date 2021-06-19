@@ -1,0 +1,13 @@
+#alert-message
+h4 = "#{@store.name}店 倉庫一覧"
+table.table.table-hover.small-font
+  thead.thead-light
+    th style="width:30%;" = "場所"
+    th style="width:30%;" = "合計台数"
+    th style="width:30%;" = 
+    
+  - @places.each do |place|    
+      tbody id="place-#{place.id}"
+      td = place.name
+      td = "#{count_of_all(place)}台"
+      td = render "operation",{place: place}

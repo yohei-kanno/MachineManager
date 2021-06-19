@@ -5,9 +5,9 @@
       .modal-content
         .modal-header
           h2.modal-title
-            | 保管場所編集画面
+            | 保管場所編集
             span(style="font-size:10px; margin-left: 30px;") = "※印は入力必須"
-          button.close data-dismiss="modal" type="button"  ✖️
+          button.close data-dismiss="modal" type="button"  ×
             
         .modal-body
           = form_with model: [@store,place], local: true, method: :patch do |f|

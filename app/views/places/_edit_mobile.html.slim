@@ -1,0 +1,20 @@
+  button.btn-success data-target="#Modal-edit-#{place.id}" data-toggle="modal" type="button"
+    | 編集する
+  .modal.fade id="Modal-edit-#{place.id}" aria-labelledby="Modal" tabindex="-1" 
+    .modal-dialog role="document" 
+      .modal-content
+        .modal-header
+          h4.modal-title
+            | 編集
+            span(style="font-size:10px; margin-left: 30px;") = "※印は入力必須"
+          button.close data-dismiss="modal" type="button"  ×
+            
+        .modal-body
+          = form_with model: [@store,place], local: true, method: :patch do |f|
+            .form-group.flex
+              .col-sm-12
+                .text-left
+                  = f.label :name, "※保管場所の名前"
+                  = f.text_field :name, class: "form-control"
+            .text-center
+              = f.submit "編集する", class: "btn-success btn-submit"
