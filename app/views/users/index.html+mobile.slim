@@ -1,0 +1,10 @@
+table.table.table-hover.small-font.text-center
+  thead.thead-light
+    th style="width: 30%;" = "氏名"
+    th style="width: 30%;" = "権限"
+    th style="width: 30%;" =
+    - @users.each do |user| 
+      tbody id="machine-#{user.id}"
+      td = user.decorate.full_name
+      td = user.admin_i18n
+      td = render "/users/mobile/operation", { user: user, store: @store}

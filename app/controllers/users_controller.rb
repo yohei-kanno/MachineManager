@@ -4,6 +4,8 @@ class UsersController < ApplicationController
   before_action :set_store, only: [:index, :new, :create, :update, :destroy, :add_admin, :add_general]
   before_action :set_user, only: [ :update, :destroy, :add_admin, :add_general]
   
+  before_action :detect_mobile_variant
+  
   def index
     @users = @store.users.all
   end
@@ -70,4 +72,7 @@ class UsersController < ApplicationController
   def set_user
     @user = @store.users.find(params[:id])
   end
+  
+  def detect_mobile_variant
+    request.variant = :mobile if request.user_agent =~ / iPhone | android /  end
 end

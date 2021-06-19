@@ -6,7 +6,7 @@ button.btn-success data-target="#Modal-#{user.id}" data-toggle="modal" type="but
       .modal-header
         h2.modal-title.text-center
           | ユーザー編集
-        button.close data-dismiss="modal" type="button"  ✖️
+        button.close data-dismiss="modal" type="button"  ×
       .modal-body.text-center
           h1 = "編集画面"
           = form_with model: [@store, user], remote: true, method: :patch do |f|
@@ -28,4 +28,4 @@ button.btn-success data-target="#Modal-#{user.id}" data-toggle="modal" type="but
                   = f.email_field :email, class: "form-control"
           
             = f.submit "更新する", class: "btn-success button-submit"
-          button.close data-dismiss="modal" type="button"  ✖️
+          button.close data-dismiss="modal" type="button"  ×

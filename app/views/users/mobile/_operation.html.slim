@@ -1,0 +1,37 @@
+button.btn-primary.pad-mobile data-target="#Modal-mobile-#{user.id}" data-toggle="modal" type="button"  data-backdrop="static"
+    | 操作
+.modal.fade id="Modal-mobile-#{user.id}"  aria-labelledby="Modal" tabindex="-1" 
+  .modal-dialog.modal-dialog-fluid role="document" 
+    .modal-content
+      .modal-header
+        h6.modal-title
+          = user.decorate.full_name
+        button.close data-dismiss="modal" type="button" ×
+          
+      .modal-body.text-left
+          hr/
+          .mobile-table-show.
+            = "名字:"
+            = user.first_name
+            
+          .mobile-table-show.
+            = "名前:"
+            = user.last_name
+            
+          .mobile-table-show.
+            = "権限:"
+            = user.admin_i18n
+            
+          .mobile-table-show.
+            = "登録日時:"
+            = user.created_at.to_s(:datetime_jp)
+            
+          .mobile-table-show.
+            = "更新日時:"
+            = user.updated_at.to_s(:datetime_jp)
+          .flex  
+            = link_to "権限付与",add_admin_store_user_path(store,user.id), method: :patch, data: {confirm: "権限を付与しますか？"},class: "link-primary"
+            = link_to "権限剥奪",add_general_store_user_path(store,user.id), method: :patch, class:"link-warning", data: { confirm: "権限を剥奪しますか？" }
+            = render "users/mobile/edit_mobile",{user: user}
+            = render "destroy", {user: user, store: store}
+          hr/
