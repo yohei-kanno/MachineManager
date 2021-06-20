@@ -1,7 +1,7 @@
 class SorceryCore < ActiveRecord::Migration[6.1]
   def change
     create_table :users do |t|
-      t.references :store, index: true
+      t.references :store, limit:36, null: false, foreign_key: true, type: :string
       t.string :first_name, null: false
       t.string :last_name, null: false
       t.string :email, null: false

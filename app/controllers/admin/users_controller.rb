@@ -9,6 +9,7 @@ class Admin::UsersController < ApplicationController
   end
   
   def create
+    binding.pry
     @user = @store.users.build(user_params)
     if @user.save
       redirect_to login_url

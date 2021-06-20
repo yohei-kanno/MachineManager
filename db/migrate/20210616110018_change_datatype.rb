@@ -3,7 +3,7 @@ class ChangeDatatype < ActiveRecord::Migration[6.1]
     change_column :machines, :place, :text
   end
   
-  def downくく
+  def down
     change_column :machines, :place, :text
   end
 end

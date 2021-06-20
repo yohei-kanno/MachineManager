@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2021_06_16_202033) do
 
   create_table "machines", force: :cascade do |t|
-    t.integer "store_id", null: false
+    t.string "store_id", limit: 36, null: false
     t.string "maker"
     t.integer "form_type", default: 0
     t.string "name"
@@ -41,13 +41,13 @@ ActiveRecord::Schema.define(version: 2021_06_16_202033) do
 
   create_table "places", force: :cascade do |t|
     t.string "name"
-    t.integer "store_id", null: false
+    t.string "store_id", limit: 36, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["store_id"], name: "index_places_on_store_id"
   end
 
-  create_table "stores", force: :cascade do |t|
+  create_table "stores", id: { type: :string, limit: 36 }, force: :cascade do |t|
     t.string "name", null: false
     t.integer "pachinko_num", null: false
     t.integer "slot_num", null: false
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2021_06_16_202033) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.integer "store_id"
+    t.string "store_id", limit: 36, null: false
     t.string "first_name", null: false
     t.string "last_name", null: false
     t.string "email", null: false
@@ -74,4 +74,5 @@ ActiveRecord::Schema.define(version: 2021_06_16_202033) do
   add_foreign_key "place_machines", "machines"
   add_foreign_key "place_machines", "places"
   add_foreign_key "places", "stores"
+  add_foreign_key "users", "stores"
 end

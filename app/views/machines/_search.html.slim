@@ -1,5 +1,6 @@
 button.btn-search-modal data-target="#Modal-search" data-toggle="modal" type="button"
     | 検索する
+    i.fas.fa-search
 .modal.fade id="Modal-search"  aria-labelledby="Modal" tabindex="-2" 
   .modal-dialog.modal-lg.modal-dialog role="document" 
     .modal-content
@@ -46,4 +47,6 @@ button.btn-search-modal data-target="#Modal-search" data-toggle="modal" type="bu
               = f.label :remarks_cont, "備考", value: ""
               = f.search_field :remarks_cont, class: "form-control"
           .text-center    
-            = f.submit "検索",class: "btn-search"
+            = button_tag type: 'submit', class: 'btn-search' do
+               | 検索する 
+               i.fas.fa-search

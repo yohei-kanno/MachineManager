@@ -1,5 +1,7 @@
 class Store < ApplicationRecord
   
+  include IdGenerator
+  
   has_many :users
   has_many :machines
   has_many :places
@@ -13,4 +15,7 @@ class Store < ApplicationRecord
     minimum: 8,
     message: "8桁数字で入力して下さい"  
   }
+  
+
+  
 end

@@ -1,8 +1,9 @@
 #alert-message
 h4 = "#{@store.name}店 在庫一覧"
 .flex
-  .text-right style="margin: 5px 10px;"
-    = render "new"
+  -if @store.places.count > 0
+    .text-right style="margin: 5px 10px;"
+      = render "new"
   .text-right style="margin: 5px 10px;"
     = render "new_place"
   .text-right style="margin: 5px 10px;"

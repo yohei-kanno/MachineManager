@@ -1,7 +1,7 @@
 class CreateMachines < ActiveRecord::Migration[6.1]
   def change
     create_table :machines do |t|
-      t.references :store, null: false, foreign_key: true
+      t.references :store, limit:36, null: false, foreign_key: true, type: :string
       t.string :maker
       t.integer :form_type, default: 0
       t.string :name

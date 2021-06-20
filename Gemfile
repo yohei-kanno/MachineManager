@@ -20,6 +20,7 @@ gem 'enum_help'
 gem 'draper'
 gem 'seed-fu'
 gem 'ransack'
+gem 'font-awesome-sass'
 
 group :production do
   gem 'pg'
