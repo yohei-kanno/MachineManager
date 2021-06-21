@@ -13,8 +13,8 @@ class SessionsController < ApplicationController
         flash[:mysuccess]="ログインしました"
       else
         logout
+        flash.now[:mydanger] = "ログイン出来ませんでした"
         render :new
-        flash[:mydanger] = "ログイン出来ませんでした"
       end
     else
       flash.now[:mydanger] = "ログイン出来ませんでした"
