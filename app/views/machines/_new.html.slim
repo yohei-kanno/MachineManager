@@ -1,5 +1,6 @@
   button.btn-success-modal data-target="#Modal" data-toggle="modal" type="button"
     | 在庫登録
+    i.fas.fa-file-signature.icon
   #Modal.modal.fade  aria-labelledby="Modal" tabindex="-1" 
     .modal-dialog.modal-dialog-fluid role="document" 
       .modal-content
@@ -13,4 +14,6 @@
           = form_with model: [@store,@machine], remote: true do |f|
             = render 'form',{f: f, store: @store}
             .text-center 
-              = f.submit "登録する", class: "btn btn-primary"
+              = button_tag type: "submit", class: "btn-primary" do 
+                | 登録する
+                i.fas.fa-file-signature.icon

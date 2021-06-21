@@ -1,5 +1,6 @@
   button.btn-warning-modal data-target="#Modal-place" data-toggle="modal" type="button"
     | 場所登録
+    i.fas.fa-location-arrow.icon
   #Modal-place.modal.fade  aria-labelledby="Modal" tabindex="-1" 
     .modal-dialog role="document" 
       .modal-content
@@ -13,4 +14,6 @@
           = form_with model: [@store,@place], local: true do |f|
             = render "shared/place_form",{f: f}
             .text-center
-              = f.submit "登録する", class: "btn-info"
+              = button_tag type: "submit", class: "btn-info" do 
+                | 登録する
+                i.fas.fa-location-arrow.icon

@@ -1,6 +1,6 @@
 button.btn-search-modal data-target="#Modal-search" data-toggle="modal" type="button"
     | 検索する
-    i.fas.fa-search
+    i.fas.fa-search.icon
 .modal.fade id="Modal-search"  aria-labelledby="Modal" tabindex="-2" 
   .modal-dialog.modal-lg.modal-dialog role="document" 
     .modal-content
@@ -44,9 +44,9 @@ button.btn-search-modal data-target="#Modal-search" data-toggle="modal" type="bu
               = f.select :certification_eq, options_for_select(Machine.certifications_i18n.invert.map{|key, value| [key, Machine.certifications[value]]},nil), { include_blank: "指定無し" }, { class: 'form-control' }
               
             .text-left.col-sm-8
-              = f.label :remarks_cont, "備考", value: ""
-              = f.search_field :remarks_cont, class: "form-control"
+              = f.label :remarks_cont, "備考"
+              = f.search_field :remarks_cont, class: "form-control",value: ""
           .text-center    
             = button_tag type: 'submit', class: 'btn-search' do
                | 検索する 
-               i.fas.fa-search
+               i.fas.fa-search.icon
