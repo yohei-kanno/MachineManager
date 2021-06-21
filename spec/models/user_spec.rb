@@ -23,7 +23,7 @@ describe "Userモデル" do
   it "メールアドレスが重複する場合は無効である事" do
     user = create(:user, store: @store)
     other_user = build(:user, email: user.email, store: @store)
-    expect(user).to_not be_valid
+    expect(other_user).to_not be_valid
   end
   
   it "パスワードが無い場合は無効である事" do

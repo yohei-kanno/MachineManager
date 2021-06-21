@@ -5,6 +5,6 @@ FactoryBot.define do
     front_number { "sy-g 010234" }
     flame_number { "sy-g 010234" }
     board_number { "sy-g 010234" }
-    store { :store }
+    store { "倉庫" }
   end
 end

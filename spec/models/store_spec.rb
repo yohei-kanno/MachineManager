@@ -35,9 +35,4 @@ describe "Storeモデル" do
     store = build(:store, code: 777777777)
     expect(store).to_not be_valid 
   end
-  
-  it "店舗コードが９桁以上であれば無効である事" do
-    store = build(:store, code: 777777777)
-    expect(store).to_not be_valid 
-  end
 end

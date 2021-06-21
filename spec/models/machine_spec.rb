@@ -5,7 +5,7 @@ describe "Machineモデル" do
     @store = create(:store)
   end
   
-  it "店舗名が無い場合は無効である事" do
+  it "メーカー名が無い場合は無効である事" do
     machine = build(:machine, maker: nil,store: @store)
     expect(machine).to_not be_valid
   end
@@ -45,31 +45,14 @@ describe "Machineモデル" do
     expect(machine).to_not be_valid
   end
   
-  it "セル番号が重複している場合無効である事" do
-    machine = create(:machine, store: @store)
-    other_machine = build(:machine, store: @store, front_number: machine.front_number)
-    expect(other_machine).to_not be_valid
-  end
-  
   it "筐体番号及び枠番号がない場合無効である事" do
     machine = build(:machine, flame_number: nil ,store: @store)
     expect(machine).to_not be_valid
   end
   
-  it "筐体番号及び枠番号が重複している場合無効である事" do
-    machine = create(:machine ,store: @store)
-    other_machine = build(:machine,store: @store, flame_number: machine.flame_number)
-    expect(other_machine).to_not be_valid
-  end
   
   it "基盤番号がない場合無効である事" do
     machine = build(:machine, board_number: nil ,store: @store)
     expect(machine).to_not be_valid
-  end
-  
-  it "基盤番号が重複している場合無効である事" do
-    machine = create(:machine ,store: @store)
-    other_machine = build(:machine,store: @store, board_number: machine.board_number)
-    expect(other_machine).to_not be_valid
   end
 end
