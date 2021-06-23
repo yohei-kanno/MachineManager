@@ -1,0 +1,22 @@
+// ==============エラーメッセージ==============
+
+.message{
+  list-style: none;
+  text-align: center;
+  background-color: orangered;
+  border: solid 1px #ff0000;  
+  border-radius: 5px;
+  padding: 0;
+}
+
+.message ul li{
+  color: #fff;
+  text-align: center;
+  list-style: none;
+}
+
+@media screen and (max-width:600px){
+  .message{
+    font-size: 12px;
+  }
+}

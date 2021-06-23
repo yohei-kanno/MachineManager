@@ -1,0 +1,42 @@
+// ==============トップページ==============
+.image_flame{
+  display: flex;
+}
+
+.image_show{
+  display: inline-block;
+  border-radius: 10px;
+  margin-bottom: 0px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.image{
+  margin-top: 20px;
+}
+.under-blue {
+  background: linear-gradient(transparent 30%, #93ee90 70%);
+  width: 90%;
+  margin: auto;
+  padding-top: 10px;
+  font-size: 18px;
+}
+
+.under-yellow {
+  background: linear-gradient(transparent 30%, #f2f53a 70%);
+  width: 90%;
+  margin: auto;
+  padding-top: 10px;
+}
+
+@media screen and (max-width:500px){
+  .under-blue{
+    font-size:18px;
+    background: linear-gradient(transparent 40%, #93ee90 70%);
+  }
+  
+  .under-yellow{
+    font-size:18px;
+    background: linear-gradient(transparent 40%, #f2f53a 70%);
+  }
+}

@@ -3,6 +3,8 @@
 @import "btn";
 @import "flash";
 @import "link";
+@import "error";
+@import "top";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
@@ -80,106 +82,10 @@ body{
   font-size: 35px;
 }
 
-// ==============エラーメッセージ==============
-
-.message{
-  border: 1px solid red;
-  width: 30%;
-  margin: auto;
-}
-
-
-.message ul li{
-  text-align: left;
-}
-
-// ==============トップページ==============
-.image_flame{
-  display: flex;
-}
-
-.image_show{
-  display: inline-block;
-  border-radius: 10px;
-  margin-bottom: 0px;
-  margin-right: 5px;
-  margin-left: 5px;
-}
-
-.image{
-  margin-top: 20px;
-}
-.under-blue {
-  background: linear-gradient(transparent 30%, #007bff 70%);
-  width: 90%;
-  margin: auto;
-  padding-top: 10px;
-  font-size: 18px;
-}
-
-.under-yellow {
-  background: linear-gradient(transparent 30%, #ffd700 70%);
-  width: 90%;
-  margin: auto;
-  padding-top: 10px;
-}
-// ==============トップページ==============
-
-
 hr {
   height: 8px;
   background-image: repeating-linear-gradient(45deg, #ccc 0, #ccc 1px, transparent 0, transparent 50%), repeating-linear-gradient(135deg, #ccc 0, #ccc 1px, transparent 0, transparent 50%);
   background-size: 8px 8px;
-}
-
-.disabled{
-  color: inherit;
-  text-decoration:none;
-  &:hover{
-    color: inherit;
-    text-decoration:none;
-  }
-}
-
-.link-primary{
-  @include link-custom;
-  color: #007bff;
-  border: 2px solid #007bff;
-  margin-top: 5px;
-  &:hover{
-    color: #fff;
-    background-color: #007bff;
-    text-decoration: none;
-  }
-}
-
-.link-warning{
-  @include link-custom;
-  color: #ffd700;
-  border: 2px solid #ffd700;
-  margin-top: 5px;
-  &:hover{
-    color: #fff;
-    background-color: #ffd700;
-    text-decoration: none;
-  }
-}
-
-.link-danger{
-  @include link-custom;
-  color: #dc3545;
-  border: 2px solid #dc3545;
-  margin-top: 5px;
-  &:hover{
-    color: #fff;
-    background-color: #dc3545;
-    text-decoration: none;
-  }
-}
-
-.pad0{
-  padding: 0 5px;
-  margin-right: 40px;
 }
 
 .pad-mobile{
@@ -196,16 +102,19 @@ hr {
   margin-left: 4px;
 }
 
+.img-size{
+  width: 300px;
+  height: 200px;
+}
+
+@media (min-width: 500px) and (max-width:1250px) {
+  .img-size{
+    width: 500px;
+    height: 350px;
+  }
+}
+
 @media screen and (max-width:500px){
-  .under-blue{
-    font-size:18px;
-    background: linear-gradient(transparent 40%, #007bff 70%);
-  }
-  
-  .under-yellow{
-    font-size:18px;
-    background: linear-gradient(transparent 40%, #ffd700 70%);
-  }
   
   .modal-dialog-small{
     width: 100%;
@@ -214,7 +123,6 @@ hr {
   .form-group-mobile{
     margin-top: 10px;
   }
-}
+  
 
-// 編集
-// i.fas fa-edit
+}
