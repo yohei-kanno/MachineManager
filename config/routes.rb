@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   
   resources :stores, only: [:new, :create] do
+    collection do
+      get :back
+      post :back_create
+    end
     resources :users do
       member do
         patch :add_admin

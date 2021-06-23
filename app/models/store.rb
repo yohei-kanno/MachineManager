@@ -13,9 +13,6 @@ class Store < ApplicationRecord
   length:{
     maximum: 8,
     minimum: 8,
-    message: "8桁数字で入力して下さい"  
+    message: "は8桁数字で入力して下さい" 
   }
-  
-
-  
 end

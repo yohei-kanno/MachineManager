@@ -19,7 +19,7 @@
   .col-sm-3
     .text-left
       = f.label :machine_status, "※状態①"
-      = f.select :parts_status, Machine.machine_statuses_i18n.invert,{},class: "form-control"
+      = f.select :machine_status, Machine.machine_statuses_i18n.invert,{},class: "form-control"
       
   .col-sm-3
     .text-left

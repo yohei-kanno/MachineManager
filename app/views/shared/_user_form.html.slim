@@ -16,13 +16,13 @@
         = f.email_field :email, class: "form-control"
         
   .form-group
-    = f.label :store_code, "パスワード"
+    = f.label :password, "パスワード"
     .row.justify-content-center
       .col-sm-4
         = f.password_field :password, class: "form-control"
   .form-group
   
-    = f.label :store_code, "パスワード(確認)"
+    = f.label :password_confirmation, "パスワード(確認)"
     .row.justify-content-center
       .col-sm-4
-        = f.password_field :password, class: "form-control"
+        = f.password_field :password_confirmation, class: "form-control"

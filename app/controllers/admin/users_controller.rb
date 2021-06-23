@@ -1,7 +1,8 @@
 class Admin::UsersController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
   skip_before_action :user_admin?, only: [:new, :create]
-  before_action :previous_url?, only: [ :new ]
+  skip_before_action :current_user?, only: [:new, :create]
+  before_action :user_count_0?
   before_action :set_store
 
   def new
@@ -9,10 +10,9 @@ class Admin::UsersController < ApplicationController
   end
   
   def create
-    binding.pry
     @user = @store.users.build(user_params)
     if @user.save
-      redirect_to login_url
+      redirect_to login_path
       flash[:mysuccess] = "管理者登録が完了しました"
     else
       flash.now[:mydanger] = "登録出来ませんでした"
@@ -30,10 +30,11 @@ class Admin::UsersController < ApplicationController
     @store = Store.find(params[:store_id])
   end
     
-  def previous_url?
-    if !request.referer&.include?(new_store_path) && current_user
+  def user_count_0?
+    @store = Store.find(params[:store_id])
+    if  @store.users.count > 0
       redirect_to root_url
-      flash[:mydanger] = "#{current_user.first_name}さん...何か悪い事しようとしてませんか？"
+      flash[:mydanger] = "何か悪い事しようとしてませんか？"
     end
   end
 end

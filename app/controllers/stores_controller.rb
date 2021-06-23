@@ -17,6 +17,25 @@ class StoresController < ApplicationController
     end
   end
   
+  def back
+    @store = Store.new
+  end
+  
+  def back_create
+    @store = Store.find_by(
+        name: params[:store][:name],
+        code: params[:store][:code]
+        )
+    if @store && @store.users.count == 0
+        redirect_to new_store_admin_user_path(@store.id)
+        flash[:mysuccess] = "管理者登録をして下さい"
+    else
+      redirect_to back_stores_path
+      flash[:mydanger] = "該当の店舗は存在しないか管理者が既に登録されています"
+    end
+    
+  end
+  
   private
   def params_store
     params.require(:store).permit(:name,:pachinko_num,:slot_num, :code)

@@ -1,5 +1,5 @@
 = render "shared/errors",{object: @store}
-h1 = "店舗新規作成"
+h3 = "店舗新規作成"
 = form_with model: @store, local: true do |f|
   .form-group
     = f.label :name, "店舗名を入力して下さい"
@@ -17,9 +17,9 @@ h1 = "店舗新規作成"
       .col-sm-4
         = f.number_field :slot_num, class: "form-control"
   .form-group
-    = f.label :code, "店舗コードを入力して下さい(任意の数字８桁)"
+    = f.label :code, "(8桁指定)店舗コードを決めて下さい"
     .row.justify-content-center
       .col-sm-4
         = f.number_field :code, class: "form-control"
 
-  = f.submit "登録", class: "btn-primary button-submit"
+  = f.submit "登録する", class: "btn-primary button-submit"

@@ -12,8 +12,8 @@ ja:
       
       store:
         name: 店舗名
-        pachinko_num: パチンコ台数
-        slot_num: スロット台数
+        pachinko_num: パチンコの設置台数
+        slot_num: スロットの設置台数
         code: 店舗コード
           
   enums:

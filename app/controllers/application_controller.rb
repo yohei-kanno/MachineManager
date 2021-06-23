@@ -20,6 +20,7 @@ class ApplicationController < ActionController::Base
   def current_user?
     if current_user
       redirect_to store_machines_path(current_user.store.id) 
+      flash[:mydanger] = "#{current_user.first_name}さん...何か悪い事しようとしてますか？"
     end
   end
 end

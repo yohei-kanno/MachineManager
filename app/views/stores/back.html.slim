@@ -1,0 +1,15 @@
+
+h3 = "店舗ログイン"
+= form_with model: @store, url: back_create_stores_path,local: true do |f|
+  .form-group
+    = f.label :name, "店舗名を入力して下さい"
+    .row.justify-content-center
+      .col-sm-4
+        = f.text_field :name, class: "form-control"
+  .form-group
+    = f.label :code, "店舗コードを入力して下さい"
+    .row.justify-content-center
+      .col-sm-4
+        = f.number_field :code, class: "form-control"
+
+  = f.submit "管理者登録画面へ", class: "btn-primary button-submit"
