@@ -3,6 +3,6 @@ FactoryBot.define do
     name { "千葉" }
     pachinko_num { "333" }
     slot_num { "333" }
-    code { "33333333" }
+    sequence(:code) { |n| 10000000 + n }
   end
 end

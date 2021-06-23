@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :place do
-    name { "倉庫" }
-    store { :store }
+    sequence(:name) { |n| "倉庫#{n}" }
+    association :store
   end
 end

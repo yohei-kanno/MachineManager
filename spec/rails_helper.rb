@@ -20,8 +20,9 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
   config.before(:each, type: :system) do
     driven_by :selenium_chrome_headless
+    # driven_by :selenium_chrome
   end
   config.filter_rails_from_backtrace!
   config.include FactoryBot::Syntax::Methods
-  config.include LoginSupport
+  config.include SomeSupport
 end
