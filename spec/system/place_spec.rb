@@ -47,5 +47,60 @@ RSpec.describe 'Placeモデル', type: :system do
         end
       end
     end
+    
+    describe "編集処理" do
+      before do
+        place
+        visit store_places_path(store.id)
+      end
+      
+      context "入力が正常である場合" do
+        it "更新が出来る事" do
+          click_on "編集", match: :first
+          fill_in "保管場所の名前", with: "更新された倉庫"
+          click_on "更新する"
+          expect(page).to have_content("更新しました")
+          expect(page).to have_selector(".alert-mysuccess")
+        end
+      end
+      
+      context "異常である場合" do
+        it "更新が出来ない事" do
+          click_on "編集", match: :first
+          fill_in "保管場所の名前", with: nil
+          click_on "更新する"
+          expect(page).to have_content("内容に不備があり更新出来ませんでした")
+          expect(page).to have_selector(".alert-mydanger")
+        end
+      end
+    end
+    
+    describe "削除処理" do
+      context "倉庫に機械が存在する場合" do
+        it "削除出来ない事" do
+          PlaceMachine.create(machine_id: machine.id, place_id: place.id)
+          visit store_places_path(store.id)
+          page.accept_confirm do
+            click_on "削除"
+          end
+          expect(page).to have_content("台情報が存在する為削除出来ません")
+          expect(page).to have_selector(".alert-mydanger")
+          expect(Place.count).to eq(1)
+        end
+      end
+      
+      context "倉庫に機械が存在しない場合" do
+       it "削除出来る事" do
+          place
+          visit store_places_path(store.id)
+          page.accept_confirm do
+            click_on "削除"
+          end
+          expect(page).to have_content("削除しました")
+          expect(page).to have_selector(".alert-mysuccess")
+          expect(Place.count).to eq(0)
+        end
+      end
+    end
   end
 end

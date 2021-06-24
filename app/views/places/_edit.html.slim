@@ -13,4 +13,4 @@
           = form_with model: [@store,place], local: true, method: :patch do |f|
             = render "shared/place_form",{f: f}
             .text-center
-              = f.submit "編集する", class: "btn-success btn-submit"
+              = f.submit "更新する", class: "btn-success btn-submit"

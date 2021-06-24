@@ -38,9 +38,14 @@ class PlacesController < ApplicationController
   def edit;end
   
   def update
-    @place.update(params_place)
-    @place.machines.update(place: params[:place][:name])
-    redirect_to store_places_path
+    if @place.update(params_place)
+      @place.machines.update(place: params[:place][:name])
+      redirect_to store_places_path
+      flash[:mysuccess] = "更新しました"
+    else
+      redirect_to store_places_path
+      flash[:mydanger] = "内容に不備があり更新出来ませんでした"
+    end
   end
   
   def destroy

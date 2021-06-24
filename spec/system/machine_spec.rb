@@ -166,7 +166,7 @@ RSpec.describe 'Machineモデル', type: :system do
           page.accept_confirm do
             click_on "削除", match: :first
           end
-          sleep 1
+          sleep 1 
           expect(page).to have_content("#{machine_1.name}(#{machine_1.machine_status_i18n})を削除しました")    
           expect(Machine.count).to eq(3)
         end
