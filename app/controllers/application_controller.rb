@@ -12,14 +12,14 @@ class ApplicationController < ActionController::Base
   
   def user_admin?
     if !current_user || !current_user.admin?
-      redirect_to root_url
+      redirect_to root_path
       flash[:mydanger] = "権限がありません"
     end
   end
   
   def current_user?
     if current_user
-      redirect_to store_machines_path(current_user.store.id) 
+      redirect_to root_path
       flash[:mydanger] = "#{current_user.first_name}さん...何か悪い事しようとしてますか？"
     end
   end
