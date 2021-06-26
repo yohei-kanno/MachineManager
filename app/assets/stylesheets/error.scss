@@ -16,11 +16,11 @@
   list-style: none;
 }
 
-#result-update-user,
-#result-update-place,
+.result-update-user,
+.result-update-place,
 #result-create-place,
 #result-create-machine,
-#result-update-machine{
+.result-update-machine{
   @include error-message
 }
 

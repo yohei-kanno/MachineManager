@@ -12,6 +12,6 @@ button.btn-success data-target="#Modal-#{place.id}" data-toggle="modal" type="bu
       .modal-body
         = form_with model: [@store,place], data:{remote: true}, method: :patch do |f|
           = render "shared/place_form",{f: f}
-          #result-update-place
+          div id="update-place-#{place.id}" class="result-update-place"
           .text-center
             = f.submit "更新する", class: "btn-success btn-submit"

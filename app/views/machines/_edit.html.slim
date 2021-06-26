@@ -11,6 +11,6 @@
         .modal-body
           = form_with model: [@store,machine], method: :patch, data:{remote: true} do |f|
             = render 'form',{f: f}
-            #result-update-machine
+            div id="update-machine-#{machine.id}" class="result-update-machine"
             .text-center  
               = f.submit "更新する", class: "btn-success btn-submit"

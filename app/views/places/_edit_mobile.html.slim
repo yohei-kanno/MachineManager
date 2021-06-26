@@ -16,6 +16,6 @@
                 .text-left
                   = f.label :name, "※保管場所の名前"
                   = f.text_field :name, class: "form-control"
-            #result-update-place
+            div id="update-place-#{place.id}" class="result-update-place"
             .text-center
               = f.submit "更新する", class: "btn-success btn-submit"

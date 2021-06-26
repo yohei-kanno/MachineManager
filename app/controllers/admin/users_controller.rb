@@ -23,7 +23,7 @@ class Admin::UsersController < ApplicationController
   private
   
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmaion, :store_id).merge(admin: true)
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :store_id).merge(admin: true)
   end
   
   def set_store
