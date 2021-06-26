@@ -60,6 +60,10 @@ class MachinesController < ApplicationController
   def destroy
     @machine = Machine.find(params[:id])
     respond_to do |format|
+      format.html{
+        redirect_to store_machines_path(@store.id)
+        flash[:mysuccess] = "#{@machine.name}(#{@machine.machine_status_i18n})を削除しました"
+      }
       format.js{
         @machine.destroy
         @message = "#{@machine.name}(#{@machine.machine_status_i18n})を削除しました"
