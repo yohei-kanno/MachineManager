@@ -11,6 +11,13 @@ class MachinesController < ApplicationController
     @machine = @store.machines.build
     @q = @store.machines.ransack(params[:q])
     @machines = @q.result(distinct: true).page(params[:page]).per(PER)
+    
+    respond_to do |format|
+      format.html
+      format.js{
+        
+      }
+    end
   end
   
   def new; end
