@@ -1,2 +1,2 @@
-$('#machine-<%= @machine.id %>').html('');
-$('#alert-message').html('<div class="alert alert-success"><%= @success_msg %></div>')
+$("#machine-<%= @machine.id %>").remove('');
+$("#alert-message").html("<%= j(render 'flash_message') %>");

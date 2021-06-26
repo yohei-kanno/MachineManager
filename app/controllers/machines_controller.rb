@@ -16,42 +16,51 @@ class MachinesController < ApplicationController
   
   def create
     @machine = @store.machines.build(params_machine)
-    if @machine.save
-      PlaceMachine.create_place_machine(@machine, @store)
-      redirect_to store_machines_path(current_user.store.id)
-      flash[:mysuccess] = "登録が完了しました"
-    else
-      redirect_to store_machines_path(current_user.store.id)
-      flash[:mydanger] = "入力内容に不備があり登録出来ませんでした"
+    respond_to do |format|
+      if @machine.save
+        format.html{
+        PlaceMachine.create_place_machine(@machine, @store)
+        redirect_to store_machines_path(current_user.store.id)
+        flash[:mysuccess] = "登録が完了しました"
+      }
+      else
+        format.html
+        format.js
+      end
     end
   end
   
-  
+    
   def edit; end
   
   def update
     @machine = @store.machines.find(params[:id])
-    if @machine.update(params_machine)
-      PlaceMachine.update_place_machine(@machine,@store)
-      redirect_to store_machines_path(current_user.store.id)
-      flash[:mysuccess] = "更新が完了しました"
-    else
-      redirect_to store_machines_path(current_user.store.id)
-      flash[:mydanger] = "入力内容に不備があり更新出来ませんでした"
+    respond_to do |format|
+      if @machine.update(params_machine)
+        PlaceMachine.update_place_machine(@machine,@store)
+        format.html{
+          redirect_to store_machines_path(@store.id)
+          flash[:mysuccess] = "更新が完了しました"
+        }
+      else
+        format.html
+        format.js
+      end
     end
   end
-  
-  
+          
   def destroy
     @machine = Machine.find(params[:id])
-    @machine.destroy
-    redirect_to store_machines_path(current_user.store.id)
-    flash[:mysuccess] = "#{@machine.name}(#{@machine.machine_status_i18n})を削除しました"
+    respond_to do |format|
+      format.js{
+        @machine.destroy
+        @message = "#{@machine.name}(#{@machine.machine_status_i18n})を削除しました"
+      }
+        
+    end
   end
+        
     
-    
-
-  
   private
   
   def params_machine
@@ -65,5 +74,4 @@ class MachinesController < ApplicationController
   def detect_mobile_variant
     request.variant = :mobile if request.user_agent =~ / iPhone | android /
   end
-  
 end

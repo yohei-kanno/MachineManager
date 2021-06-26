@@ -41,8 +41,7 @@ RSpec.describe 'Machineモデル', type: :system do
         it "機械台の登録が行えない事" do
           click_on "在庫登録"
           click_on "登録する"
-          expect(page).to have_content("入力内容に不備があり登録出来ませんでした")
-          expect(page).to have_selector(".alert-mydanger")
+          expect(page).to have_content("を入力してください")
         end
       end
     end
@@ -154,8 +153,7 @@ RSpec.describe 'Machineモデル', type: :system do
           click_on "編集", match: :first
           fill_in "メーカー", with: nil
           click_on "更新する"
-          expect(page).to have_content("入力内容に不備があり更新出来ませんでした")
-          expect(page).to have_selector(".alert-mydanger")
+          expect(page).to have_content("を入力してください")
         end
       end
     end

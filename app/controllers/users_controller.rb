@@ -28,34 +28,53 @@ class UsersController < ApplicationController
   def edit; end
   
   def update
-    if @user.update(user_params)
-      redirect_to store_users_path
-      flash[:mysuccess] = "更新しました"
-    else
-      redirect_to store_users_path
-      flash[:mydanger] = "入力内容に不備があった為更新出来ませんでした"
+    respond_to do |format|
+      if @user.update(user_params)
+        format.html{
+        redirect_to store_users_path
+        flash[:mysuccess] = "更新しました"
+      }
+      else
+        format.js
+      end
     end
   end
       
   
   
   def destroy
-    @user.destroy
-    redirect_to store_users_path
-    flash[:mysuccess] = "削除しました"
+    respond_to do |format|
+      format.js{
+        @user.destroy
+        @message = "削除しました" 
+      }
+    end
   end
   
   def add_admin
-    @user.admin!
-    redirect_to store_users_path
-    flash[:mysuccess] = "管理者権限を付与しました"
+    respond_to do |format|
+      @user.admin!
+      format.js{
+        @message = "管理者権限を付与しました"
+      }
+      format.html{
+        redirect_to store_users_path(@store.id)
+        flash[:mysuccess] = "管理者権限を付与しました"
+      }
+    end
   end
-    
-  
+        
   def add_general
-    @user.general!
-    redirect_to store_users_path
-    flash[:mysuccess] = "管理者権限を剥奪しました"
+    respond_to do |format|
+      @user.general!
+      format.js{
+        @message = "管理者権限を剥奪しました"
+      }
+      format.html{
+        redirect_to store_users_path(@store.id)
+        flash[:mysuccess] = "管理者権限を剥奪しました"
+      }
+    end
   end
     
   

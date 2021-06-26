@@ -9,7 +9,7 @@ button.btn-success data-target="#Modal-#{user.id}" data-toggle="modal" type="but
         button.close data-dismiss="modal" type="button"  ✖️
       .modal-body.text-center
           h1 = "編集画面"
-          = form_with model: [@store, user], remote: true, method: :patch do |f|
+          = form_with model: [@store, user], data:{remote: true}, method: :patch do |f|
             .form-group
               = f.label :first_name, "名字"
               .row.justify-content-center
@@ -26,6 +26,6 @@ button.btn-success data-target="#Modal-#{user.id}" data-toggle="modal" type="but
               .row.justify-content-center
                 .col-sm-4
                   = f.email_field :email, class: "form-control"
-          
+            #result-update-user
             = f.submit "更新する", class: "btn-success button-submit"
           button.close data-dismiss="modal" type="button"  ✖️

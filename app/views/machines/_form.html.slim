@@ -2,7 +2,7 @@
   .col-sm-4
     .text-left
       = f.label :maker, "※メーカー" 
-      = f.text_field :maker,placeholder: "\uf5a1",class: "form-control fa" 
+      = f.text_field :maker,class: "form-control" 
       
       
   .col-sm-2
@@ -28,7 +28,7 @@
       
   .col-sm-3
     .text-left
-        = f.label :place, "※場所"
+        = f.label :place, "※保管場所"
         = f.select :place, @store.places.pluck(:name),{},class: "form-control"
         
   .col-sm-3

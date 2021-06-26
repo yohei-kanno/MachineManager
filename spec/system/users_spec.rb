@@ -115,8 +115,7 @@ RSpec.describe 'ユーザーモデル', type: :system do
           click_on "編集する", match: :first
           fill_in "名字", with: nil
           click_on "更新する"
-          expect(page).to have_content("入力内容に不備があった為更新出来ませんでした")
-          expect(page).to have_selector(".alert-mydanger")
+          expect(page).to have_content("を入力してください")
         end
         
         it "削除出来る事" do
@@ -131,7 +130,7 @@ RSpec.describe 'ユーザーモデル', type: :system do
         
       context "一般ユーザーで操作する場合" do
         before do
-          login_as(admin_user)
+          login_as(general_user)
         end
         
         it "ユーザー一覧画面に行くとリダイレクト" do

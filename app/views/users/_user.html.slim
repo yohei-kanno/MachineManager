@@ -1,9 +1,10 @@
-tbody
+#alert-message
+tbody id="user-#{user.id}"
   td = user.first_name
   td = user.last_name
-  td = user.admin_i18n
+  td id="add-admin-#{user.id}" = user.admin_i18n
   td = user.created_at.to_s(:datetime_jp)
-  td = link_to "権限付与",add_admin_store_user_path(store,user.id), method: :patch, data: {confirm: "権限を付与しますか？"},class: "link-primary"
-  td = link_to "権限剥奪",add_general_store_user_path(store,user.id), method: :patch, class:"link-warning", data: { confirm: "権限を剥奪しますか？" }
+  td = link_to "権限付与",add_admin_store_user_path(store,user.id), method: :patch, data: {confirm: "権限を付与しますか？",remote: true},class: "link-primary"
+  td = link_to "権限剥奪",add_general_store_user_path(store,user.id), method: :patch, class:"link-warning", data: { confirm: "権限を剥奪しますか？",remote: true }
   td = render "edit",{user: user}
   td = render "destroy", {user: user, store: store}

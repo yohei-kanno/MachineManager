@@ -7,7 +7,6 @@ tbody id="machine-#{machine.id}"
     td = machine.place
     td = machine.certification_i18n
     td = machine.remarks
-    / td = render "operation" ,{machine: machine}
     td = render "number", {machine: machine}
     td = render "edit", {machine: machine}
     td = render "destroy", {machine: machine, store: @store}

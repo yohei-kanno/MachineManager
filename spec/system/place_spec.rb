@@ -31,9 +31,10 @@ RSpec.describe 'Placeモデル', type: :system do
         it "場所が登録出来る事" do
           click_on "場所登録"
           fill_in "保管場所の名前", with: "倉庫2"
-          expect{click_on "登録する"}.to change{Place.count}.by(1)
+          click_on "登録する"
           expect(page).to have_content("登録が完了しました")
           expect(page).to have_selector(".alert-mysuccess")
+          expect(Place.count).to eq(1)
         end
       end
       
@@ -42,8 +43,7 @@ RSpec.describe 'Placeモデル', type: :system do
           click_on "場所登録"
           fill_in "保管場所の名前", with: nil
           expect{click_on "登録する"}.to change{Place.count}.by(0)
-          expect(page).to have_content("入力内容に不備があり登録出来ませんでした")
-          expect(page).to have_selector(".alert-mydanger")
+          expect(page).to have_content("を入力してください")
         end
       end
     end
@@ -69,8 +69,7 @@ RSpec.describe 'Placeモデル', type: :system do
           click_on "編集", match: :first
           fill_in "保管場所の名前", with: nil
           click_on "更新する"
-          expect(page).to have_content("内容に不備があり更新出来ませんでした")
-          expect(page).to have_selector(".alert-mydanger")
+          expect(page).to have_content("を入力してください")
         end
       end
     end

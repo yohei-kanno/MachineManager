@@ -10,11 +10,12 @@
           button.close data-dismiss="modal" type="button"  ×
             
         .modal-body
-          = form_with model: [@store,place], local: true, method: :patch do |f|
+          = form_with model: [@store,place], data:{remote: true}, method: :patch do |f|
             .form-group.flex
               .col-sm-12
                 .text-left
                   = f.label :name, "※保管場所の名前"
                   = f.text_field :name, class: "form-control"
+            #result-update-place
             .text-center
               = f.submit "更新する", class: "btn-success btn-submit"

@@ -1,4 +1,5 @@
 // ==============エラーメッセージ==============
+@import "index";
 
 .message{
   list-style: none;
@@ -13,6 +14,14 @@
   color: #fff;
   text-align: center;
   list-style: none;
+}
+
+#result-update-user,
+#result-update-place,
+#result-create-place,
+#result-create-machine,
+#result-update-machine{
+  @include error-message
 }
 
 @media screen and (max-width:600px){

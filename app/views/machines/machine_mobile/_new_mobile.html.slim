@@ -10,8 +10,9 @@
           button.close data-dismiss="modal" type="button"  ×
             
         .modal-body
-          = form_with model: [@store,@machine], local: true do |f|
+          = form_with model: [@store,@machine], data:{remote: true} do |f|
             = render 'machines/machine_mobile/form_mobile' ,{f: f}
+            #result-create-machine
             .text-center 
               = f.submit "登録する", class: "btn btn-primary"
           button.close data-dismiss="modal" type="button"  ×

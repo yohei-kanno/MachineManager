@@ -17,47 +17,61 @@ class PlacesController < ApplicationController
   
   def create 
     unless @store.places.pluck(:name).include?(params[:place][:name])
-      place = @store.places.build(params_place)
-      if place.save
-        redirect_to store_machines_path
-        flash[:mysuccess] = "登録が完了しました"
-      else
-        redirect_to store_machines_path
-        flash[:mydanger] = "入力内容に不備があり登録出来ませんでした"
+      @place = @store.places.build(params_place)
+      respond_to do |format|
+        if @place.save
+          format.html{
+            redirect_to store_machines_path
+            flash[:mysuccess] = "登録が完了しました"
+          }
+        else
+          format.js
+        end
       end
     else
       redirect_to store_machines_path
       flash[:mydanger] = "店舗内に同じ倉庫があります"
     end
   end
-
-      
-    
-  
-  
+            
   def edit;end
   
   def update
-    if @place.update(params_place)
-      @place.machines.update(place: params[:place][:name])
-      redirect_to store_places_path
-      flash[:mysuccess] = "更新しました"
-    else
-      redirect_to store_places_path
-      flash[:mydanger] = "内容に不備があり更新出来ませんでした"
+    respond_to do |format|
+      if @place.update(params_place)
+        @place.machines.update(place: params[:place][:name])
+        format.html{
+          flash[:mysuccess] = "更新しました"
+          redirect_to store_places_path
+        }
+      else
+        format.js
+      end
     end
   end
   
   def destroy
     if @place.count_of_place_is_0?
-      @place.destroy
-      redirect_to store_places_path
-      flash[:mysuccess] = "削除しました"
+      respond_to do | format|
+        format.js{
+          @place.destroy
+          @message = "削除しました"
+        }
+      end 
     else
-      redirect_to store_places_path
-      flash[:mydanger] = "台情報が存在する為削除出来ません"
+      respond_to do |format| 
+        format.js{
+          @message = "台情報がある為削除出来ません"
+        }
+        format.html{
+          redirect_to store_places_path(@store.id)
+          flash[:mydanger] = "台情報がある為削除出来ません"
+        }
+      end
     end
   end
+          
+      
   
   private
   

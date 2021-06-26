@@ -9,8 +9,9 @@
             span(style="font-size:10px; margin-left: 30px;") = "※印は入力必須"
           button.close data-dismiss="modal" type="button"  ×
         .modal-body
-          = form_with model: [@store,machine], method: :patch, local: true do |f|
+          = form_with model: [@store,machine], method: :patch, data:{remote: true} do |f|
             = render 'machines/machine_mobile/form_mobile',{f: f}
+            #result-update-machine
             .text-center  
               = f.submit "更新する", class: "btn-success btn-submit"
       button.close data-dismiss="modal" type="button"  ×

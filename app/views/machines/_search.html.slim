@@ -36,7 +36,7 @@ button.btn-search-modal data-target="#Modal-search" data-toggle="modal" type="bu
               = f.select :parts_status_eq, options_for_select(Machine.parts_statuses_i18n.invert.map{|key, value| [key, Machine.parts_statuses[value]]},nil), { include_blank: "指定無し" }, { class: 'form-control' }
               
             .text-left.col-sm-4
-              = f.label :place_eq, "場所"
+              = f.label :place_eq, "保管場所"
               = f.select :place_eq, options_for_select(store.places.pluck(:name).reverse.map),{include_blank:"指定無し"},class: "form-control"
               
           .form-group.flex

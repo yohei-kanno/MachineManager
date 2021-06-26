@@ -2,6 +2,8 @@ ja:
   activerecord:
     models:
       user: ユーザー
+      machine: 機械
+      place: 保管場所
     attributes:
       user:
         first_name: 名字
@@ -15,6 +17,24 @@ ja:
         pachinko_num: パチンコの設置台数
         slot_num: スロットの設置台数
         code: 店舗コード
+        
+      machine:
+        maker: メーカー
+        form_type: 形式
+        name: 形式名
+        machine_status: 状態①
+        parts_status: 状態②
+        place: 場所
+        certification: 認定
+        remarks: 備考
+        front_number: 遊技版番号/本体製造番号(回胴部)
+        flame_number: 遊技機の枠番号/本体製造番号(筐体部)
+        board_number: 主基盤番号
+      
+      place:
+        name: 保管場所
+        
+        
           
   enums:
     user:
