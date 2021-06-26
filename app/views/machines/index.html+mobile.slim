@@ -9,6 +9,7 @@ h4 = "#{@store.name}店 在庫一覧"
   .text-right style="margin-left:5px;"
     = render "machines/machine_mobile/search_mobile",{store: @store}
 
+= paginate @machines,window: 1
 table.table.table-hover.more-small-font
   thead.thead-light
     th style="width:80%;" = sort_link(@q, :name, "形式名")

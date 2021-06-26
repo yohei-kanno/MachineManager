@@ -4,12 +4,13 @@ class MachinesController < ApplicationController
   skip_before_action :current_user?
   before_action :detect_mobile_variant
   
+  PER = 10
   
   def index
     @place = @store.places.build
     @machine = @store.machines.build
     @q = @store.machines.ransack(params[:q])
-    @machines = @q.result(distinct: true)
+    @machines = @q.result(distinct: true).page(params[:page]).per(PER)
   end
   
   def new; end

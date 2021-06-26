@@ -107,6 +107,9 @@ hr {
   height: 200px;
 }
 
+.pagination{
+  margin-left: 9px;
+}
 @media (min-width: 500px) and (max-width:1250px) {
   .img-size{
     width: 500px;
@@ -124,5 +127,9 @@ hr {
     margin-top: 10px;
   }
   
-
+  .pagination{
+    margin-top: 5px;
+    justify-content: center;
+    font-size: 12px;
+  }
 }

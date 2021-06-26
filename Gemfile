@@ -21,6 +21,8 @@ gem 'draper'
 gem 'seed-fu'
 gem 'ransack'
 gem 'font-awesome-sass'
+gem 'kaminari'
+gem 'kaminari-bootstrap'
 
 group :production do
   gem 'pg'
