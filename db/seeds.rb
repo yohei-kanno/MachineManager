@@ -19,14 +19,14 @@ end
       maker: "株式会社 三洋物産",
       form_type: rand(0..1),
       name: "Pスーパー海物語IN地中海SAF",
-      place: Place.all[t].name,herok
+      place: Place.all[t].name,
       machine_status: rand(0..1),
       parts_status: rand(0..2),
       certification: rand(0..1),
-      remarks: "#{i}日後の下取り予定",
-      front_number: "SY-A #{i}",
-      flame_number: "SY-A #{i}",
-      board_number: "SY-A #{i}",
+      remarks: "#{ i + 1 + (t * 20) }日後の下取り予定",
+      front_number: "SY-A #{ i + 1 + (t * 20) }",
+      flame_number: "SY-A #{ i + 1 + (t * 20) }",
+      board_number: "SY-A #{ i + 1 + (t * 20) }",
     )
   end
 end

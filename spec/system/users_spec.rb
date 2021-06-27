@@ -136,13 +136,13 @@ RSpec.describe 'ユーザーモデル', type: :system do
         it "ユーザー一覧画面に行くとリダイレクト" do
           visit store_users_path(store.id)
           expect(page).to have_selector(".alert-mydanger")
-          expect(page).to have_content("#{general_user.first_name}さん...何か悪い事しようとしてますか？")
+          expect(page).to have_content("権限がありません")
         end
         
         it "ユーザー作成画面に行くとリダイレクト" do
           visit new_store_user_path(store.id)
           expect(page).to have_selector(".alert-mydanger")
-          expect(page).to have_content("#{general_user.first_name}さん...何か悪い事しようとしてますか？")
+          expect(page).to have_content("権限がありません")
         end
       end
     end

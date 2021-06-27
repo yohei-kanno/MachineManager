@@ -82,7 +82,7 @@ RSpec.describe 'Placeモデル', type: :system do
           page.accept_confirm do
             click_on "削除"
           end
-          expect(page).to have_content("台情報が存在する為削除出来ません")
+          expect(page).to have_content("台情報がある為削除出来ません")
           expect(page).to have_selector(".alert-mydanger")
           expect(Place.count).to eq(1)
         end

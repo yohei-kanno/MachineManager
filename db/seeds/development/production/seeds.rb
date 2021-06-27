@@ -23,10 +23,10 @@ end
       machine_status: rand(0..1),
       parts_status: rand(0..2),
       certification: rand(0..1),
-      remarks: "#{i}日後の下取り予定",
-      front_number: "SY-A #{i}",
-      flame_number: "SY-A #{i}",
-      board_number: "SY-A #{i}",
+      remarks: "#{i * (t+1)}日後の下取り予定",
+      front_number: "SY-A #{ i + 1 + (t * 20) }",
+      flame_number: "SY-A #{ i + 1 + (t * 20) }",
+      board_number: "SY-A #{ i + 1 + (t * 20) }",
     )
   end
 end
