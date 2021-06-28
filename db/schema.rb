@@ -10,17 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_28_002029) do
+ActiveRecord::Schema.define(version: 2021_06_28_170001) do
 
   create_table "machines", force: :cascade do |t|
     t.string "store_id", limit: 36, null: false
-    t.string "maker"
-    t.integer "form_type", default: 0
-    t.string "name"
-    t.integer "machine_status", default: 0
-    t.integer "parts_status", default: 0
-    t.string "place"
-    t.integer "certification", default: 0
+    t.string "maker", null: false
+    t.integer "form_type", default: 0, null: false
+    t.string "name", null: false
+    t.integer "machine_status", default: 0, null: false
+    t.integer "parts_status", default: 0, null: false
+    t.string "place", null: false
+    t.integer "certification", default: 0, null: false
     t.string "remarks"
     t.string "front_number"
     t.string "flame_number"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2021_06_28_002029) do
   end
 
   create_table "places", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.string "store_id", limit: 36, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
