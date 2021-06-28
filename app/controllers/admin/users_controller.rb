@@ -14,9 +14,9 @@ class Admin::UsersController < ApplicationController
     @user = @store.users.build(user_params)
     if @user.save
       redirect_to login_path
-      flash[:mysuccess] = t("success_create")
+      flash[:mysuccess] = t("flash.success_create")
     else
-      flash.now[:mydanger] = t("failure_create")
+      flash.now[:mydanger] = t("flash.failure_create")
       render :new
     end
   end
