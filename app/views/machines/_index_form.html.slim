@@ -1,0 +1,41 @@
+#pagenate
+  #alert-message
+  h4 = "#{@store.name}店 在庫一覧"
+  .flex
+    -unless @store.places.count.zero?
+      .text-right style="margin: 5px 10px;"
+        = render "new"
+    .text-right style="margin: 5px 10px;"
+      = render "new_place"
+    .text-right style="margin: 5px 10px;"
+      = render "search",{store: @store}
+
+  table.table.table-hover.small-font
+    thead.thead-light
+      th style="width:9%;" = sort_link(@q, :form_type, Machine.human_attribute_name(:form_type))
+      th style="width:14%;" = sort_link(@q, :maker, Machine.human_attribute_name(:maker))
+      th style="width:14%;" = sort_link(@q, :name, Machine.human_attribute_name(:name))
+      th style="width:7%;" =  sort_link(@q, :machine_status, Machine.human_attribute_name(:machine_status))
+      th style="width:6%;" = sort_link(@q, :parts_status, Machine.human_attribute_name(:parts_status)) 
+      th style="width:6%;" = sort_link(@q, :place, Machine.human_attribute_name(:place))
+      th style="width:6%;" = sort_link(@q, :certification, Machine.human_attribute_name(:certification))
+      th style="width:16%;" = sort_link(@q, :remarks, Machine.human_attribute_name(:remarks))
+      th style="width:5%;" = 
+      th style="width:5%;" = 
+      th style="width:5%;" =
+      
+      - @machines.each do |machine|
+        tbody id="machine-#{machine.id}"
+            td = machine.form_type_i18n
+            td = machine.maker
+            td = machine.name
+            td = machine.machine_status_i18n
+            td = machine.parts_status_i18n
+            td = machine.place
+            td = machine.certification_i18n
+            td = machine.remarks
+            td = render "number", {machine: machine}
+            td = render "edit", {machine: machine}
+            td = render "destroy", {machine: machine, store: @store}
+            
+      = paginate @machines,remote:true

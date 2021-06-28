@@ -1,16 +1,16 @@
   button.btn-success data-target="#Modal-edit-#{machine.id}" data-toggle="modal" type="button"
-    | 編集
+    = t("dict.edit_sm")
   .modal.fade id="Modal-edit-#{machine.id}" aria-labelledby="Modal" tabindex="-1" 
     .modal-dialog.modal-dialog-fluid role="document" 
       .modal-content
         .modal-header
           h2.modal-title
-            | 在庫編集
-            span(style="font-size:10px; margin-left: 30px;") = "※印は入力必須"
+            = t("dict.edit_sm")
+            span(style="font-size:10px; margin-left: 30px;") = t("dict.input_required")
           button.close data-dismiss="modal" type="button"  ✖️
         .modal-body
           = form_with model: [@store,machine], method: :patch, data:{remote: true} do |f|
             = render 'form',{f: f}
-            div id="update-machine-#{machine.id}" class="result-update-machine"
+            div id="update-machine-#{machine.id}"
             .text-center  
-              = f.submit "更新する", class: "btn-success btn-submit"
+              = f.submit class: "btn-success btn-submit"

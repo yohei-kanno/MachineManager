@@ -2,11 +2,11 @@
 h4 = "#{@store.name}店 倉庫一覧"
 table.table.table-hover.small-font
   thead.thead-light
-    th style="width:10%;" = "保管場所"
-    th style="width:8%;" = "パチンコ台数"
-    th style="width:8%;" = "スロット台数"
-    th style="width:8%;" = "合計台数"
-    th style="width:16%;" = "作成日時"
+    th style="width:10%;" = Place.human_attribute_name(:name)
+    th style="width:8%;" = Store.human_attribute_name(:pachinko_num)
+    th style="width:8%;" = Store.human_attribute_name(:slot_num)
+    th style="width:8%;" = Store.human_attribute_name(:all_num)
+    th style="width:16%;" = Place.human_attribute_name(:created_at)
     th style="width:4%;" =
     th style="width:4%;" =
   

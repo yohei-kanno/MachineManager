@@ -1,12 +1,12 @@
   button.btn-success data-target="#Modal-edit-#{place.id}" data-toggle="modal" type="button"
-    | 編集する
+    = t("dict.edit_sm")
   .modal.fade id="Modal-edit-#{place.id}" aria-labelledby="Modal" tabindex="-1" 
     .modal-dialog role="document" 
       .modal-content
         .modal-header
           h4.modal-title
-            | 編集
-            span(style="font-size:10px; margin-left: 30px;") = "※印は入力必須"
+            = t("dict.edit_sm")
+            span(style="font-size:10px; margin-left: 30px;") = t("dict.input_required")
           button.close data-dismiss="modal" type="button"  ×
             
         .modal-body
@@ -14,8 +14,8 @@
             .form-group.flex
               .col-sm-12
                 .text-left
-                  = f.label :name, "※保管場所の名前"
+                  = f.label :name, Place.human_attribute_name(:name)
                   = f.text_field :name, class: "form-control"
-            div id="update-place-#{place.id}" class="result-update-place"
+            div id="update-place-#{place.id}"
             .text-center
-              = f.submit "更新する", class: "btn-success btn-submit"
+              = f.submit class: "btn-success btn-submit"

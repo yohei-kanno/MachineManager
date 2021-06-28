@@ -4,18 +4,18 @@
       = link_to "MachineManager",root_path,class:"disabled"
       - if logged_in?  && current_user.admin?
         .header-operator
-          =  "操作者氏名:#{current_user.store.name}店 #{current_user.decorate.full_name}(管理者)"
+          = "#{current_user.store.name}店 #{current_user.decorate.full_name}(#{current_user.admin_i18n})"
       - elsif logged_in? && !!current_user.admin
           span.header-operator
-            =  "操作者氏名:#{current_user.store.name}店  #{current_user.decorate.full_name}(一般)"
+            = "#{current_user.store.name}店  #{current_user.decorate.full_name}(#{current_user.admin_i18n})"
     button.btn-menu data-target="#Modal-menu" data-toggle="modal" type="button"
-      | メニューを開く
+      = t("dict.menu")
     #Modal-menu.modal.fade  aria-labelledby="Modal" tabindex="-1" 
       .modal-dialog.modal-dialog-small role="document" 
         .modal-content
           .modal-header
             h6.modal-title
-              | メニュー画面
+              = t("dict.menu")
             button.close data-dismiss="modal" type="button"  ✖️
           .modal-body
             = render "shared/menu_bar"

@@ -2,9 +2,9 @@ class Store < ApplicationRecord
   
   include IdGenerator
   
-  has_many :users
-  has_many :machines
-  has_many :places
+  has_many :users, dependent: :destroy
+  has_many :machines, dependent: :destroy
+  has_many :places, dependent: :destroy
   
   validates :name, presence: true
   validates :pachinko_num, presence: true, numericality: true, length:{maximum: 4}

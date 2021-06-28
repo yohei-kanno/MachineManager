@@ -1,9 +1,9 @@
 table.table.table-hover.small-font.text-center
   thead.thead-light
-    th style="width: 8%;" = "名字"
-    th style="width: 8%;" = "名前"
-    th style="width: 8%;" = "権限"
-    th style="width: 20%;" = "登録日時"
+    th style="width: 8%;" = User.human_attribute_name(:first_name)
+    th style="width: 8%;" = User.human_attribute_name(:last_name)
+    th style="width: 8%;" = User.human_attribute_name(:admin)
+    th style="width: 20%;" = User.human_attribute_name(:created_at)
     th style="width: 7%;"
     th style="width: 7%;"
     th style="width: 7%;"

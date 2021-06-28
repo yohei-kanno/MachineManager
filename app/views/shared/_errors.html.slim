@@ -1,5 +1,4 @@
   -if object.errors.any? 
-    .alert.message
-      ul
-        - object.errors.full_messages.each do |message| 
-          li= message
+    .flash_error
+      - object.errors.full_messages.each do |message| 
+        li = message

@@ -1,12 +1,12 @@
   button.btn-warning-modal data-target="#Modal-place" data-toggle="modal" type="button"
-    | 場所登録
+    = t("dict.reg_ware")
   #Modal-place.modal.fade  aria-labelledby="Modal" tabindex="-1" 
     .modal-dialog role="document" 
       .modal-content
         .modal-header
           h4.modal-title
-            | 保管登録
-            span(style="font-size:10px; margin-left: 30px;") = "※印は入力必須"
+            = t("dict.reg_ware")
+            span(style="font-size:10px; margin-left: 30px;") = t("dict.input_required")
           button.close data-dismiss="modal" type="button"  ×
             
         .modal-body
@@ -14,4 +14,4 @@
             = render "shared/place_form",{f: f}
             #result-create-place
             .text-center
-              = f.submit "登録する", class: "btn-info"
+              = f.submit class: "btn-info"

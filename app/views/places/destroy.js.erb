@@ -1,6 +1,0 @@
-<% if @place.destroyed? %>
-  $("#place-<%= @place.id %>").remove('');
-  $("#alert-message").html("<%= j(render 'flash_message') %>");
-<% else %>
-  $("#alert-message").html("<%= j(render 'unflash_message') %>");
-<% end %>

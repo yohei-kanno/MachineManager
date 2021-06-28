@@ -1,5 +1,5 @@
 button.btn-primary data-target="#Modal-#{machine.id}" data-toggle="modal" type="button"
-    | 番号
+    = t("dict.number")
 .modal.fade id="Modal-#{machine.id}"  aria-labelledby="Modal" tabindex="-2" 
   .modal-dialog.modal-lg.modal-dialog role="document" 
     .modal-content
@@ -10,27 +10,27 @@ button.btn-primary data-target="#Modal-#{machine.id}" data-toggle="modal" type="
           
       .modal-body
         .form-group.big-font.text-left
-          = "セル番号/製造番号(回胴)"
+          = Machine.human_attribute_name(:front_number)
         .form-group.big-font.text-left
-          - if machine.front_number == ""
-            = "登録されていません"
+          - if machine.front_number.empty?
+            = t("dict.unreg")
           - else
             = machine.front_number
           hr/
             
         .form-group.big-font.text-left
-          = "枠番号/製造番号(筐体)"
+          = Machine.human_attribute_name(:flame_number)
         .form-group.big-font.text-left
-          - if machine.flame_number  == ""
-            = "まだ登録されていません"
+          - if machine.flame_number.empty?  
+            = t("dict.unreg")
           - else 
             = machine.flame_number
           hr/
             
         .form-group.big-font.text-left
-          = "基盤番号"
+          = Machine.human_attribute_name(:board_number)
         .form-group.big-font.text-left
-          - if machine.board_number == ""
-            = "まだ登録されていません"
+          - if machine.board_number.empty?
+            = t("dict.unreg")
           - else
             = machine.board_number

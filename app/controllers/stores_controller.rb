@@ -10,9 +10,9 @@ class StoresController < ApplicationController
     @store = Store.new(params_store)
     if @store.save
       redirect_to new_store_admin_user_path(@store.id)
-      flash[:mysuccess] = "登録が完了しました"
+      flash[:mysuccess] = t("flash.success_create")
     else
-      flash.now[:mydanger] = "登録出来ませんでした"
+      flash.now[:mydanger] = t("flash.failure_create")
       render :new
     end
   end
@@ -22,16 +22,12 @@ class StoresController < ApplicationController
   end
   
   def back_create
-    @store = Store.find_by(
-        name: params[:store][:name],
-        code: params[:store][:code]
-        )
-    if @store && @store.users.count == 0
+    if (@store = Store.find_by(params_back_store))
         redirect_to new_store_admin_user_path(@store.id)
-        flash[:mysuccess] = "管理者登録をして下さい"
+        flash[:mysuccess] = t("flash.add_admin")
     else
       redirect_to back_stores_path
-      flash[:mydanger] = "該当の店舗は存在しないか管理者が既に登録されています"
+      flash[:mydanger] = t("flash.no_store")
     end
     
   end
@@ -39,5 +35,9 @@ class StoresController < ApplicationController
   private
   def params_store
     params.require(:store).permit(:name,:pachinko_num,:slot_num, :code)
+  end
+  
+  def params_back_store
+    params.require(:store).permit(:name, :code)
   end
 end

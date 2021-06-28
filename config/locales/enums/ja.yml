@@ -1,0 +1,31 @@
+ja:
+  enums:
+    user:
+      admin:
+        general: 一般
+        admin: 管理者
+        
+    machine:
+      form_type:
+        pachinko: パチンコ
+        slot: スロット
+        
+      machine_status:
+        perfect: 完全体
+        unperfect: 未完全体
+        
+      parts_status:
+        body: 本体
+        board: セル
+        flame: 枠
+        
+      place:
+        ware1: 倉庫①
+        ware2: 倉庫②
+        ware3: 倉庫③
+        ware4: 倉庫④
+        ware5: 倉庫⑤
+        
+      certification:
+        acquired: 取得済
+        unacquired: 未取得

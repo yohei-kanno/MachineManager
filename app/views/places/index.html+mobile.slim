@@ -2,8 +2,8 @@
 h4 = "#{@store.name}店 倉庫一覧"
 table.table.table-hover.small-font
   thead.thead-light
-    th style="width:30%;" = "場所"
-    th style="width:30%;" = "合計台数"
+    th style="width:30%;" = Place.human_attribute_name(:name)
+    th style="width:30%;" = Store.human_attribute_name(:all_num)
     th style="width:30%;" = 
     
   - @places.each do |place|    

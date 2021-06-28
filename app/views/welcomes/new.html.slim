@@ -31,13 +31,13 @@ h3 = "こんなサービスです！"
     
 
 button.btn-menu data-target="#Modal-menu" data-toggle="modal" type="button" style="margin-bottom:100px;"
-  | メニューを開く
+  = t("dict.menu")
 #Modal-menu.modal.fade  aria-labelledby="Modal" tabindex="-1" 
   .modal-dialog.modal-dialog-small role="document" 
     .modal-content
       .modal-header
         h4.modal-title
-          | メニュー画面
+          = t("dict.menu")
         button.close data-dismiss="modal" type="button"  ✖️
       .modal-body
         = render "shared/menu_bar"

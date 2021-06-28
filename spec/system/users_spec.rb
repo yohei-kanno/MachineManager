@@ -46,7 +46,7 @@ RSpec.describe 'ユーザーモデル', type: :system do
           fill_in "店舗コード", with: admin_user.store.code
           click_on "管理者登録画面へ"
           expect(page).to have_selector(".alert-mydanger")
-          expect(page).to have_content("該当の店舗は存在しないか管理者が既に登録されています")
+          expect(page).to have_content("何か悪い事しようとしてませんか？")
         end
       end
     end

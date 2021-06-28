@@ -1,0 +1,46 @@
+ja:
+  activerecord:
+    models:
+      store: 店舗
+      user: ユーザー
+      machine: 機械
+      place: 保管場所
+      
+    attributes:
+      store:
+        name: 店舗名
+        pachinko_num: パチンコ台数
+        slot_num: スロット台数
+        all_num: 合計台数
+        code: 店舗コード
+      
+      user:
+        full_name : 氏名
+        first_name: 名字
+        last_name: 名前
+        email: メールアドレス
+        admin: 権限
+        password: パスワード
+        password_confirmation: パスワード(確認)
+        add_admin: 権限付与
+        remove_admin: 権限剥奪
+        created_at: 登録日時
+        updated_at: 更新日時
+      
+      machine:
+        maker: メーカー
+        form_type: 形式
+        name: 形式名
+        machine_status: 状態①
+        parts_status: 状態②
+        place: 場所
+        certification: 認定
+        remarks: 備考
+        front_number: セル番号/製造番号(回胴)
+        flame_number: 枠番号/製造番号(筐体)
+        board_number: 基盤番号
+      
+      place:
+        name: 保管場所
+        created_at: 作成日時
+        updated_at: 更新日時

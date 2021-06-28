@@ -1,0 +1,21 @@
+ja:
+  flash:
+    success_create: 登録しました
+    failure_create: 登録出来ませんでした
+    
+    success_update: 更新しました
+    failure_update: 更新出来ませんでした
+    
+    success_destroy: 削除しました
+    failure_destroy: 削除出来ませんでした
+        
+    success_login: ログインしました
+    failure_login: ログイン出来ませんでした
+    require_login: ログインして下さい
+    logout: ログアウトしました
+    
+    unauthorized: 権限がありません
+    add_admin: 管理者登録をして下さい
+    no_store: 該当の店舗は存在しないか管理者が既に登録されています
+    machine_in_ware: 台情報がある為削除出来ません
+    same_ware: 店舗内に同じ倉庫があります

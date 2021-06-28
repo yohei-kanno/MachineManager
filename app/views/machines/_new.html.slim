@@ -1,13 +1,13 @@
   button.btn-success-modal data-target="#Modal" data-toggle="modal" type="button"
-    | 在庫登録
+    = t("dict.reg_mch")
     i.fas.fa-file-signature.icon
   #Modal.modal.fade  aria-labelledby="Modal" tabindex="-1" 
     .modal-dialog.modal-dialog-fluid role="document" 
       .modal-content
         .modal-header
-          h2.modal-title
-            | 在庫新規登録
-            span(style="font-size:10px; margin-left: 30px;") = "※印は入力必須"
+          h4.modal-title
+            = t("dict.reg_mch")
+            span(style="font-size:10px; margin-left: 30px;") = t("dict.input_required")
           button.close data-dismiss="modal" type="button"  ✖️
             
         .modal-body
@@ -15,6 +15,6 @@
             = render 'form',{f: f, store: @store, machine: @machine}
             #result-create-machine
             .text-center
-              = button_tag type: "submit", class: "btn-primary" do 
-                | 登録する
+              = button_tag type: "submit", class: 'btn-primary'
+                = t("dict.reg_lg")
                 i.fas.fa-file-signature.icon

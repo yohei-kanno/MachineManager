@@ -1,8 +1,9 @@
 class MachinesController < ApplicationController
   before_action :set_store, only: %i[ index create update destroy]
+  before_action :detect_mobile_variant
+  
   skip_before_action :user_admin?
   skip_before_action :current_user?
-  before_action :detect_mobile_variant
   
   PER = 10
   
@@ -14,9 +15,7 @@ class MachinesController < ApplicationController
     
     respond_to do |format|
       format.html
-      format.js{
-        
-      }
+      format.js
     end
   end
   
@@ -27,9 +26,9 @@ class MachinesController < ApplicationController
     respond_to do |format|
       if @machine.save
         format.html{
-        PlaceMachine.create_place_machine(@machine, @store)
+        PlaceMachine.create_place_machine(@machine)
         redirect_to store_machines_path(current_user.store.id)
-        flash[:mysuccess] = "登録が完了しました"
+        flash[:mysuccess] = t("flash.success_create")
       }
       else
         format.html
@@ -45,10 +44,10 @@ class MachinesController < ApplicationController
     @machine = @store.machines.find(params[:id])
     respond_to do |format|
       if @machine.update(params_machine)
-        PlaceMachine.update_place_machine(@machine,@store)
+        PlaceMachine.update_place_machine(@machine)
         format.html{
           redirect_to store_machines_path(@store.id)
-          flash[:mysuccess] = "更新が完了しました"
+          flash[:mysuccess] = t("flash.success_update")
         }
       else
         format.html
@@ -62,11 +61,11 @@ class MachinesController < ApplicationController
     respond_to do |format|
       format.html{
         redirect_to store_machines_path(@store.id)
-        flash[:mysuccess] = "#{@machine.name}(#{@machine.machine_status_i18n})を削除しました"
+        flash[:mysuccess] = t("flash.success_destroy")
       }
       format.js{
         @machine.destroy
-        @message = "#{@machine.name}(#{@machine.machine_status_i18n})を削除しました"
+        @message = t("flash.success_destroy")
       }
         
     end

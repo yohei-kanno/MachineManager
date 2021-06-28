@@ -3,6 +3,5 @@ class WelcomesController < ApplicationController
   skip_before_action :user_admin?
   skip_before_action :current_user?
   
-  def new
-  end
+  def new; end
 end

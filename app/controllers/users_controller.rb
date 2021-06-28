@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
+  before_action :set_store
+  before_action :set_user, only: [ :update, :destroy, :add_admin, :add_general]
+  
   skip_before_action :require_login, only: [:new, :create]
   skip_before_action :current_user?
-  before_action :set_store, only: [:index, :new, :create, :update, :destroy, :add_admin, :add_general]
-  before_action :set_user, only: [ :update, :destroy, :add_admin, :add_general]
   
   before_action :detect_mobile_variant
   
@@ -40,8 +41,6 @@ class UsersController < ApplicationController
     end
   end
       
-  
-  
   def destroy
     respond_to do |format|
       format.js{

@@ -5,4 +5,4 @@ tbody id="place-#{place.id}"
   td = "#{count_of_all(place)}台"
   td = place.created_at.to_s(:datetime_jp)
   td = render "edit",{place: place}
-  td = link_to "削除", store_place_path(@store, place), method: :delete, data:{confirm: "本当に削除しますか？", remote: true}, class: "link-danger"
+  td = link_to t("dict.destroy_sm"), store_place_path(@store, place), method: :delete, data:{confirm: t("dict.destroy?"), remote: true}, class: "link-danger"

@@ -1,48 +1,48 @@
 button.btn-search-modal data-target="#Modal-search" data-toggle="modal" type="button"
-    | 検索する
+    = t("dict.search_lg")
 .modal.fade id="Modal-search"  aria-labelledby="Modal" tabindex="-2" 
   .modal-dialog.modal-lg.modal-dialog role="document" 
     .modal-content
       .modal-header
         h4.modal-title
-          = "検索フォーム"
+          = t("dict.search_sm")
         button.close data-dismiss="modal" type="button"  ×
           
       .modal-body.text-center
         = search_form_for(@q,url: store_machines_path) do |f|
             
             .text-left.col-sm-12.form-group-mobile
-              = f.label :name_cont, "名前"
-              = f.search_field :name_cont, class: "form-control",value: ""
+              = f.label :name_cont, Machine.human_attribute_name(:name)
+              = f.search_field :name_cont, class: "form-control",value: nil
             
             .text-left.col-sm-12.form-group-mobile
-              = f.label :maker, "メーカー"
-              = f.search_field :maker_cont, class: "form-control",value: ""
+              = f.label :maker_cont, Machine.human_attribute_name(:maker)
+              = f.search_field :maker_cont, class: "form-control",value: nil
               
             .text-left.col-sm-12.form-group-mobile
-              = f.label :form_type_eq, "形式"
-              = f.select :form_type_eq, options_for_select(Machine.form_types_i18n.invert.map{|key, value| [key, Machine.form_types[value]]},nil), { include_blank: "指定無し" }, { class: 'form-control'}
+              = f.label :form_type_eq, Machine.human_attribute_name(:form_type)
+              = f.select :form_type_eq, options_for_select(Machine.form_types_i18n.invert.map{|key, value| [key, Machine.form_types[value]]},nil), { include_blank: t("dict.unspecified") }, { class: 'form-control'}
               
             .text-left.col-sm-12.form-group-mobile
-              = f.label :machine_status_eq, "状態①"
-              = f.select :machine_status_eq, options_for_select(Machine.machine_statuses_i18n.invert.map{|key, value| [key, Machine.machine_statuses[value]]},nil), { include_blank: "指定無し" }, { class: 'form-control' }
+              = f.label :machine_status_eq, Machine.human_attribute_name(:machine_status)
+              = f.select :machine_status_eq, options_for_select(Machine.machine_statuses_i18n.invert.map{|key, value| [key, Machine.machine_statuses[value]]},nil), { include_blank: t("dict.unspecified") }, { class: 'form-control' }
               
             .text-left.col-sm-12.form-group-mobile
-              = f.label :parts_status_eq, "状態②"
-              = f.select :parts_status_eq, options_for_select(Machine.parts_statuses_i18n.invert.map{|key, value| [key, Machine.parts_statuses[value]]},nil), { include_blank: "指定無し" }, { class: 'form-control' }
+              = f.label :parts_status_eq, Machine.human_attribute_name(:parts_status)
+              = f.select :parts_status_eq, options_for_select(Machine.parts_statuses_i18n.invert.map{|key, value| [key, Machine.parts_statuses[value]]},nil), { include_blank: t("dict.unspecified") }, { class: 'form-control' }
               
             .text-left.col-sm-12.form-group-mobile
-              = f.label :place_eq, "場所"
-              = f.select :place_eq, options_for_select(store.places.pluck(:name).reverse.map),{include_blank:"指定無し"},class: "form-control"
+              = f.label :place_eq, Machine.human_attribute_name(:place)
+              = f.select :place_eq, options_for_select(store.places.pluck(:name).reverse.map),{include_blank: t("dict.unspecified")},class: "form-control"
               
             .text-left.col-sm-12.form-group-mobile
-              = f.label :certification_eq, "認定"
-              = f.select :certification_eq, options_for_select(Machine.certifications_i18n.invert.map{|key, value| [key, Machine.certifications[value]]},nil), { include_blank: "指定無し" }, { class: 'form-control' }
+              = f.label :certification_eq, Machine.human_attribute_name(:certification)
+              = f.select :certification_eq, options_for_select(Machine.certifications_i18n.invert.map{|key, value| [key, Machine.certifications[value]]},nil), { include_blank: t("dict.unspecified") }, { class: 'form-control' }
               
             .text-left.col-sm-12.form-group-mobile
-              = f.label :remarks_cont, "備考", value: ""
-              = f.search_field :remarks_cont, class: "form-control"
+              = f.label :remarks_cont, Machine.human_attribute_name(:remarks)
+              = f.search_field :remarks_cont, class: "form-control", value: nil
               
             .text-center    
-            = f.submit "検索する",class: "btn-search"
+            = f.submit t("dict.search_sm"), class: "btn-search"
             button.close data-dismiss="modal" type="button"  ×

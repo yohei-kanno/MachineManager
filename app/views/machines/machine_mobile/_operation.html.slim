@@ -1,5 +1,5 @@
 button.btn-primary.pad-mobile data-target="#Modal-#{machine.id}" data-toggle="modal" type="button"  data-backdrop="static"
-    | 操作
+    = t("dict.show")
 .modal.fade id="Modal-#{machine.id}"  aria-labelledby="Modal" tabindex="-1" 
   .modal-dialog.modal-dialog-fluid role="document" 
     .modal-content
@@ -11,48 +11,48 @@ button.btn-primary.pad-mobile data-target="#Modal-#{machine.id}" data-toggle="mo
       .modal-body
         .mobile-table-show
           hr/
-          = "形式:"
+          = "#{Machine.human_attribute_name(:form_type)}:"
           = machine.form_type_i18n
         .mobile-table-show
-          = "メーカー:"
+          = "#{Machine.human_attribute_name(:maker)}:"
           = machine.maker
         .mobile-table-show
-          = "状態①:"
+          = "#{Machine.human_attribute_name(:machine_status)}:"
           = machine.machine_status_i18n
         .mobile-table-show
-          = "状態②:"
+          = "#{Machine.human_attribute_name(:parts_status)}:"
           = machine.parts_status_i18n
         .mobile-table-show
-          = "場所:"
+          = "#{Machine.human_attribute_name(:place)}:"
           = machine.place
         .mobile-table-show
-          = "認定:"
+          = "#{Machine.human_attribute_name(:certification)}:"
           = machine.certification_i18n
         .mobile-table-show
-          = "備考:"
-          - if machine.remarks == ""
-              = "登録されていません"
+          = "#{Machine.human_attribute_name(:remarks)}:"
+          - if machine.remarks.empty?
+              = t("dict.unreg")
           - else
               = machine.remarks 
           
         .mobile-table-show
-          = "セル番号/製造番号(回胴):"
-          - if machine.front_number == ""
-              = "登録されていません"
+          = "#{Machine.human_attribute_name(:front_number)}:"
+          - if machine.front_number.empty?
+              = t("dict.unreg")
           - else
               = machine.front_number
               
         .mobile-table-show
-          = "枠番号/製造番号(筐体):"
-          - if machine.flame_number == ""
-              = "登録されていません"
+          = "#{Machine.human_attribute_name(:flame_number)}:"
+          - if machine.flame_number.empty?
+              = t("dict.unreg")
           - else
               = machine.flame_number
               
         .mobile-table-show
-          = "基盤番号:"
-          - if machine.board_number == ""
-              = "登録されていません"
+          = "#{Machine.human_attribute_name(:board_number)}:"
+          - if machine.board_number.empty?
+              = t("dict.unreg")
           - else
               = machine.board_number
         .flex      

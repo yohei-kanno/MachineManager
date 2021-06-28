@@ -16,11 +16,7 @@
   list-style: none;
 }
 
-.result-update-user,
-.result-update-place,
-#result-create-place,
-#result-create-machine,
-.result-update-machine{
+.flash_error{
   @include error-message
 }
 

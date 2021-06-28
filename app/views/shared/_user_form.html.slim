@@ -1,28 +1,28 @@
   .form-group
-    = f.label :first_name, "名字"
+    = f.label :first_name, User.human_attribute_name(:first_name)
     .row.justify-content-center
       .col-sm-4
         = f.text_field :first_name, class: "form-control"
   .form-group
-    = f.label :last_name, "名前"
+    = f.label :last_name, User.human_attribute_name(:last_name)
     .row.justify-content-center
       .col-sm-4
         = f.text_field :last_name, class: "form-control"
         
   .form-group
-    = f.label :email, "メールアドレス"
+    = f.label :email, User.human_attribute_name(:email)
     .row.justify-content-center
       .col-sm-4
         = f.email_field :email, class: "form-control"
         
   .form-group
-    = f.label :password, "パスワード"
+    = f.label :password, User.human_attribute_name(:password)
     .row.justify-content-center
       .col-sm-4
         = f.password_field :password, class: "form-control"
   .form-group
   
-    = f.label :password_confirmation, "パスワード(確認)"
+    = f.label :password_confirmation, User.human_attribute_name(:password_confirmation)
     .row.justify-content-center
       .col-sm-4
         = f.password_field :password_confirmation, class: "form-control"

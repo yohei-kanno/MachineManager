@@ -1,31 +1,30 @@
 button.btn-success data-target="#Modal-#{user.id}" data-toggle="modal" type="button"
-  | 編集する
+  = t("dict.edit_lg")
 .modal.fade id="Modal-#{user.id}" aria-labelledby="Modal" tabindex="-1" 
   .modal-dialog.modal-lg.modal-dialog role="document" 
     .modal-content
       .modal-header
-        h2.modal-title.text-center
-          | ユーザー編集
+        h4.modal-title.text-center
+          = t("dict.edit_sm")
         button.close data-dismiss="modal" type="button"  ×
       .modal-body.text-center
-          h1 = "編集画面"
           = form_with model: [@store, user], data:{remote: true}, method: :patch do |f|
             .form-group
-              = f.label :first_name, "名字"
+              = f.label :first_name, User.human_attribute_name(:first_name)
               .row.justify-content-center
                 .col-sm-4
                   = f.text_field :first_name, class: "form-control"
             .form-group
-              = f.label :last_name, "名前"
+              = f.label :last_name, User.human_attribute_name(:last_name)
               .row.justify-content-center
                 .col-sm-4
                   = f.text_field :last_name, class: "form-control"
                   
             .form-group
-              = f.label :email, "メールアドレス"
+              = f.label :email, User.human_attribute_name(:email)
               .row.justify-content-center
                 .col-sm-4
                   = f.email_field :email, class: "form-control"
                   div id="update-user-#{user.id}" class="result-update-user"
-            = f.submit "更新する", class: "btn-success button-submit"
+            = f.submit class: "btn-success button-submit"
           button.close data-dismiss="modal" type="button"  ×

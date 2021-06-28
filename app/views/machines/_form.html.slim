@@ -1,59 +1,58 @@
 .form-group.flex
   .col-sm-4
     .text-left
-      = f.label :maker, "※メーカー" 
+      = f.label :maker, "※#{Machine.human_attribute_name(:maker)}"
       = f.text_field :maker,class: "form-control" 
-      
       
   .col-sm-2
     .text-left
-      = f.label :form_type, "※形式"
+      = f.label :form_type, "※#{Machine.human_attribute_name(:form_type)}"
       = f.select :form_type, Machine.form_types_i18n.invert,{},class: "form-control"
       
   .col-sm-6
     .text-left
-        = f.label :name, "※形式名"
+        = f.label :name, "※#{Machine.human_attribute_name(:name)}"
         = f.text_field :name, class: "form-control"
         
 .form-group.flex
   .col-sm-3
     .text-left
-      = f.label :machine_status, "※状態①"
+      = f.label :machine_status, "※#{Machine.human_attribute_name(:machine_status)}"
       = f.select :machine_status, Machine.machine_statuses_i18n.invert,{},class: "form-control"
       
   .col-sm-3
     .text-left
-      = f.label :parts_status, "※状態②"
+      = f.label :parts_status, "※#{Machine.human_attribute_name(:parts_status)}"
       = f.select :parts_status, Machine.parts_statuses_i18n.invert,{},class: "form-control"
       
   .col-sm-3
     .text-left
-        = f.label :place, "※保管場所"
+        = f.label :place, "※#{Machine.human_attribute_name(:place)}"
         = f.select :place, @store.places.pluck(:name),{},class: "form-control"
         
   .col-sm-3
     .text-left
-        = f.label :certification, "※認定"
+        = f.label :certification, "※#{Machine.human_attribute_name(:certification)}"
         = f.select :certification, Machine.certifications_i18n.invert, {}, class: "form-control"
         
 .form-group
   .col-sm-12
     .text-left
-      = f.label :remarks, "備考"
+      = f.label :remarks, Machine.human_attribute_name(:remarks)
       = f.text_field :remarks, class: "form-control"
       
 .form-group.flex
   .col-sm-4
     .text-left
-      = f.label :front_number, "遊技版番号/本体製造番号(回胴部)"
+      = f.label :front_number, Machine.human_attribute_name(:front_number)
       = f.text_field :front_number, class: "form-control flont"
       
   .col-sm-4
     .text-left
-      = f.label :flame_number, "遊技機の枠番号/本体製造番号(筐体部)"
+      = f.label :flame_number, Machine.human_attribute_name(:flame_number)
       = f.text_field :flame_number, class: "form-control flame"
 
   .col-sm-4
     .text-left
-      = f.label :board_number, "主基盤番号"
+      = f.label :board_number, Machine.human_attribute_name(:board_number)
       = f.text_field :board_number, class: "form-control board"

@@ -1,19 +1,19 @@
   - if logged_in?  && current_user.admin?
-    = button_to "ユーザー作成", new_store_user_path(current_user.store.id), method: :get, class: "btn-info button-100"
-    = button_to "ユーザー一覧", store_users_path(current_user.store.id), method: :get, class: "btn-info button-100"
-    = button_to "在庫一覧", store_machines_path(current_user.store.id), method: :get, class: "btn-info button-100"
-    = button_to "店舗倉庫一覧", store_places_path(current_user.store.id), method: :get, class: "btn-info button-100"
-    = button_to "ログアウト", logout_path(current_user.store.id), method: :delete, class: "btn-info button-100"
-    = button_to "トップページへ", root_path, method: :get, class: "btn-info button-100"
+    = button_to t("dict.form_general"), new_store_user_path(current_user.store.id), method: :get, class: "btn-info button-100"
+    = button_to t("dict.index_users"), store_users_path(current_user.store.id), method: :get, class: "btn-info button-100"
+    = button_to t("dict.index_mchs"), store_machines_path(current_user.store.id), method: :get, class: "btn-info button-100"
+    = button_to t("dict.index_wares"), store_places_path(current_user.store.id), method: :get, class: "btn-info button-100"
+    = button_to t("dict.logout"), logout_path(current_user.store.id), method: :delete, class: "btn-info button-100"
+    = button_to t("dict.to_top"), root_path, method: :get, class: "btn-info button-100"
 
   - elsif logged_in? && !current_user.admin?
-    = button_to "在庫一覧", store_machines_path(current_user.store.id), method: :get, class: "btn-info button-100"
-    = button_to "店舗倉庫一覧", store_places_path(current_user.store.id), method: :get, class: "btn-info button-100"
-    = button_to "ログアウト", logout_path(current_user.store.id), method: :delete, class: "btn-info button-100"
-    = button_to "トップページへ", root_path, method: :get, class: "btn-info button-100"
+    = button_to t("dict.index_mchs"), store_machines_path(current_user.store.id), method: :get, class: "btn-info button-100"
+    = button_to t("dict.index_wares"), store_places_path(current_user.store.id), method: :get, class: "btn-info button-100"
+    = button_to t("dict.logout"), logout_path(current_user.store.id), method: :delete, class: "btn-info button-100"
+    = button_to t("dict.to_top"), root_path, method: :get, class: "btn-info button-100"
       
   -else
-    = button_to "新しく利用する", new_store_path, method: :get, class: "btn-info button-100"
-    = button_to "ログイン", login_path, method: :get, class: "btn-info button-100"
-    = button_to "トップページへ", root_path, method: :get, class: "btn-info button-100"
-    = button_to "店舗登録はしたけど管理者登録をしていない方", back_stores_path, method: :get, class: "btn-danger button-100"
+    = button_to t("dict.start"), new_store_path, method: :get, class: "btn-info button-100"
+    = button_to t("dict.login"), login_path, method: :get, class: "btn-info button-100"
+    = button_to t("dict.to_top"), root_path, method: :get, class: "btn-info button-100"
+    = button_to t("dict.unreg_admin"), back_stores_path, method: :get, class: "btn-danger button-100"

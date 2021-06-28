@@ -1,0 +1,34 @@
+ja:  
+  dict:
+    menu: メニュー
+    number: 番号
+    show: 詳細
+    search_lg: 検索する
+    search_sm: 検索
+    store_inquiry: 店舗照会
+    login: ログイン
+    logout: ログアウト
+    to_top: トップページへ
+    form_admin: 管理者ユーザー作成画面
+    form_general: ユーザー作成
+    index_users: ユーザー一覧
+    index_mchs: 在庫一覧
+    index_wares: 倉庫一覧
+    reg_admin: 管理者登録画面へ
+    reg_store: 店舗登録
+    reg_mch: 在庫登録
+    reg_ware: 倉庫登録
+    unreg: 登録されていません
+    unspecified: 指定無し
+    destroy_lg: 削除する
+    destroy_sm: 削除
+    edit_sm: 編集
+    edit_lg: 編集する
+    reg_lg: 登録する
+    reg: 登録
+    input_required: ※印は入力必須
+    destroy?: 本当に削除しますか?
+    admin?: 権限を付与しますか?
+    general?: 権限を剥奪しますか?
+    start: 新しく始める
+    unreg_admin: 店舗登録はしたけど管理者登録をしていない方
