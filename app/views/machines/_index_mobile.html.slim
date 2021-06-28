@@ -1,6 +1,6 @@
 #pagenate-mobile
   #alert-message
-    h4 = "#{@store.name}店 在庫一覧"
+    h4 = "#{store_index(@store.name, t("dict.index_mchs"))}"
     .flex style="justify-content: space-around;"
       -if @store.places.count > 0
         .text-right style="margin-left:5px;"

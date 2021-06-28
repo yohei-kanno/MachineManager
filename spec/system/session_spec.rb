@@ -23,8 +23,8 @@ RSpec.describe 'Sessions', type: :system do
     context "ログアウト" do
       it "ログアウト出来る事" do
         login_as(user)
-        click_on "メニューを開く"
-        expect(page).to have_content("メニュー画面")
+        click_on "メニュー"
+        expect(page).to have_content("メニュー")
         expect(page).to have_button("ログアウト")
         click_on "ログアウト"
         expect(page).to have_content("ログアウトしました")

@@ -1,5 +1,5 @@
 #alert-message
-h4 = "#{@store.name}店 倉庫一覧"
+h4 = "#{store_index(@store.name, t("dict.index_wares"))}"
 table.table.table-hover.small-font
   thead.thead-light
     th style="width:10%;" = Place.human_attribute_name(:name)

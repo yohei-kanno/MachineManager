@@ -14,6 +14,9 @@ ja:
     require_login: ログインして下さい
     logout: ログアウトしました
     
+    add_admin!: 管理者権限を付与しました
+    remove_admin!: 管理者権限を剥奪しました
+    
     unauthorized: 権限がありません
     add_admin: 管理者登録をして下さい
     no_store: 該当の店舗は存在しないか管理者が既に登録されています

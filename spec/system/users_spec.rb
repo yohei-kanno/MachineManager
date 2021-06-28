@@ -11,16 +11,16 @@ RSpec.describe 'ユーザーモデル', type: :system do
         
         it "ユーザー登録が出来ている事" do
           visit back_stores_path
-          expect(page).to have_content("店舗ログイン")
+          expect(page).to have_content("店舗照会")
           store_login(store)
-          expect(page).to have_content("管理者作成画面")
+          expect(page).to have_content("管理者ユーザー作成画面")
           fill_in "名字", with: admin_user.first_name
           fill_in "名前", with: admin_user.last_name
           fill_in "メールアドレス", with: admin_user.email
           fill_in "パスワード", with: admin_user.password
           fill_in "パスワード(確認)", with: admin_user.password
           click_on "登録する"
-          expect(page).to have_content("登録が完了しました")
+          expect(page).to have_content("登録しました")
         end
       end
       
@@ -28,9 +28,9 @@ RSpec.describe 'ユーザーモデル', type: :system do
       context "入力に不備がある場合" do
         it "ユーザー登録が出来ない事" do
           visit back_stores_path
-          expect(page).to have_content("店舗ログイン")
+          expect(page).to have_content("店舗照会")
           store_login(store)
-          expect(page).to have_content("管理者作成画面")
+          expect(page).to have_content("管理者ユーザー作成画面")
           click_on "登録する"
           expect(page).to have_content("登録出来ませんでした")
           expect(page).to have_selector(".alert-mydanger")
@@ -41,12 +41,12 @@ RSpec.describe 'ユーザーモデル', type: :system do
         let!(:admin_user){create(:user, :admin)}
         it "管理者画面に画面遷移が出来ない事" do
           visit back_stores_path
-          expect(page).to have_content("店舗ログイン")
+          expect(page).to have_content("店舗照会")
           fill_in "店舗名", with: admin_user.store.name
           fill_in "店舗コード", with: admin_user.store.code
           click_on "管理者登録画面へ"
           expect(page).to have_selector(".alert-mydanger")
-          expect(page).to have_content("何か悪い事しようとしてませんか？")
+          expect(page).to have_content("該当の店舗は存在しないか管理者が既に登録されています")
         end
       end
     end
@@ -61,7 +61,7 @@ RSpec.describe 'ユーザーモデル', type: :system do
         end
         
         it "メニューにユーザー一覧、作成が表示される事" do
-          click_on "メニューを開く"
+          click_on "メニュー"
           expect(page).to have_button("ユーザー作成")
           expect(page).to have_button("ユーザー一覧")
         end
@@ -73,8 +73,8 @@ RSpec.describe 'ユーザーモデル', type: :system do
           fill_in "メールアドレス", with: "test1a1@example.com"
           fill_in "パスワード", with: "a" * 6
           fill_in "パスワード(確認)", with: "a" * 6
-          expect{click_on "登録"}.to change{User.count}.by(1)
-          expect(page).to have_content("登録が完了しました")
+          expect{click_on "登録する"}.to change{User.count}.by(1)
+          expect(page).to have_content("登録しました")
           expect(page).to have_selector(".alert-mysuccess")
         end
         

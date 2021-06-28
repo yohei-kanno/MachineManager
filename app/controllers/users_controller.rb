@@ -19,9 +19,9 @@ class UsersController < ApplicationController
     @user = @store.users.build(user_params)
     if @user.save
       redirect_to store_users_path
-      flash[:mysuccess] = "登録が完了しました"
+      flash[:mysuccess] = t("flash.success_create")
     else
-      flash.now[:mydanger] = "登録出来ませんでした"
+      flash.now[:mydanger] = t("flash.failure_create")
       render :new
     end
   end
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
       if @user.update(user_params)
         format.html{
         redirect_to store_users_path
-        flash[:mysuccess] = "更新しました"
+        flash[:mysuccess] = t("flash.success_update")
       }
       else
         format.js
@@ -45,7 +45,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.js{
         @user.destroy
-        @message = "削除しました" 
+        @message = t("flash.success_destroy")
       }
     end
   end
@@ -54,11 +54,11 @@ class UsersController < ApplicationController
     respond_to do |format|
       @user.admin!
       format.js{
-        @message = "管理者権限を付与しました"
+        @message = t("flash.add_admin!")
       }
       format.html{
         redirect_to store_users_path(@store.id)
-        flash[:mysuccess] = "管理者権限を付与しました"
+        flash[:mysuccess] = t("flash.add_admin!")
       }
     end
   end
@@ -67,11 +67,11 @@ class UsersController < ApplicationController
     respond_to do |format|
       @user.general!
       format.js{
-        @message = "管理者権限を剥奪しました"
+        @message = t("flash.remove_admin!")
       }
       format.html{
         redirect_to store_users_path(@store.id)
-        flash[:mysuccess] = "管理者権限を剥奪しました"
+        flash[:mysuccess] = t("flash.remove_admin!")
       }
     end
   end
@@ -92,5 +92,6 @@ class UsersController < ApplicationController
   end
   
   def detect_mobile_variant
-    request.variant = :mobile if request.user_agent =~ / iPhone | android /  end
+    request.variant = :mobile if request.user_agent =~ / iPhone | android /
+  end
 end

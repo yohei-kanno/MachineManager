@@ -6,7 +6,6 @@ RSpec.describe 'Machineモデル', type: :system do
     let!(:place){create(:place, store: store)}
     let(:admin_user){create(:user, :admin, store: store)}
     
-    #defoult パチンコ、完全体、認定取得済、番号付き、備考あり
     let(:machine_1){create(:machine, store: store)} 
     let(:machine_2){create(:machine, :pachinko_unacquired,store: store)}
     let(:machine_3){create(:machine, :slot_acquired, store: store)}
@@ -32,7 +31,7 @@ RSpec.describe 'Machineモデル', type: :system do
           click_on "登録する"
           expect(page).to have_content(machine.name)
           expect(page).to have_content(machine.maker)
-          expect(page).to have_content("登録が完了しました")
+          expect(page).to have_content("登録しました")
           expect(page).to have_selector(".alert-mysuccess")
         end
       end
@@ -68,7 +67,7 @@ RSpec.describe 'Machineモデル', type: :system do
         
         it "番号が登録されていない場合その旨表示されている事" do
           all('tbody tr')[1].click_on "番号"
-          expect(page).to have_content("まだ登録されていません")
+          expect(page).to have_content("登録されていません")
         end
       end
       
@@ -142,7 +141,7 @@ RSpec.describe 'Machineモデル', type: :system do
           click_on "編集", match: :first
           fill_in "メーカー", with: "株式会社 京楽産業"
           click_on "更新する"
-          expect(page).to have_content("更新が完了しました")
+          expect(page).to have_content("更新しました")
           expect(page).to have_content("株式会社 京楽産業")
           expect(page).to have_selector(".alert-mysuccess")
         end
@@ -165,7 +164,7 @@ RSpec.describe 'Machineモデル', type: :system do
             click_on "削除", match: :first
           end
           sleep 1 
-          expect(page).to have_content("#{machine_1.name}(#{machine_1.machine_status_i18n})を削除しました")    
+          expect(page).to have_content("削除しました")    
           expect(Machine.count).to eq(3)
         end
       end

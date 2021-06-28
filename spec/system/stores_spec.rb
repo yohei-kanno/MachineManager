@@ -7,14 +7,14 @@ RSpec.describe 'Storeモデル', type: :system do
       before do
         visit new_store_path
         fill_in "店舗名", with: "千葉店"
-        fill_in "パチンコの設置台数", with: 111
-        fill_in "スロットの設置台数", with: 111
+        fill_in "パチンコ台数", with: 111
+        fill_in "スロット台数", with: 111
         fill_in "店舗コード", with: 11111111
         click_button "登録する"
       end
       
       it "管理者登録画面に遷移している事" do
-        expect(page).to have_content("管理者作成画面")
+        expect(page).to have_content("管理者ユーザー作成画面")
       end
       
       it "Storeモデルが作成されている事" do
@@ -22,7 +22,7 @@ RSpec.describe 'Storeモデル', type: :system do
       end
       
       it "登録完了のフラッシュメッセージが表示されること" do
-        expect(page).to have_content("登録が完了しました")
+        expect(page).to have_content("登録しました")
         expect(page).to have_selector(".alert-mysuccess")
       end
     end
@@ -36,7 +36,7 @@ RSpec.describe 'Storeモデル', type: :system do
       end
       
       it "ページ遷移していない事" do
-        expect(page).to have_content("店舗新規作成")  
+        expect(page).to have_content("店舗登録")  
       end
       
       it "Storeモデルが作成されていない事" do

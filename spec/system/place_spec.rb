@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Placeモデル', type: :system do
-  describe "場所に関して" do
+  describe "倉庫に関して" do
     let(:store){create(:store)}
     let(:admin_user){create(:user, :admin, store: store)}
     let(:machine){create(:machine, store: store)}
@@ -11,14 +11,14 @@ RSpec.describe 'Placeモデル', type: :system do
       login_as(admin_user)
     end
    
-    describe "場所登録をする前に" do
-      context "場所が１件も登録されていない場合" do
+    describe "倉庫登録をする前に" do
+      context "倉庫が１件も登録されていない場合" do
         it "在庫登録ボタンが表示されていない事" do
           expect(page).to_not have_content("在庫登録")
         end
       end
       
-      context "場所が登録されている場合" do
+      context "倉庫が登録されている場合" do
         it "在庫登録ボタンが表示されている事" do
           place; visit current_path
           expect(page).to have_content("在庫登録")
@@ -28,20 +28,20 @@ RSpec.describe 'Placeモデル', type: :system do
     
     describe "登録処理" do
       context "入力が正常である場合" do
-        it "場所が登録出来る事" do
-          click_on "場所登録"
-          fill_in "保管場所の名前", with: "倉庫2"
+        it "倉庫が登録出来る事" do
+          click_on "倉庫登録"
+          fill_in "保管場所", with: "倉庫2"
           click_on "登録する"
-          expect(page).to have_content("登録が完了しました")
+          expect(page).to have_content("登録しました")
           expect(page).to have_selector(".alert-mysuccess")
           expect(Place.count).to eq(1)
         end
       end
       
       context "入力が異常である場合" do
-        it "場所の登録が出来ない事" do
-          click_on "場所登録"
-          fill_in "保管場所の名前", with: nil
+        it "倉庫の登録が出来ない事" do
+          click_on "倉庫登録"
+          fill_in "保管場所", with: nil
           expect{click_on "登録する"}.to change{Place.count}.by(0)
           expect(page).to have_content("を入力してください")
         end
@@ -57,7 +57,7 @@ RSpec.describe 'Placeモデル', type: :system do
       context "入力が正常である場合" do
         it "更新が出来る事" do
           click_on "編集", match: :first
-          fill_in "保管場所の名前", with: "更新された倉庫"
+          fill_in "保管場所", with: "更新された倉庫"
           click_on "更新する"
           expect(page).to have_content("更新しました")
           expect(page).to have_selector(".alert-mysuccess")
@@ -67,7 +67,7 @@ RSpec.describe 'Placeモデル', type: :system do
       context "異常である場合" do
         it "更新が出来ない事" do
           click_on "編集", match: :first
-          fill_in "保管場所の名前", with: nil
+          fill_in "保管場所", with: nil
           click_on "更新する"
           expect(page).to have_content("を入力してください")
         end
