@@ -1,28 +1,28 @@
   .form-group
-    = f.label :first_name, User.human_attribute_name(:first_name)
+    = f.label :first_name, User.human(:first_name)
     .row.justify-content-center
       .col-sm-4
         = f.text_field :first_name, class: "form-control"
   .form-group
-    = f.label :last_name, User.human_attribute_name(:last_name)
+    = f.label :last_name, User.human(:last_name)
     .row.justify-content-center
       .col-sm-4
         = f.text_field :last_name, class: "form-control"
         
   .form-group
-    = f.label :email, User.human_attribute_name(:email)
+    = f.label :email, User.human(:email)
     .row.justify-content-center
       .col-sm-4
         = f.email_field :email, class: "form-control"
         
   .form-group
-    = f.label :password, User.human_attribute_name(:password)
+    = f.label :password, User.human(:password)
     .row.justify-content-center
       .col-sm-4
         = f.password_field :password, class: "form-control"
   .form-group
   
-    = f.label :password_confirmation, User.human_attribute_name(:password_confirmation)
+    = f.label :password_confirmation, User.human(:password_confirmation)
     .row.justify-content-center
       .col-sm-4
         = f.password_field :password_confirmation, class: "form-control"

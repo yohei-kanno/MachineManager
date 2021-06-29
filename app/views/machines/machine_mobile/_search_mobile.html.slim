@@ -12,35 +12,35 @@ button.btn-search-modal data-target="#Modal-search" data-toggle="modal" type="bu
         = search_form_for(@q,url: store_machines_path) do |f|
             
             .text-left.col-sm-12.form-group-mobile
-              = f.label :name_cont, Machine.human_attribute_name(:name)
+              = f.label :name_cont, Machine.human(:name)
               = f.search_field :name_cont, class: "form-control",value: nil
             
             .text-left.col-sm-12.form-group-mobile
-              = f.label :maker_cont, Machine.human_attribute_name(:maker)
+              = f.label :maker_cont, Machine.human(:maker)
               = f.search_field :maker_cont, class: "form-control",value: nil
               
             .text-left.col-sm-12.form-group-mobile
-              = f.label :form_type_eq, Machine.human_attribute_name(:form_type)
+              = f.label :form_type_eq, Machine.human(:form_type)
               = f.select :form_type_eq, options_for_select(Machine.form_types_i18n.invert.map{|key, value| [key, Machine.form_types[value]]},nil), { include_blank: t("dict.unspecified") }, { class: 'form-control'}
               
             .text-left.col-sm-12.form-group-mobile
-              = f.label :machine_status_eq, Machine.human_attribute_name(:machine_status)
+              = f.label :machine_status_eq, Machine.human(:machine_status)
               = f.select :machine_status_eq, options_for_select(Machine.machine_statuses_i18n.invert.map{|key, value| [key, Machine.machine_statuses[value]]},nil), { include_blank: t("dict.unspecified") }, { class: 'form-control' }
               
             .text-left.col-sm-12.form-group-mobile
-              = f.label :parts_status_eq, Machine.human_attribute_name(:parts_status)
+              = f.label :parts_status_eq, Machine.human(:parts_status)
               = f.select :parts_status_eq, options_for_select(Machine.parts_statuses_i18n.invert.map{|key, value| [key, Machine.parts_statuses[value]]},nil), { include_blank: t("dict.unspecified") }, { class: 'form-control' }
               
             .text-left.col-sm-12.form-group-mobile
-              = f.label :place_eq, Machine.human_attribute_name(:place)
+              = f.label :place_eq, Machine.human(:place)
               = f.select :place_eq, options_for_select(store.places.pluck(:name).reverse.map),{include_blank: t("dict.unspecified")},class: "form-control"
               
             .text-left.col-sm-12.form-group-mobile
-              = f.label :certification_eq, Machine.human_attribute_name(:certification)
+              = f.label :certification_eq, Machine.human(:certification)
               = f.select :certification_eq, options_for_select(Machine.certifications_i18n.invert.map{|key, value| [key, Machine.certifications[value]]},nil), { include_blank: t("dict.unspecified") }, { class: 'form-control' }
               
             .text-left.col-sm-12.form-group-mobile
-              = f.label :remarks_cont, Machine.human_attribute_name(:remarks)
+              = f.label :remarks_cont, Machine.human(:remarks)
               = f.search_field :remarks_cont, class: "form-control", value: nil
               
             .text-center    

@@ -11,18 +11,18 @@ button.btn-success data-target="#Modal-#{user.id}" data-toggle="modal" type="but
           h4 = t("dict.edit_sm")
           = form_with model: [@store, user], data:{remote: true}, method: :patch do |f|
             .form-group
-              = f.label :first_name, User.human_attribute_name(:first_name)
+              = f.label :first_name, User.human(:first_name)
               .row.justify-content-center
                 .col-sm-4
                   = f.text_field :first_name, class: "form-control"
             .form-group
-              = f.label :last_name, User.human_attribute_name(:last_name)
+              = f.label :last_name, User.human(:last_name)
               .row.justify-content-center
                 .col-sm-4
                   = f.text_field :last_name, class: "form-control"
                   
             .form-group
-              = f.label :email, User.human_attribute_name(:email)
+              = f.label :email, User.human(:email)
               .row.justify-content-center
                 .col-sm-4
                   = f.email_field :email, class: "form-control"

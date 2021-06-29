@@ -2,11 +2,11 @@
 h4 = "#{store_index(@store.name, t("dict.index_wares"))}"
 table.table.table-hover.small-font
   thead.thead-light
-    th style="width:10%;" = Place.human_attribute_name(:name)
-    th style="width:8%;" = Store.human_attribute_name(:pachinko_num)
-    th style="width:8%;" = Store.human_attribute_name(:slot_num)
-    th style="width:8%;" = Store.human_attribute_name(:all_num)
-    th style="width:16%;" = Place.human_attribute_name(:created_at)
+    th style="width:10%;" = Place.human(:name)
+    th style="width:8%;" = Store.human(:pachinko_num)
+    th style="width:8%;" = Store.human(:slot_num)
+    th style="width:8%;" = Store.human(:all_num)
+    th style="width:16%;" = Place.human(:created_at)
     th style="width:4%;" =
     th style="width:4%;" =
   

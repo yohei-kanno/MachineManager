@@ -1,55 +1,55 @@
 
   .col-sm-12.form-group-mobile
     .text-left.form-group-mobile
-      = f.label :maker, "※#{Machine.human_attribute_name(:maker)}"
+      = f.label :maker, "※#{Machine.human(:maker)}"
       = f.text_field :maker, class: "form-control"
       
   .col-sm-12.form-group-mobile
     .text-left.form-group-mobile
-      = f.label :form_type, "※#{Machine.human_attribute_name(:form_type)}"
+      = f.label :form_type, "※#{Machine.human(:form_type)}"
       = f.select :form_type, Machine.form_types_i18n.invert,{},class: "form-control"
       
   .col-sm-12.form-group-mobile
     .text-left
-        = f.label :name, "※#{Machine.human_attribute_name(:name)}"
+        = f.label :name, "※#{Machine.human(:name)}"
         = f.text_field :name, class: "form-control"
         
   .col-sm-12.form-group-mobile
     .text-left
-      = f.label :machine_status, "※#{Machine.human_attribute_name(:machine_status)}"
+      = f.label :machine_status, "※#{Machine.human(:machine_status)}"
       = f.select :parts_status, Machine.machine_statuses_i18n.invert,{},class: "form-control"
       
   .col-sm-12.form-group-mobile
     .text-left
-      = f.label :parts_status, "※#{Machine.human_attribute_name(:parts_status)}"
+      = f.label :parts_status, "※#{Machine.human(:parts_status)}"
       = f.select :parts_status, Machine.parts_statuses_i18n.invert,{},class: "form-control"
       
   .col-sm-12.form-group-mobile
     .text-left
-        = f.label :place, "※#{Machine.human_attribute_name(:place)}"
+        = f.label :place, "※#{Machine.human(:place)}"
         = f.select :place, @store.places.pluck(:name),{},class: "form-control"
         
   .col-sm-12.form-group-mobile
     .text-left
-        = f.label :certification, "※#{Machine.human_attribute_name(:certification)}"
+        = f.label :certification, "※#{Machine.human(:certification)}"
         = f.select :certification, Machine.certifications_i18n.invert, {}, class: "form-control"
         
   .col-sm-12.form-group-mobile
     .text-left
-      = f.label :remarks, Machine.human_attribute_name(:remarks)
+      = f.label :remarks, Machine.human(:remarks)
       = f.text_field :remarks, class: "form-control"
       
   .col-sm-12.form-group-mobile
     .text-left
-      = f.label :front_number, Machine.human_attribute_name(:front_number)
+      = f.label :front_number, Machine.human(:front_number)
       = f.text_field :front_number, class: "form-control"
       
   .col-sm-12.form-group-mobile
     .text-left
-      = f.label :flame_number, Machine.human_attribute_name(:flame_number)
+      = f.label :flame_number, Machine.human(:flame_number)
       = f.text_field :flame_number, class: "form-control"
 
   .col-sm-12.form-group-mobile
     .text-left
-      = f.label :board_number, Machine.human_attribute_name(:board_number)
+      = f.label :board_number, Machine.human(:board_number)
       = f.text_field :board_number, class: "form-control"

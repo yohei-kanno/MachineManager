@@ -2,22 +2,22 @@
 h4 = t("dict.reg_store")
 = form_with model: @store, local: true do |f|
   .form-group
-    = f.label :name, Store.human_attribute_name(:name)
+    = f.label :name, Store.human(:name)
     .row.justify-content-center
       .col-sm-4
         = f.text_field :name, class: "form-control"
   .form-group
-    = f.label :pachinko_num, Store.human_attribute_name(:pachinko_num)
+    = f.label :pachinko_num, Store.human(:pachinko_num)
     .row.justify-content-center
       .col-sm-4
         = f.number_field :pachinko_num, class: "form-control"
   .form-group
-    = f.label :slot_num, Store.human_attribute_name(:slot_num)
+    = f.label :slot_num, Store.human(:slot_num)
     .row.justify-content-center
       .col-sm-4
         = f.number_field :slot_num, class: "form-control"
   .form-group
-    = f.label :code, "#{Store.human_attribute_name(:code)}(8桁指定)"
+    = f.label :code, "#{Store.human(:code)}(8桁指定)"
     .row.justify-content-center
       .col-sm-4
         = f.number_field :code, class: "form-control"

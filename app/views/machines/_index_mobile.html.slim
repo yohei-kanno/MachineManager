@@ -13,7 +13,7 @@
     = paginate @machines,window: 1,remote: true
     table.table.table-hover.more-small-font
       thead.thead-light
-        th style="width:80%;" = sort_link(@q, :name, Machine.human_attribute_name(:name))
+        th style="width:80%;" = sort_link(@q, :name, Machine.human(:name))
         th style="width:20%;" = 
         - @machines.each do |machine| 
           tbody id="machine-#{machine.id}"

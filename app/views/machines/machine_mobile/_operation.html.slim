@@ -11,46 +11,46 @@ button.btn-primary.pad-mobile data-target="#Modal-#{machine.id}" data-toggle="mo
       .modal-body
         .mobile-table-show
           hr/
-          = "#{Machine.human_attribute_name(:form_type)}:"
+          = "#{Machine.human(:form_type)}:"
           = machine.form_type_i18n
         .mobile-table-show
-          = "#{Machine.human_attribute_name(:maker)}:"
+          = "#{Machine.human(:maker)}:"
           = machine.maker
         .mobile-table-show
-          = "#{Machine.human_attribute_name(:machine_status)}:"
+          = "#{Machine.human(:machine_status)}:"
           = machine.machine_status_i18n
         .mobile-table-show
-          = "#{Machine.human_attribute_name(:parts_status)}:"
+          = "#{Machine.human(:parts_status)}:"
           = machine.parts_status_i18n
         .mobile-table-show
-          = "#{Machine.human_attribute_name(:place)}:"
+          = "#{Machine.human(:place)}:"
           = machine.place
         .mobile-table-show
-          = "#{Machine.human_attribute_name(:certification)}:"
+          = "#{Machine.human(:certification)}:"
           = machine.certification_i18n
         .mobile-table-show
-          = "#{Machine.human_attribute_name(:remarks)}:"
+          = "#{Machine.human(:remarks)}:"
           - if machine.remarks.empty?
               = t("dict.unreg")
           - else
               = machine.remarks 
           
         .mobile-table-show
-          = "#{Machine.human_attribute_name(:front_number)}:"
+          = "#{Machine.human(:front_number)}:"
           - if machine.front_number.empty?
               = t("dict.unreg")
           - else
               = machine.front_number
               
         .mobile-table-show
-          = "#{Machine.human_attribute_name(:flame_number)}:"
+          = "#{Machine.human(:flame_number)}:"
           - if machine.flame_number.empty?
               = t("dict.unreg")
           - else
               = machine.flame_number
               
         .mobile-table-show
-          = "#{Machine.human_attribute_name(:board_number)}:"
+          = "#{Machine.human(:board_number)}:"
           - if machine.board_number.empty?
               = t("dict.unreg")
           - else

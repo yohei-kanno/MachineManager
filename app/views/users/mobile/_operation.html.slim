@@ -11,27 +11,27 @@ button.btn-primary.pad-mobile data-target="#Modal-mobile-#{user.id}" data-toggle
       .modal-body.text-left
           hr/
           .mobile-table-show.
-            = "#{User.human_attribute_name(:first_name)}:"
+            = "#{User.human(:first_name)}:"
             = user.first_name
             
           .mobile-table-show.
-            = "#{User.human_attribute_name(:last_name)}:"
+            = "#{User.human(:last_name)}:"
             = user.last_name
             
           .mobile-table-show.
-            = "#{User.human_attribute_name(:admin)}:"
+            = "#{User.human(:admin)}:"
             = user.admin_i18n
             
           .mobile-table-show.
-            = "#{User.human_attribute_name(:created_at)}:"
+            = "#{User.human(:created_at)}:"
             = user.created_at.to_s(:datetime_jp)
             
           .mobile-table-show.
-            = "#{User.human_attribute_name(:updated_at)}:"
+            = "#{User.human(:updated_at)}:"
             = user.updated_at.to_s(:datetime_jp)
           .flex  
-            = link_to User.human_attribute_name(:add_admin),add_admin_store_user_path(store,user.id), method: :patch, data: {confirm: t("dict.admin?")},class: "link-primary"
-            = link_to User.human_attribute_name(:remove_admin),add_general_store_user_path(store,user.id), method: :patch, class:"link-warning", data: { confirm: t("dict.general?") }
+            = link_to User.human(:add_admin),add_admin_store_user_path(store,user.id), method: :patch, data: {confirm: t("dict.admin?")},class: "link-primary"
+            = link_to User.human(:remove_admin),add_general_store_user_path(store,user.id), method: :patch, class:"link-warning", data: { confirm: t("dict.general?") }
             = render "users/mobile/edit_mobile",{user: user}
             = render "destroy", {user: user, store: store}
           hr/

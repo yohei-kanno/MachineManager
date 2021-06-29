@@ -11,23 +11,23 @@ button.btn-primary.pad-mobile data-target="#Modal-#{place.id}" data-toggle="moda
       .modal-body
         hr/
         .mobile-table-show
-          = "#{Store.human_attribute_name(:pachinko_num)}:"
+          = "#{Store.human(:pachinko_num)}:"
           = "#{count_of_pachinko(place)}台"
           
         .mobile-table-show
-          = "#{Store.human_attribute_name(:slot_num)}:"
+          = "#{Store.human(:slot_num)}:"
           = "#{count_of_slot(place)}台"
           
         .mobile-table-show
-          = "#{Store.human_attribute_name(:all_num)}:"
+          = "#{Store.human(:all_num)}:"
           = "#{count_of_all(place)}台"
           
         .mobile-table-show
-          = "#{Place.human_attribute_name(:created_at)}::"
+          = "#{Place.human(:created_at)}::"
           = place.created_at.to_s(:datetime_jp)
           
         .mobile-table-show
-          = "#{Place.human_attribute_name(:updated_at)}:"
+          = "#{Place.human(:updated_at)}:"
           = place.updated_at.to_s(:datetime_jp)
           
         .flex      

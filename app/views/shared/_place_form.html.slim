@@ -1,5 +1,5 @@
 .form-group.flex
   .col-sm-12
     .text-left
-      = f.label :name, "※#{Place.human_attribute_name(:name)}"
+      = f.label :name, "※#{Place.human(:name)}"
       = f.text_field :name, class: "form-control"

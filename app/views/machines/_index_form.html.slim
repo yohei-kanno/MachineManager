@@ -12,14 +12,14 @@
 
   table.table.table-hover.small-font
     thead.thead-light
-      th style="width:9%;" = sort_link(@q, :form_type, Machine.human_attribute_name(:form_type))
-      th style="width:14%;" = sort_link(@q, :maker, Machine.human_attribute_name(:maker))
-      th style="width:14%;" = sort_link(@q, :name, Machine.human_attribute_name(:name))
-      th style="width:7%;" =  sort_link(@q, :machine_status, Machine.human_attribute_name(:machine_status))
-      th style="width:6%;" = sort_link(@q, :parts_status, Machine.human_attribute_name(:parts_status)) 
-      th style="width:6%;" = sort_link(@q, :place, Machine.human_attribute_name(:place))
-      th style="width:6%;" = sort_link(@q, :certification, Machine.human_attribute_name(:certification))
-      th style="width:16%;" = sort_link(@q, :remarks, Machine.human_attribute_name(:remarks))
+      th style="width:9%;" = sort_link(@q, :form_type, Machine.human(:form_type))
+      th style="width:14%;" = sort_link(@q, :maker, Machine.human(:maker))
+      th style="width:14%;" = sort_link(@q, :name, Machine.human(:name))
+      th style="width:7%;" =  sort_link(@q, :machine_status, Machine.human(:machine_status))
+      th style="width:6%;" = sort_link(@q, :parts_status, Machine.human(:parts_status)) 
+      th style="width:6%;" = sort_link(@q, :place, Machine.human(:place))
+      th style="width:6%;" = sort_link(@q, :certification, Machine.human(:certification))
+      th style="width:16%;" = sort_link(@q, :remarks, Machine.human(:remarks))
       th style="width:5%;" = 
       th style="width:5%;" = 
       th style="width:5%;" =

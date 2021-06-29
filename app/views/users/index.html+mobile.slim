@@ -1,8 +1,8 @@
 h4 = "#{store_index(@store.name, t("dict.index_users"))}"
 table.table.table-hover.small-font.text-center
   thead.thead-light
-    th style="width: 30%;" = User.human_attribute_name(:full_name)
-    th style="width: 30%;" = User.human_attribute_name(:admin)
+    th style="width: 30%;" = User.human(:full_name)
+    th style="width: 30%;" = User.human(:admin)
     th style="width: 30%;" =
     - @users.each do |user| 
       tbody id="machine-#{user.id}"

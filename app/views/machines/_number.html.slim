@@ -10,7 +10,7 @@ button.btn-primary data-target="#Modal-#{machine.id}" data-toggle="modal" type="
           
       .modal-body
         .form-group.big-font.text-left
-          = Machine.human_attribute_name(:front_number)
+          = Machine.human(:front_number)
         .form-group.big-font.text-left
           - if machine.front_number.empty?
             = t("dict.unreg")
@@ -19,7 +19,7 @@ button.btn-primary data-target="#Modal-#{machine.id}" data-toggle="modal" type="
           hr/
             
         .form-group.big-font.text-left
-          = Machine.human_attribute_name(:flame_number)
+          = Machine.human(:flame_number)
         .form-group.big-font.text-left
           - if machine.flame_number.empty?  
             = t("dict.unreg")
@@ -28,7 +28,7 @@ button.btn-primary data-target="#Modal-#{machine.id}" data-toggle="modal" type="
           hr/
             
         .form-group.big-font.text-left
-          = Machine.human_attribute_name(:board_number)
+          = Machine.human(:board_number)
         .form-group.big-font.text-left
           - if machine.board_number.empty?
             = t("dict.unreg")

@@ -2,8 +2,8 @@
 h4 = "#{store_index(@store.name, t("dict.index_wares"))}"
 table.table.table-hover.small-font
   thead.thead-light
-    th style="width:30%;" = Place.human_attribute_name(:name)
-    th style="width:30%;" = Store.human_attribute_name(:all_num)
+    th style="width:30%;" = Place.human(:name)
+    th style="width:30%;" = Store.human(:all_num)
     th style="width:30%;" = 
     
   - @places.each do |place|    

@@ -2,12 +2,12 @@
 h4 = t("dict.store_inquiry")
 = form_with model: @store, url: back_create_stores_path,local: true do |f|
   .form-group
-    = f.label :name, Store.human_attribute_name(:name)
+    = f.label :name, Store.human(:name)
     .row.justify-content-center
       .col-sm-4
         = f.text_field :name, class: "form-control"
   .form-group
-    = f.label :code, Store.human_attribute_name(:code)
+    = f.label :code, Store.human(:code)
     .row.justify-content-center
       .col-sm-4
         = f.number_field :code, class: "form-control"
