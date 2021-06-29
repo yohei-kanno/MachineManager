@@ -24,18 +24,24 @@ class MachinesController < ApplicationController
   def create
     @machine = @store.machines.build(params_machine)
     respond_to do |format|
-      if @machine.save
-        format.html{
-        PlaceMachine.create_place_machine(@machine)
-        redirect_to store_machines_path(current_user.store.id)
-        flash[:mysuccess] = t("flash.success_create")
-      }
-      else
-        format.html
-        format.js
+      ActiveRecord::Base.transaction do
+        if @machine.save && PlaceMachine.create_place_machine!(@machine)
+          format.html{
+            redirect_to store_machines_path(current_user.store.id)
+            flash[:mysuccess] = t("flash.success_create")
+          }
+        else
+          format.js
+        end
       end
+    rescue StandardError
+      format.html{
+      redirect_to store_machines_path(current_user.store.id)
+      flash[:mydanger] = t("flash.error")
+    }
     end
   end
+            
   
     
   def edit; end
@@ -43,21 +49,27 @@ class MachinesController < ApplicationController
   def update
     @machine = @store.machines.find(params[:id])
     respond_to do |format|
-      if @machine.update(params_machine)
-        PlaceMachine.update_place_machine(@machine)
-        format.html{
-          redirect_to store_machines_path(@store.id)
-          flash[:mysuccess] = t("flash.success_update")
-        }
-      else
-        format.html
-        format.js
+      ActiveRecord::Base.transaction do
+        if @machine.update(params_machine) && PlaceMachine.update_place_machine!(@machine)
+          format.html{
+            redirect_to store_machines_path(@store.id)
+            flash[:mysuccess] = t("flash.success_update")
+          }
+        else
+          format.js
+        end
       end
+    rescue StandardError
+      format.html{
+        redirect_to store_machines_path(current_user.store.id)
+        flash[:mydanger] = t("flash.error")
+      }
     end
   end
+        
           
   def destroy
-    @machine = Machine.find(params[:id])
+    @machine = @store.machines.find(params[:id])
     respond_to do |format|
       format.html{
         redirect_to store_machines_path(@store.id)

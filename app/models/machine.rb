@@ -16,4 +16,5 @@ class Machine < ApplicationRecord
   validates :parts_status, presence: true
   validates :place, presence: true
   validates :certification, presence: true
+  
 end

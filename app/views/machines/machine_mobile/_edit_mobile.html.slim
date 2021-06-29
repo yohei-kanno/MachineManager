@@ -5,8 +5,8 @@
       .modal-content
         .modal-header
           h4.modal-title
-            = t(".dict.edit_sm")
-            span(style="font-size:10px; margin-left: 30px;") = t(".dict.input_required")
+            = t("dict.edit_sm")
+            span(style="font-size:10px; margin-left: 30px;") = t("dict.input_required")
           button.close data-dismiss="modal" type="button"  ×
         .modal-body
           = form_with model: [@store,machine], method: :patch, data:{remote: true} do |f|

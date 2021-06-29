@@ -37,16 +37,28 @@ class PlacesController < ApplicationController
   def edit;end
 
   def update
-    respond_to do |format|
-      if @place.update(params_place)
-        @place.machines.update(place: params[:place][:name])
-        format.html{
-          flash[:mysuccess] = t("flash.success_update")
+    unless @store.places.pluck(:name).include?(params[:place][:name])
+      respond_to do |format|
+        ActiveRecord::Base.transaction do
+          if @place.update(params_place)
+            @place.machines.update(place: params[:place][:name])
+            format.html{ 
+              flash[:mysuccess] = t("flash.success_update")
+              redirect_to store_places_path
+            }            
+          else
+            format.js
+          end
+        end
+      rescue StandardError
+        format.html{ 
+          flash[:mydanger] = t("flash.error")
           redirect_to store_places_path
-        }
-      else
-        format.js
+        }        
       end
+    else
+      flash[:mydanger] = t("flash.same_ware")
+      redirect_to store_places_path
     end
   end  
   
