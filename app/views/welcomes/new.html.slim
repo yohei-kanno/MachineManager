@@ -1,3 +1,17 @@
+button.btn-menu data-target="#Modal-m" data-toggle="modal" type="button" style="margin-bottom:100px;"
+  = "作った背景"
+#Modal-m.modal.fade  aria-labelledby="Modal" tabindex="-1" 
+  .modal-dialog.modal-dialog-term role="document" 
+    .modal-content
+      .modal-header
+        h4.modal-title
+          = "作った背景"
+        button.close data-dismiss="modal" type="button"  ✖️
+      .modal-body.text-left
+        = render "m"
+        button.close data-dismiss="modal" type="button"  ✖️
+
+
 .image-flame
   .image_show
     .under-blue = "Q.台運びに疲れていませんか？"
