@@ -2,6 +2,12 @@
 @import "index";
 
 // -------------------------------------------
+
+.btn{
+  padding: 0;
+  vertical-align: baseline;
+}
+
 .btn-menu {
   @include btn;
   background-color: #9ec34b;

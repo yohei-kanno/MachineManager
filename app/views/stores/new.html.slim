@@ -21,5 +21,13 @@ h4 = t("dict.reg_store")
     .row.justify-content-center
       .col-sm-4
         = f.number_field :code, class: "form-control"
+        
+  .form-group
+    = f.check_box :agreement, :as => :boolean, checked:false
+    = f.label :agreement do
+      = render "term_of_use"
+      span と
+      = render "privacy"
+      span に同意して下さい
 
   = f.submit class: "btn-primary button-submit"

@@ -13,6 +13,7 @@ ja:
         slot_num: スロット台数
         all_num: 合計台数
         code: 店舗コード
+        agreement: 利用規約とプライバシーポリシー
       
       user:
         full_name : 氏名
