@@ -25,7 +25,8 @@ class MachinesController < ApplicationController
     @machine = @store.machines.build(params_machine)
     respond_to do |format|
       ActiveRecord::Base.transaction do
-        if @machine.save && PlaceMachine.create_place_machine!(@machine)
+        if @machine.save
+          PlaceMachine.set_place_machine!(@machine)
           format.html{
             redirect_to store_machines_path(current_user.store.id)
             flash[:mysuccess] = t("flash.success_create")
@@ -50,7 +51,8 @@ class MachinesController < ApplicationController
     @machine = @store.machines.find(params[:id])
     respond_to do |format|
       ActiveRecord::Base.transaction do
-        if @machine.update(params_machine) && PlaceMachine.update_place_machine!(@machine)
+        if @machine.update(params_machine)
+          PlaceMachine.set_place_machine!(@machine)
           format.html{
             redirect_to store_machines_path(@store.id)
             flash[:mysuccess] = t("flash.success_update")

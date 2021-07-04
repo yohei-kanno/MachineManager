@@ -5,7 +5,7 @@ class Place < ApplicationRecord
   has_many :machines, through: :place_machines
   
   validates :name, presence: true
-  
+
   def count_of_place_is_0?
     machines.count == 0
   end

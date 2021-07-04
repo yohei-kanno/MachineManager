@@ -34,7 +34,7 @@ class StoresController < ApplicationController
   
   private
   def params_store
-    params.require(:store).permit(:name,:pachinko_num,:slot_num, :code)
+    params.require(:store).permit(:name,:pachinko_num,:slot_num, :code, :agreement)
   end
   
   def params_back_store
