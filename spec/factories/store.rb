@@ -4,5 +4,6 @@ FactoryBot.define do
     pachinko_num { "333" }
     slot_num { "333" }
     sequence(:code) { |n| 10000000 + n }
+    agreement{ true}
   end
 end

@@ -2,7 +2,8 @@ store = Store.create(
   name: "千葉",
   pachinko_num: 111,
   slot_num: 111,
-  code: 11111111
+  code: 11111111,
+  agreement: true
 )
 
 5.times do |i|

@@ -10,6 +10,7 @@ RSpec.describe 'Storeモデル', type: :system do
         fill_in "パチンコ台数", with: 111
         fill_in "スロット台数", with: 111
         fill_in "店舗コード", with: 11111111
+        page.check("store_agreement")
         click_button "登録する"
       end
       
