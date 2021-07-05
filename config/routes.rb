@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   
-  resources :stores, only: [:new, :create] do
+  resources :stores, only: [:new, :create, :edit, :update] do
     collection do
       get :back
       post :back_create
