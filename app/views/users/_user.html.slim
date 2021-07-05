@@ -4,7 +4,16 @@ tbody id="user-#{user.id}"
   td = user.last_name
   td id="add-admin-#{user.id}" = user.admin_i18n
   td = user.created_at.to_s(:datetime_jp)
-  td = link_to User.human(:add_admin),add_admin_store_user_path(store,user.id), method: :patch, data: {confirm: t("dict.admin?"),remote: true},class: "link-primary"
-  td = link_to User.human(:remove_admin),add_general_store_user_path(store,user.id), method: :patch, class:"link-warning", data: { confirm: t("dict.general?"),remote: true }
   td = render "edit",{user: user}
-  td = render "destroy", {user: user, store: store}
+  - unless current_user == user
+    td = render "destroy", {user: user, store: store}
+  - else
+    td = nil
+  - unless current_user == user
+    td = link_to User.human(:add_admin),add_admin_store_user_path(store,user.id), method: :patch, data: {confirm: t("dict.admin?"),remote: true},class: "link-primary"
+  - else
+    td = nil
+  - unless current_user == user
+    td = link_to User.human(:remove_admin),add_general_store_user_path(store,user.id), method: :patch, class:"link-warning", data: { confirm: t("dict.general?"),remote: true } 
+  - else
+   td = nil

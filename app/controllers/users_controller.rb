@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_store
   before_action :set_user, only: [ :update, :destroy, :add_admin, :add_general]
-  
+  before_action :current_user_redirect, only:[:add_admin, :remove_admin, :destroy]
   skip_before_action :require_login, only: [:new, :create]
   skip_before_action :current_user?
   
@@ -89,6 +89,12 @@ class UsersController < ApplicationController
   
   def set_user
     @user = @store.users.find(params[:id])
+  end
+  
+  def current_user_redirect
+    if current_user == @user
+      redirect_to root_url
+    end
   end
   
   def detect_mobile_variant
