@@ -50,4 +50,38 @@ RSpec.describe 'Storeモデル', type: :system do
       end
     end
   end
+  
+  describe "店舗編集" do
+    let(:store){create(:store)}
+    let(:admin_user){create(:user, :admin, store: store)}
+    
+    before do
+      login_as(admin_user)
+      visit edit_store_path(store.id)
+    end
+    
+    it "店舗編集画面に遷移している事" do
+      expect(page).to have_content("店舗編集")
+    end
+    
+    context "入力が正常な場合" do
+      it "編集出来る事" do
+        fill_in "店舗名", with: "茨城"
+        click_on "更新する"
+        expect(page).to have_content("茨城")
+        expect(page).to have_content("更新しました")
+        expect(page).to have_selector('.alert-mysuccess')
+      end
+    end
+      
+      
+    context "入力に不備がある場合" do
+      it "更新出来ない事" do
+        fill_in "店舗名", with: nil
+        click_on "更新する"
+        expect(page).to have_content("更新出来ませんでした")
+        expect(page).to have_selector(".alert-mydanger")
+      end
+    end
+  end
 end
