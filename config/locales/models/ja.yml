@@ -30,8 +30,8 @@ ja:
       
       machine:
         maker: メーカー
-        form_type: 形式
-        name: 形式名
+        form_type: 型式
+        name: 型式名
         machine_status: 状態①
         parts_status: 状態②
         place: 場所
