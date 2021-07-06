@@ -1,7 +1,7 @@
 class StoresController < ApplicationController
   skip_before_action :user_admin?
   skip_before_action :require_login
-  skip_before_action :current_user?, only: [:edit, :update]
+  skip_before_action :current_user?, only: %i[edit update]
   
   def new
     @store = Store.new

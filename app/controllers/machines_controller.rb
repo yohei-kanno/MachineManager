@@ -26,7 +26,7 @@ class MachinesController < ApplicationController
     respond_to do |format|
       ActiveRecord::Base.transaction do
         if @machine.save
-          PlaceMachine.set_place_machine!(@machine)
+          PlaceMachine.place_machine!(@machine)
           format.html{
             redirect_to store_machines_path(current_user.store.id)
             flash[:mysuccess] = t("flash.success_create")
@@ -52,7 +52,7 @@ class MachinesController < ApplicationController
     respond_to do |format|
       ActiveRecord::Base.transaction do
         if @machine.update(params_machine)
-          PlaceMachine.set_place_machine!(@machine)
+          PlaceMachine.place_machine!(@machine)
           format.html{
             redirect_to store_machines_path(@store.id)
             flash[:mysuccess] = t("flash.success_update")

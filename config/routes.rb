@@ -24,14 +24,4 @@ Rails.application.routes.draw do
       resources :users
     end
   end
-  
-  namespace :api, {format: 'json'} do
-    namespace :v1 do
-      resources :stores do
-        resources :machines, only: [:index]
-      end
-        
-    end
-  end
-  
 end

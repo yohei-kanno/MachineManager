@@ -4,7 +4,7 @@ tbody id="user-#{user.id}"
   td = user.last_name
   td id="add-admin-#{user.id}" = user.admin_i18n
   td = user.created_at.to_s(:datetime_jp)
-  td = render "edit",{user: user}
+  td = render "edit", {user: user}
   - unless current_user == user
     td = render "destroy", {user: user, store: store}
   - else

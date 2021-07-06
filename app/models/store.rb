@@ -15,5 +15,5 @@ class Store < ApplicationRecord
     minimum: 8,
     message: "は8桁数字で入力して下さい" 
   }
-  validates_acceptance_of :agreement, allow_nil: false, message: "に同意して下さい",on: :create
+  validates :agreement, acceptance: { allow_nil: false, message: "に同意して下さい", on: :create }
 end

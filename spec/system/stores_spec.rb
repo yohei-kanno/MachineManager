@@ -52,8 +52,8 @@ RSpec.describe 'Storeモデル', type: :system do
   end
   
   describe "店舗編集" do
-    let(:store){create(:store)}
-    let(:admin_user){create(:user, :admin, store: store)}
+    let(:store) { create(:store) }
+    let(:admin_user) { create(:user, :admin, store: store) }
     
     before do
       login_as(admin_user)
