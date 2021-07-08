@@ -6,8 +6,6 @@ class UsersController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
   skip_before_action :current_user?
   
-  before_action :detect_mobile_variant
-  
   def index
     @users = @store.users.all
   end
@@ -94,9 +92,5 @@ class UsersController < ApplicationController
   
   def current_user_redirect
     redirect_to root_url if current_user == @user
-  end
-  
-  def detect_mobile_variant
-    request.variant = :mobile if request.user_agent =~ / iPhone | android /
   end
 end
