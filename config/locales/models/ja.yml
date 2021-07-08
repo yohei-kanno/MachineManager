@@ -27,6 +27,7 @@ ja:
         remove_admin: 権限剥奪
         created_at: 登録日時
         updated_at: 更新日時
+        remember: ログイン情報を記憶する
       
       machine:
         maker: メーカー

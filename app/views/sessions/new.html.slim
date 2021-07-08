@@ -16,5 +16,9 @@
     .row.justify-content-center
       .col-sm-4
         = f.password_field :password, class: 'form-control'
+        
+  .form-group
+    = check_box_tag :remember, params[:remember], true
+    = label_tag :remember, User.human(:remember)
     
   = f.submit t("dict.login"), class:'btn-primary button-submit'

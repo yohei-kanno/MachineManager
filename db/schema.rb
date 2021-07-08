@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_08_073132) do
+ActiveRecord::Schema.define(version: 2021_07_08_110031) do
 
   create_table "machines", force: :cascade do |t|
     t.string "store_id", limit: 36, null: false
@@ -67,7 +67,10 @@ ActiveRecord::Schema.define(version: 2021_07_08_073132) do
     t.boolean "admin", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "remember_me_token"
+    t.datetime "remember_me_token_expires_at"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["remember_me_token"], name: "index_users_on_remember_me_token"
     t.index ["store_id"], name: "index_users_on_store_id"
   end
 

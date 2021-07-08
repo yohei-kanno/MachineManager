@@ -13,8 +13,9 @@ class Admin::UsersController < ApplicationController
   def create
     @user = @store.users.build(user_params)
     if @user.save
-      redirect_to login_path
-      flash[:mysuccess] = t("flash.success_create")
+      auto_login(@user)
+      redirect_to store_machines_path(current_user.store.id)
+      flash[:mysuccess] = t("flash.success_login")
     else
       flash.now[:mydanger] = t("flash.failure_create")
       render :new
