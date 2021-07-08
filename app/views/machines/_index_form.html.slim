@@ -1,7 +1,7 @@
 #pagenate
   #alert-message
   h4 = "#{store_index(@store.name, t("dict.index_mchs"))}"
-  .flex
+  .flex-function
     -unless @store.places.count.zero?
       .text-right style="margin: 5px 10px;"
         = render "new"
@@ -9,6 +9,7 @@
       = render "new_place"
     .text-right style="margin: 5px 10px;"
       = render "search",{store: @store}
+  = paginate @machines,remote:true
 
   table.table.table-hover.small-font
     thead.thead-light
@@ -37,5 +38,5 @@
             td = render "number", {machine: machine}
             td = render "edit", {machine: machine}
             td = render "destroy", {machine: machine, store: @store}
-            
-      = paginate @machines,remote:true
+
+  = paginate @machines,remote:true

@@ -3,7 +3,7 @@
     = f.label :code, Store.human(:code)
     .row.justify-content-center
       .col-sm-4
-        = f.number_field :code, class: "form-control"
+        = f.text_field :code, class: "form-control", maxlength: 8, minlength: 8
         
   .form-group
     = f.label :email, User.human(:email)

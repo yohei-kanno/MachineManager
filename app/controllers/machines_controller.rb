@@ -1,6 +1,5 @@
 class MachinesController < ApplicationController
   before_action :set_store, only: %i[ index create update destroy]
-  before_action :detect_mobile_variant
   
   skip_before_action :user_admin?
   skip_before_action :current_user?
@@ -94,9 +93,5 @@ class MachinesController < ApplicationController
   
   def set_store
     @store = current_user.store
-  end
-  
-  def detect_mobile_variant
-    request.variant = :mobile if request.user_agent =~ / iPhone | android /
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_28_170001) do
+ActiveRecord::Schema.define(version: 2021_07_08_073132) do
 
   create_table "machines", force: :cascade do |t|
     t.string "store_id", limit: 36, null: false
@@ -49,9 +49,9 @@ ActiveRecord::Schema.define(version: 2021_06_28_170001) do
 
   create_table "stores", id: { type: :string, limit: 36 }, force: :cascade do |t|
     t.string "name", null: false
-    t.integer "pachinko_num", null: false
-    t.integer "slot_num", null: false
-    t.integer "code", null: false
+    t.string "pachinko_num", null: false
+    t.string "slot_num", null: false
+    t.string "code", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["code"], name: "index_stores_on_code", unique: true
