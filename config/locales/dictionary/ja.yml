@@ -8,6 +8,7 @@ ja:
     store_inquiry: 店舗照会
     store_edit: 店舗編集
     login: ログイン
+    login_do: ログインする
     logout: ログアウト
     to_top: トップページへ
     form_admin: 管理者ユーザー作成画面

@@ -21,11 +21,9 @@ RSpec.describe 'Sessions', type: :system do
     end
     
     context "ログアウト" do
-      it "ログアウト出来る事" do
+      it "出来る事" do
         login_as(user)
-        click_on "メニュー"
-        expect(page).to have_content("メニュー")
-        expect(page).to have_button("ログアウト")
+        expect(page).to have_link("ログアウト")
         click_on "ログアウト"
         expect(page).to have_content("ログアウトしました")
         expect(page).to have_selector(".alert-mysuccess")

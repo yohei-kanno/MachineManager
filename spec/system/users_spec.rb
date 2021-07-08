@@ -61,9 +61,8 @@ RSpec.describe 'ユーザーモデル', type: :system do
         end
         
         it "メニューにユーザー一覧、作成が表示される事" do
-          click_on "メニュー"
-          expect(page).to have_button("ユーザー作成")
-          expect(page).to have_button("ユーザー一覧")
+          expect(page).to have_link("ユーザー作成")
+          expect(page).to have_link("ユーザー一覧")
         end
         
         it "内容が正常であればユーザー登録が出来る事" do

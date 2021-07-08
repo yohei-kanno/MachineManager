@@ -138,7 +138,7 @@ RSpec.describe 'Machineモデル', type: :system do
     describe "機械台編集機能" do
       context "入力が正常な場合" do
         it "編集が出来る事" do
-          click_on "編集", match: :first
+          all('tbody tr')[1].click_on "編集"
           fill_in "メーカー", with: "株式会社 京楽産業"
           click_on "更新する"
           expect(page).to have_content("更新しました")
@@ -149,7 +149,7 @@ RSpec.describe 'Machineモデル', type: :system do
       
       context "入力が異常な場合" do
         it "入力が異常だと編集が出来ない事" do
-          click_on "編集", match: :first
+          all('tbody tr')[1].click_on "編集"
           fill_in "メーカー", with: nil
           click_on "更新する"
           expect(page).to have_content("を入力してください")
@@ -161,7 +161,7 @@ RSpec.describe 'Machineモデル', type: :system do
       context "ダイアログでYESを選択した場合" do
         it "削除出来る事" do
           page.accept_confirm do
-            click_on "削除", match: :first
+            all('tbody tr')[1].click_on "削除"
           end
           sleep 1 
           expect(page).to have_content("削除しました")    
@@ -172,7 +172,7 @@ RSpec.describe 'Machineモデル', type: :system do
       context "ダイアログでNoを選択した場合" do
         it "削除されない事" do
           page.dismiss_confirm do
-            click_on "削除", match: :first
+            all('tbody tr')[1].click_on "削除"
           end
           expect(page).to have_content(machine_1.name)
           expect(page).to have_content(machine_1.maker)

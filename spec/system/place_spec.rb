@@ -56,7 +56,7 @@ RSpec.describe 'Placeモデル', type: :system do
       
       context "入力が正常である場合" do
         it "更新が出来る事" do
-          click_on "編集", match: :first
+          all('tbody tr')[0].click_on "編集"
           fill_in "保管場所", with: "更新された倉庫"
           click_on "更新する"
           expect(page).to have_content("更新しました")
@@ -66,7 +66,7 @@ RSpec.describe 'Placeモデル', type: :system do
       
       context "異常である場合" do
         it "更新が出来ない事" do
-          click_on "編集", match: :first
+          all('tbody tr')[0].click_on "編集"
           fill_in "保管場所", with: nil
           click_on "更新する"
           expect(page).to have_content("を入力してください")
