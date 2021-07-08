@@ -27,7 +27,7 @@ RSpec.describe 'Machineモデル', type: :system do
         it "機械台の登録が行える事" do
           click_on "在庫登録"
           fill_in "メーカー", with: machine.maker
-          fill_in "形式名", with: machine.name
+          fill_in "型式名", with: machine.name
           click_on "登録する"
           expect(page).to have_content(machine.name)
           expect(page).to have_content(machine.maker)
@@ -86,15 +86,15 @@ RSpec.describe 'Machineモデル', type: :system do
           end
         end
           
-        it "形式で検索出来る事" do
-          select "パチンコ", from: "形式" 
+        it "型式で検索出来る事" do
+          select "パチンコ", from: "型式" 
           click_on "検索"
           expect(page).to have_content("パチンコ")
           expect(page).to_not have_content("スロット")
         end
         
         it "形式名で検索出来る事" do
-          fill_in "形式名", with: machine_1.name
+          fill_in "型式名", with: machine_1.name
           click_on "検索"
           expect(page).to have_content(machine_1.name)
           machines.each do |machine|
