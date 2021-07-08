@@ -20,6 +20,7 @@ button.btn-menu data-target="#Modal-m" data-toggle="modal" type="button" style="
     .image
       = image_tag "number_modal", class: "img-size"
     hr/
+    
   .image_show
     .under-blue = "Q.情報共有はできてますか？"
     = image_tag "undraw_accept_tasks_po1c", class: "img-size"
@@ -27,6 +28,7 @@ button.btn-menu data-target="#Modal-m" data-toggle="modal" type="button" style="
     .image
       = image_tag "index", class: "img-size"
     hr/
+    
   .image_show
     .under-blue = "Q.どこにあるか把握してますか？"
     = image_tag "undraw_Dev_focus_re_6iwt", class: "img-size"
@@ -34,6 +36,7 @@ button.btn-menu data-target="#Modal-m" data-toggle="modal" type="button" style="
     .image
       = image_tag "ware", class: "img-size"
     hr/ 
+    
   .image_show
     .under-blue = "Q.台が多すぎて困ってませんか？"
     = image_tag "undraw_miro_qvwm", class: "img-size"
@@ -41,16 +44,3 @@ button.btn-menu data-target="#Modal-m" data-toggle="modal" type="button" style="
     .image
       = image_tag "search", class: "img-size"
     hr/
-    
-
-button.btn-menu data-target="#Modal-menu" data-toggle="modal" type="button" style="margin-bottom:100px;"
-  = t("dict.menu")
-#Modal-menu.modal.fade  aria-labelledby="Modal" tabindex="-1" 
-  .modal-dialog.modal-dialog-small role="document" 
-    .modal-content
-      .modal-header
-        h4.modal-title
-          = t("dict.menu")
-        button.close data-dismiss="modal" type="button"  ✖️
-      .modal-body
-        = render "shared/menu_bar"
