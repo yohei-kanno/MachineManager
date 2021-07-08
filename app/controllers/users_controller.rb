@@ -92,7 +92,7 @@ class UsersController < ApplicationController
   end
   
   def set_store
-    @store = Store.find(params[:store_id])
+    @store = current_user.store
   end
   
   def set_user
