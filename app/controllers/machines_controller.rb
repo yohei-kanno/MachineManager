@@ -42,8 +42,6 @@ class MachinesController < ApplicationController
     end
   end
             
-  
-    
   def edit; end
   
   def update
@@ -68,7 +66,6 @@ class MachinesController < ApplicationController
     end
   end
         
-          
   def destroy
     @machine = @store.machines.find(params[:id])
     respond_to do |format|
@@ -84,7 +81,6 @@ class MachinesController < ApplicationController
     end
   end
         
-    
   private
   
   def params_machine
