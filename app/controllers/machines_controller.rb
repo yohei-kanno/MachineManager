@@ -4,7 +4,7 @@ class MachinesController < ApplicationController
   skip_before_action :user_admin?
   skip_before_action :current_user?
   
-  PER = 10
+  PER = 20
   
   def index
     @place = @store.places.build
