@@ -5,7 +5,8 @@ table.table.table-hover.small-font.text-center
     th style="width: 30%;" = User.human(:admin)
     th style="width: 30%;" =
     - @users.each do |user| 
-      tbody id="machine-#{user.id}"
-      td = user.decorate.full_name
-      td = user.admin_i18n
-      td = render "/users/mobile/operation", { user: user, store: @store}
+      - if user.active?
+        tbody id="machine-#{user.id}"
+        td = user.decorate.full_name
+        td = user.admin_i18n
+        td = render "/users/mobile/operation", { user: user, store: @store}

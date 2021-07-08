@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     @user = @store.users.build(user_params)
     if @user.save
       redirect_to store_users_path
-      flash[:mysuccess] = t("flash.success_create")
+      flash[:mysuccess] = t("flash.send_mail")
     else
       flash.now[:mydanger] = t("flash.failure_create")
       render :new

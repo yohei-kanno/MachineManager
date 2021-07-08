@@ -1,5 +1,6 @@
 #alert-message
 tbody id="user-#{user.id}"
+- if user.active?
   td = user.first_name
   td = user.last_name
   td id="add-admin-#{user.id}" = user.admin_i18n
