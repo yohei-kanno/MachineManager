@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_08_110031) do
+ActiveRecord::Schema.define(version: 2021_07_08_115144) do
 
   create_table "machines", force: :cascade do |t|
     t.string "store_id", limit: 36, null: false
@@ -69,6 +69,10 @@ ActiveRecord::Schema.define(version: 2021_07_08_110031) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "remember_me_token"
     t.datetime "remember_me_token_expires_at"
+    t.string "activation_state"
+    t.string "activation_token"
+    t.datetime "activation_token_expires_at"
+    t.index ["activation_token"], name: "index_users_on_activation_token"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["remember_me_token"], name: "index_users_on_remember_me_token"
     t.index ["store_id"], name: "index_users_on_store_id"

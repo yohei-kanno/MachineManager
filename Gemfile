@@ -42,6 +42,7 @@ group :development do
   gem 'spring'
   gem 'rubocop', require: false
   gem 'rubocop-rails'
+  gem 'letter_opener_web'
 end
 
 group :test do

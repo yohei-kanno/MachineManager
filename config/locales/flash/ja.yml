@@ -23,4 +23,7 @@ ja:
     machine_in_ware: 台情報がある為削除出来ません
     same_ware: 店舗内に同じ倉庫があります
     
+    success_activate: アカウントを有効化しました
+    send_mail: 有効化メールを送信しました
+    
     error: 予期せぬエラー発生しました

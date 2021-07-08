@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [ :update, :destroy, :add_admin, :add_general]
   before_action :current_user_redirect, only: [:add_admin, :add_general, :destroy]
   
-  skip_before_action :require_login, only: [:new, :create]
+  skip_before_action :require_login, only: [:new, :create, :activate]
   skip_before_action :current_user?
   
   def index
@@ -75,6 +75,15 @@ class UsersController < ApplicationController
     end
   end
     
+  def activate
+    if (@user = @store.user.load_from_activation_token(params[:id]))
+      @user.activate!
+      flash[:mysuccess] = t("flash.success_activate")
+      redirect_to store_machines_path(current_user.store.id)
+    else
+      not_authenticated
+    end
+  end
   
   private
   

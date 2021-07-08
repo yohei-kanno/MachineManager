@@ -14,14 +14,23 @@ Rails.application.routes.draw do
       member do
         patch :add_admin
         patch :add_general
+        get :activate
       end
     end
     resources :machines
     resources :places
-      
-  
+    
+    
     namespace :admin do
-      resources :users
+      resources :users  do
+        member do
+          get :activate
+        end
+      end
     end
   end
+          
+  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
+        
+  
 end
