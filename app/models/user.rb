@@ -14,6 +14,6 @@ class User < ApplicationRecord
   validates :admin, inclusion: ["admin", "general"]
   
   def active?
-    self.activation_state === "active"
+    activation_state === "active"
   end
 end

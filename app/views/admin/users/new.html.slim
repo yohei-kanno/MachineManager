@@ -1,5 +1,0 @@
-= render "shared/errors",{object: @user}
-h4 = t("dict.form_admin")
-= form_with model: [@store, :admin, @user], local: true do |f|
-  = render 'shared/user_form',{f: f}
-  = f.submit class: "btn-primary btn-submit"

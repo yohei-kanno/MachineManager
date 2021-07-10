@@ -4,8 +4,6 @@ class WelcomesController < ApplicationController
   skip_before_action :current_user?
   
   def new
-    if current_user
-      @store = current_user.store
-    end
+    @store = current_user.store if current_user
   end
 end
