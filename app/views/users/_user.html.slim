@@ -11,10 +11,10 @@ tbody id="user-#{user.id}"
   - else
     td = nil
   - unless current_user == user
-    td = link_to User.human(:add_admin),add_admin_store_user_path(store,user.id), method: :patch, data: {confirm: t("dict.admin?"),remote: true},class: "link-primary"
+    td = link_to User.human(:add_admin), add_admin_user_path(user.id), method: :patch, data: {confirm: t("dict.admin?"),remote: true},class: "link-primary"
   - else
     td = nil
   - unless current_user == user
-    td = link_to User.human(:remove_admin),add_general_store_user_path(store,user.id), method: :patch, class:"link-warning", data: { confirm: t("dict.general?"),remote: true } 
+    td = link_to User.human(:remove_admin),add_general_user_path(user.id), method: :patch, class:"link-warning", data: { confirm: t("dict.general?"),remote: true } 
   - else
    td = nil

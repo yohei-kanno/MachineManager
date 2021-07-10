@@ -1,26 +1,60 @@
-= render "shared/errors",{object: @store}
-h4 = t("dict.reg_store")
-= form_with model: @store, local: true do |f|
+= render "shared/errors",{object: @admin_store}
+h4 = t("dict.initial_setting")
+= form_with model: @admin_store, url: stores_path, local: true do |f|
   .form-group
-    = f.label :name, Store.human(:name)
+    = f.label :name, StoreUsers.human_attribute_name(:name)
     .row.justify-content-center
       .col-sm-4
         = f.text_field :name, class: "form-control"
+        
   .form-group
-    = f.label :pachinko_num, Store.human(:pachinko_num)
+    = f.label :pachinko_num, StoreUsers.human_attribute_name(:pachinko_num)
     .row.justify-content-center
       .col-sm-4
         = f.text_field :pachinko_num, class: "form-control", maxlength: 4
+        
   .form-group
     = f.label :slot_num, Store.human(:slot_num)
     .row.justify-content-center
       .col-sm-4
         = f.text_field :slot_num, class: "form-control", maxlength: 4
+        
   .form-group
     = f.label :code, "#{Store.human(:code)}(8桁指定)"
     .row.justify-content-center
       .col-sm-4
         = f.text_field :code, class: "form-control", maxlength: 8,minlength: 8
+        hr/
+  h4 = t("dict.form_admin")
+  .form-group
+    = f.label :first_name, "#{User.human(:first_name)}"
+    .row.justify-content-center
+      .col-sm-4
+        = f.text_field :first_name, class: "form-control"
+        
+  .form-group
+    = f.label :last_name, "#{User.human(:last_name)}"
+    .row.justify-content-center
+      .col-sm-4
+        = f.text_field :last_name, class: "form-control"
+        
+  .form-group
+    = f.label :email, "#{User.human(:email)}"
+    .row.justify-content-center
+      .col-sm-4
+        = f.email_field :email, class: "form-control"
+        
+  .form-group
+    = f.label :password, "#{User.human(:password)}"
+    .row.justify-content-center
+      .col-sm-4
+        = f.password_field :password, class: "form-control"
+        
+  .form-group
+    = f.label :password_confirmation, "#{User.human(:password_confirmation)}"
+    .row.justify-content-center
+      .col-sm-4
+        = f.password_field :password_confirmation, class: "form-control"
         
   .form-group
     = f.check_box :agreement, :as => :boolean, checked:false

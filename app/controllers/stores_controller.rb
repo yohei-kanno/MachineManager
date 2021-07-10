@@ -4,13 +4,15 @@ class StoresController < ApplicationController
   skip_before_action :current_user?, only: %i[edit update]
   
   def new
-    @store = Store.new
+    @admin_store = StoreUsers.new
   end
   
   def create
-    @store = Store.new(params_store)
-    if @store.save
-      redirect_to new_store_admin_user_path(@store.id)
+    @admin_store = StoreUsers.new(params_store)
+    
+    if @admin_store.save
+      
+      redirect_to root_path
       flash[:mysuccess] = t("flash.success_create")
     else
       flash.now[:mydanger] = t("flash.failure_create")
@@ -19,13 +21,13 @@ class StoresController < ApplicationController
   end
   
   def edit
-    @store = Store.find(params[:id])
+    @store = current_user.store
   end
   
   def update
-    @store = Store.find(params[:id])
+    @store = current_user.store
     if @store.update(params_store)
-      redirect_to store_machines_path(current_user.store.id)
+      redirect_to machines_path
       flash[:mysuccess] = t("flash.success_update")
     else
       flash.now[:mydanger] = t("flash.failure_update")
@@ -50,7 +52,7 @@ class StoresController < ApplicationController
   
   private
   def params_store
-    params.require(:store).permit(:name,:pachinko_num,:slot_num, :code, :agreement)
+    params.require(:store_users).permit(:name,:pachinko_num,:slot_num, :code, :agreement, :first_name, :last_name, :email, :password, :password_confirmation)
   end
   
   def params_back_store

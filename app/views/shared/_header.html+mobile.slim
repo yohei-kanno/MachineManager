@@ -1,15 +1,20 @@
 .flex
   .flex-container-name
     = link_to "MachineManager",root_path,class:"disabled-title"
-button.btn-primary.pad-mobile data-target="#Modal-menu" data-toggle="modal" type="button"  data-backdrop="static"
-  = t("dict.menu")
-.modal.fade id="Modal-menu"  aria-labelledby="Modal" tabindex="-1" 
-  .modal-dialog.modal-dialog-fluid role="document" 
-    .modal-content
-      .modal-header
-        h6.modal-title
-        button.close data-dismiss="modal" type="button"  ✖️
-        
-      .modal-body
-        = render "shared/menu_bar"
-hr/
+- if logged_in?  && current_user.admin?
+  = "#{current_user.store.name}店 #{current_user.decorate.full_name}(#{current_user.admin_i18n})"
+- elsif logged_in? && !!current_user.admin
+  = "#{current_user.store.name}店  #{current_user.decorate.full_name}(#{current_user.admin_i18n})"
+div  
+  button.btn-primary.pad-mobile data-target="#Modal-menu" data-toggle="modal" type="button"  data-backdrop="static"
+    = t("dict.menu")
+  .modal.fade id="Modal-menu"  aria-labelledby="Modal" tabindex="-1" 
+    .modal-dialog.modal-dialog-fluid role="document" 
+      .modal-content
+        .modal-header
+          h6.modal-title
+          button.close data-dismiss="modal" type="button"  ✖️
+          
+        .modal-body
+          = render "shared/menu_bar"
+  hr/

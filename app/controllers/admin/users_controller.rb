@@ -1,7 +1,4 @@
 class Admin::UsersController < ApplicationController
-  before_action :user_count_0?, only: [:new, :create]
-  before_action :set_store
-  
   skip_before_action :require_login, only: [:new, :create, :activate]
   skip_before_action :user_admin?, only: [:new, :create, :activate]
   skip_before_action :current_user?, only: [:new, :create, :activate]
@@ -11,7 +8,7 @@ class Admin::UsersController < ApplicationController
   end
   
   def create
-    @user = @store.users.build(user_params)
+    @user = User.new(user_params)
     if @user.save
       redirect_to root_path
       flash[:mysuccess] = t("flash.send_mail")
@@ -26,7 +23,7 @@ class Admin::UsersController < ApplicationController
       @user.activate!
       flash[:mysuccess] = t("flash.success_activate")
       auto_login(@user)
-      redirect_to store_machines_path(current_user.store.id)
+      redirect_to new_store_path(current_user.store.id)
     else
       not_authenticated
     end
@@ -37,17 +34,5 @@ class Admin::UsersController < ApplicationController
   
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :store_id).merge(admin: true)
-  end
-  
-  def set_store
-    @store = Store.find(params[:store_id])
-  end
-    
-  def user_count_0?
-    set_store
-    unless @store.users.count.zero?
-      redirect_to root_url
-      flash[:mydanger] = t("flash.no_store")
-    end
   end
 end

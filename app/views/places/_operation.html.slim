@@ -33,5 +33,5 @@ button.btn-primary.pad-mobile data-target="#Modal-#{place.id}" data-toggle="moda
         .flex      
           .mobile-table-show
             = render "edit_mobile",{place: place}
-            = link_to t("dict.destroy_sm"), store_place_path(@store, place), method: :delete, data:{confirm: t("dict.destroy?")}, class: "link-danger"
+            = link_to t("dict.destroy_sm"), place_path(place), method: :delete, data:{confirm: t("dict.destroy?")}, class: "link-danger"
         hr/

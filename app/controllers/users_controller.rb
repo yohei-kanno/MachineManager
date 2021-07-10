@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_store
+  before_action :set_store, only:[ :index, :new, :create, :edit, :update, :destroy, :add_admin, :add_general]
   before_action :set_user, only: [ :update, :destroy, :add_admin, :add_general]
   before_action :current_user_redirect, only: [:add_admin, :add_general, :destroy]
   
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   def create
     @user = @store.users.build(user_params)
     if @user.save
-      redirect_to store_users_path
+      redirect_to users_path
       flash[:mysuccess] = t("flash.send_mail")
     else
       flash.now[:mydanger] = t("flash.failure_create")
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.update(user_params)
         format.html{
-        redirect_to store_users_path
+        redirect_to users_path
         flash[:mysuccess] = t("flash.success_update")
       }
       else
@@ -76,10 +76,11 @@ class UsersController < ApplicationController
   end
     
   def activate
-    if (@user = @store.user.load_from_activation_token(params[:id]))
+    if (@user = User.load_from_activation_token(params[:id]))
       @user.activate!
       flash[:mysuccess] = t("flash.success_activate")
-      redirect_to store_machines_path(current_user.store.id)
+      auto_login(@user)
+      redirect_to machines_path
     else
       not_authenticated
     end

@@ -9,7 +9,7 @@
             span(style="font-size:10px; margin-left: 30px;") = t("dict.input_required")
           button.close data-dismiss="modal" type="button"  ×
         .modal-body
-          = form_with model: [@store,machine], method: :patch, data:{remote: true} do |f|
+          = form_with model: machine, method: :patch, data:{remote: true} do |f|
             = render 'machines/machine_mobile/form_mobile',{f: f}
             div id="update-machine-#{machine.id}"
             .text-center  

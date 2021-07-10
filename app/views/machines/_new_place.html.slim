@@ -11,7 +11,7 @@
           button.close data-dismiss="modal" type="button"  ✖️
             
         .modal-body
-          = form_with model: [@store,@place], data:{ remote: true } do |f|
+          = form_with model: [@place], data:{ remote: true } do |f|
             = render "shared/place_form",{f: f}
             #result-create-place
             .text-center

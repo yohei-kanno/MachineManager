@@ -1,6 +1,6 @@
 = render "shared/errors",{object: @user}
 h4 = t("dict.form_general")
-= form_with model: [@store, @user], local: true do |f|
+= form_with model: [@user], local: true do |f|
    = render 'shared/user_form',{f: f}
    .text-center
       = f.submit class: "btn-primary button-submit"

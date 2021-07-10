@@ -1,4 +1,14 @@
 ja:
+  activemodel:
+    models:
+      store_users: 初期設定
+      
+    attributes:
+      store_users:
+        name: 店舗名を入力して下さい
+        pachinko_num: パチンコの設置台数を入力して下さい
+        
+        
   activerecord:
     models:
       store: 店舗

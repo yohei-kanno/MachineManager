@@ -20,7 +20,7 @@ class PlacesController < ApplicationController
       respond_to do |format|
         if @place.save
           format.html{
-            redirect_to store_machines_path
+            redirect_to machines_path
             flash[:mysuccess] = t("flash.success_create")
           }
         else
@@ -28,7 +28,7 @@ class PlacesController < ApplicationController
         end
       end
     else
-      redirect_to store_machines_path
+      redirect_to machines_path
       flash[:mydanger] = t("flash.same_ware")
     end
   end
@@ -43,7 +43,7 @@ class PlacesController < ApplicationController
             @place.machines.update(place: params[:place][:name])
             format.html{ 
               flash[:mysuccess] = t("flash.success_update")
-              redirect_to store_places_path
+              redirect_to places_path
             }            
           else
             format.js
@@ -52,12 +52,12 @@ class PlacesController < ApplicationController
       rescue StandardError
         format.html{ 
           flash[:mydanger] = t("flash.error")
-          redirect_to store_places_path
+          redirect_to places_path
         }        
       end
     else
       flash[:mydanger] = t("flash.same_ware")
-      redirect_to store_places_path
+      redirect_to places_path
     end
   end  
   
@@ -65,8 +65,13 @@ class PlacesController < ApplicationController
     if @place.count_of_place_is_0?
       respond_to do | format|
         format.js{
-          @place.destroy
+          @place.destroy!
           @message = t("flash.success_destroy")
+        }
+        format.html{
+          @place.destroy!
+          redirect_to places_path
+          flash[:mysuccess] = t("flash.success_destroy")
         }
       end 
     else
@@ -75,7 +80,7 @@ class PlacesController < ApplicationController
           @message = t("flash.machine_in_ware")
         }
         format.html{
-          redirect_to store_places_path(@store.id)
+          redirect_to places_path
           flash[:mydanger] = t("flash.machine_in_ware")
         }
       end

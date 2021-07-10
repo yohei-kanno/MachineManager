@@ -10,7 +10,7 @@
           button.close data-dismiss="modal" type="button"  ×
             
         .modal-body
-          = form_with model: [@store,place], data:{remote: true}, method: :patch do |f|
+          = form_with model: place, data:{remote: true}, method: :patch do |f|
             .form-group.flex
               .col-sm-12
                 .text-left

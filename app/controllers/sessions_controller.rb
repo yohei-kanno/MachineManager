@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
   def create
     if current_user = login(params[:email], params[:password], params[:remember])
       if params[:code] == current_user.store.code.to_s
-        redirect_to store_machines_path(current_user.store.id)
+        redirect_to machines_path
         flash[:mysuccess] = t("flash.success_login")
       else
         logout

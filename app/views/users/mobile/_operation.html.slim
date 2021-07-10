@@ -30,8 +30,8 @@ button.btn-primary.pad-mobile data-target="#Modal-mobile-#{user.id}" data-toggle
             = "#{User.human(:updated_at)}:"
             = user.updated_at.to_s(:datetime_jp)
           .flex  
-            = link_to User.human(:add_admin),add_admin_store_user_path(store,user.id), method: :patch, data: {confirm: t("dict.admin?")},class: "link-primary"
-            = link_to User.human(:remove_admin),add_general_store_user_path(store,user.id), method: :patch, class:"link-warning", data: { confirm: t("dict.general?") }
+            = link_to User.human(:add_admin),add_admin_user_path(user.id), method: :patch, data: {confirm: t("dict.admin?")},class: "link-primary"
+            = link_to User.human(:remove_admin),add_general_user_path(user.id), method: :patch, class:"link-warning", data: { confirm: t("dict.general?") }
             = render "users/mobile/edit_mobile",{user: user}
             = render "destroy", {user: user, store: store}
           hr/

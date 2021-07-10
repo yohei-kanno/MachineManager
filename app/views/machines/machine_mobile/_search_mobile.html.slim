@@ -9,7 +9,7 @@ button.btn-search-modal data-target="#Modal-search" data-toggle="modal" type="bu
         button.close data-dismiss="modal" type="button"  ×
           
       .modal-body.text-center
-        = search_form_for(@q,url: store_machines_path) do |f|
+        = search_form_for(@q,url: machines_path) do |f|
             
             .text-left.col-sm-12.form-group-mobile
               = f.label :name_cont, Machine.human(:name)

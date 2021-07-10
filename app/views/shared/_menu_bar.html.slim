@@ -1,14 +1,14 @@
   - if logged_in?  && current_user.admin?
-    = button_to t("dict.form_general"), new_store_user_path(current_user.store.id), method: :get, class: "btn-info button-100"
-    = button_to t("dict.index_users"), store_users_path(current_user.store.id), method: :get, class: "btn-info button-100"
-    = button_to t("dict.index_mchs"), store_machines_path(current_user.store.id), method: :get, class: "btn-info button-100"
-    = button_to t("dict.index_wares"), store_places_path(current_user.store.id), method: :get, class: "btn-info button-100"
+    = button_to t("dict.form_general"), new_user_path, method: :get, class: "btn-info button-100"
+    = button_to t("dict.index_users"), users_path, method: :get, class: "btn-info button-100"
+    = button_to t("dict.index_mchs"), machines_path, method: :get, class: "btn-info button-100"
+    = button_to t("dict.index_wares"), places_path, method: :get, class: "btn-info button-100"
     = button_to t("dict.store_edit"), edit_store_path(current_user.store.id), method: :get, class: "btn-info button-100"
     = button_to t("dict.logout"), logout_path(current_user.store.id), method: :delete, class: "btn-info button-100"
 
   - elsif logged_in? && !current_user.admin?
-    = button_to t("dict.index_mchs"), store_machines_path(current_user.store.id), method: :get, class: "btn-info button-100"
-    = button_to t("dict.index_wares"), store_places_path(current_user.store.id), method: :get, class: "btn-info button-100"
+    = button_to t("dict.index_mchs"), machines_path, method: :get, class: "btn-info button-100"
+    = button_to t("dict.index_wares"), places_path, method: :get, class: "btn-info button-100"
     = button_to t("dict.logout"), logout_path(current_user.store.id), method: :delete, class: "btn-info button-100"
       
   -else

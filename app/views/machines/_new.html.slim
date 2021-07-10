@@ -11,7 +11,7 @@
           button.close data-dismiss="modal" type="button"  ✖️
             
         .modal-body
-          = form_with model: [@store,@machine], data:{remote: true} do |f|
+          = form_with model: [@machine], data:{remote: true} do |f|
             = render 'form',{f: f, store: @store, machine: @machine}
             #result-create-machine
             .text-center

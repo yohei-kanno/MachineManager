@@ -7,8 +7,8 @@ class MachinesController < ApplicationController
   PER = 20
   
   def index
-    @place = @store.places.build
-    @machine = @store.machines.build
+    @place = current_user.store.places.build
+    @machine = current_user.store.machines.build
     @q = @store.machines.ransack(params[:q])
     @machines = @q.result(distinct: true).page(params[:page]).per(PER)
     
@@ -27,7 +27,7 @@ class MachinesController < ApplicationController
         if @machine.save
           PlaceMachine.place_machine!(@machine)
           format.html{
-            redirect_to store_machines_path(current_user.store.id)
+            redirect_to machines_path
             flash[:mysuccess] = t("flash.success_create")
           }
         else
@@ -36,7 +36,7 @@ class MachinesController < ApplicationController
       end
     rescue StandardError
       format.html{
-      redirect_to store_machines_path(current_user.store.id)
+      redirect_to machines_path
       flash[:mydanger] = t("flash.error")
     }
     end
@@ -51,7 +51,7 @@ class MachinesController < ApplicationController
         if @machine.update(params_machine)
           PlaceMachine.place_machine!(@machine)
           format.html{
-            redirect_to store_machines_path(@store.id)
+            redirect_to machines_path
             flash[:mysuccess] = t("flash.success_update")
           }
         else
@@ -60,7 +60,7 @@ class MachinesController < ApplicationController
       end
     rescue StandardError
       format.html{
-        redirect_to store_machines_path(current_user.store.id)
+        redirect_to machines_path
         flash[:mydanger] = t("flash.error")
       }
     end
@@ -70,7 +70,8 @@ class MachinesController < ApplicationController
     @machine = @store.machines.find(params[:id])
     respond_to do |format|
       format.html{
-        redirect_to store_machines_path(@store.id)
+        @machine.destroy
+        redirect_to machines_path
         flash[:mysuccess] = t("flash.success_destroy")
       }
       format.js{

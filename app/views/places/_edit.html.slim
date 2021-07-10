@@ -10,7 +10,7 @@ button.btn-success data-target="#Modal-#{place.id}" data-toggle="modal" type="bu
         button.close data-dismiss="modal" type="button"  ×
           
       .modal-body
-        = form_with model: [@store,place], data:{remote: true}, method: :patch do |f|
+        = form_with model: place, data:{remote: true}, method: :patch do |f|
           = render "shared/place_form",{f: f}
           div id="update-place-#{place.id}"
           .text-center

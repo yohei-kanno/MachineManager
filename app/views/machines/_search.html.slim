@@ -10,7 +10,7 @@ button.btn-search-modal data-target="#Modal-search" data-toggle="modal" type="bu
         button.close data-dismiss="modal" type="button"  ✖️
           
       .modal-body.text-center
-        = search_form_for(@q,url: store_machines_path) do |f|
+        = search_form_for(@q,url: machines_path) do |f|
             
           .form-group.flex
             .text-left.col-sm-4
