@@ -11,7 +11,7 @@ class StoresController < ApplicationController
     @admin_store = StoreUsers.new(params_store)
     if @admin_store.save
       redirect_to root_path
-      flash[:mysuccess] = t("flash.success_create")
+      flash[:mysuccess] = t("flash.send_mail")
     else
       flash.now[:mydanger] = t("flash.failure_create")
       render :new
