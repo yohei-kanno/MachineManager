@@ -20,6 +20,7 @@ RSpec.describe 'Machineモデル', type: :system do
       visit current_path
       # 要素が４つある状態の一覧画面に遷移している
     end
+      
     
     describe "機械台の登録" do
       let(:machine){build(:machine, :pachinko_acquired)}

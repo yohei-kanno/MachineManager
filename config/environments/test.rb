@@ -11,7 +11,9 @@ Rails.application.configure do
     Bullet.bullet_logger = true
     Bullet.raise         = true # raise an error if n+1 query occurs
   end
-
+  
+  host = 'localhost:3000'
+  config.action_mailer.default_url_options = { host: host }
   # Settings specified here will take precedence over those in config/application.rb.
 
   config.cache_classes = false

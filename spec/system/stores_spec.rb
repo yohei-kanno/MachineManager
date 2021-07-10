@@ -7,15 +7,16 @@ RSpec.describe 'Storeモデル', type: :system do
       before do
         visit new_store_path
         fill_in "店舗名", with: "千葉店"
-        fill_in "パチンコ台数", with: 111
-        fill_in "スロット台数", with: 111
+        fill_in "パチンコの設置台数", with: 111
+        fill_in "スロットの設置台数", with: 111
         fill_in "店舗コード", with: 11111111
-        page.check("store_agreement")
+        fill_in "名字", with: "菅野"
+        fill_in "名前", with: "洋平"
+        fill_in "メールアドレス", with: "test@example.com"
+        fill_in "パスワード", with: "foobar"
+        fill_in "パスワード(確認)", with: "foobar"
+        page.check("store_users_agreement")
         click_button "登録する"
-      end
-      
-      it "管理者登録画面に遷移している事" do
-        expect(page).to have_content("管理者ユーザー作成画面")
       end
       
       it "Storeモデルが作成されている事" do
@@ -23,7 +24,6 @@ RSpec.describe 'Storeモデル', type: :system do
       end
       
       it "登録完了のフラッシュメッセージが表示されること" do
-        expect(page).to have_content("登録しました")
         expect(page).to have_selector(".alert-mysuccess")
       end
     end
@@ -34,10 +34,6 @@ RSpec.describe 'Storeモデル', type: :system do
       before do
         visit new_store_path
         click_button "登録する"
-      end
-      
-      it "ページ遷移していない事" do
-        expect(page).to have_content("店舗登録")  
       end
       
       it "Storeモデルが作成されていない事" do
@@ -57,15 +53,12 @@ RSpec.describe 'Storeモデル', type: :system do
     
     before do
       login_as(admin_user)
-      visit edit_store_path(store.id)
-    end
-    
-    it "店舗編集画面に遷移している事" do
-      expect(page).to have_content("店舗編集")
+      visit machines_path
     end
     
     context "入力が正常な場合" do
       it "編集出来る事" do
+        click_on "店舗編集"
         fill_in "店舗名", with: "茨城"
         click_on "更新する"
         expect(page).to have_content("茨城")
@@ -77,10 +70,10 @@ RSpec.describe 'Storeモデル', type: :system do
       
     context "入力に不備がある場合" do
       it "更新出来ない事" do
+        click_on "店舗編集"
         fill_in "店舗名", with: nil
         click_on "更新する"
-        expect(page).to have_content("更新出来ませんでした")
-        expect(page).to have_selector(".alert-mydanger")
+        expect(page).to have_content("を入力してください")
       end
     end
   end

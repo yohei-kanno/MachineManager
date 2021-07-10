@@ -6,6 +6,9 @@ FactoryBot.define do
     password { "foobar" }
     password_confirmation { "foobar" }
     association :store
+    after(:create) do |user|
+      user.activate!
+    end
   end
   
   trait :general do

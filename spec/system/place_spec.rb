@@ -51,7 +51,7 @@ RSpec.describe 'Placeモデル', type: :system do
     describe "編集処理" do
       before do
         place
-        visit store_places_path(store.id)
+        visit places_path
       end
       
       context "入力が正常である場合" do
@@ -78,7 +78,7 @@ RSpec.describe 'Placeモデル', type: :system do
       context "倉庫に機械が存在する場合" do
         it "削除出来ない事" do
           PlaceMachine.create(machine_id: machine.id, place_id: place.id)
-          visit store_places_path(store.id)
+          visit places_path
           page.accept_confirm do
             click_on "削除"
           end
@@ -91,7 +91,7 @@ RSpec.describe 'Placeモデル', type: :system do
       context "倉庫に機械が存在しない場合" do
        it "削除出来る事" do
           place
-          visit store_places_path(store.id)
+          visit places_path
           page.accept_confirm do
             click_on "削除"
           end
