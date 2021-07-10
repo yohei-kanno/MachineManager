@@ -24,15 +24,18 @@ class StoresController < ApplicationController
   
   def update
     @store = current_user.store
-    if @store.update(params_update_store)
-      redirect_to machines_path
-      flash[:mysuccess] = t("flash.success_update")
-    else
-      flash.now[:mydanger] = t("flash.failure_update")
-      render :edit
+    respond_to do |format|
+      if @store.update(params_update_store)
+        format.html{
+          redirect_to machines_path
+          flash[:mysuccess] = t("flash.success_update")
+        }
+      else
+        format.js
+      end
     end
   end
-  
+          
   private
   def params_store
     params.require(:store_users).permit(:name,:pachinko_num,:slot_num, :code, :agreement, :first_name, :last_name, :email, :password, :password_confirmation)

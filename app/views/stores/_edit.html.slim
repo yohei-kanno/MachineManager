@@ -10,7 +10,8 @@ button.btn.btn-link.header-contain data-target="#Modal-store-edit" data-toggle="
       .modal-body
         = render "shared/errors",{object: @store}
         h4 = t("dict.store_edit")
-        = form_with model: @store, local: true do |f|
+        = form_with model: @store, data:{remote: true} do |f|
+          div id="update-store"
           .form-group
             = f.label :name, Store.human(:name)
             .row.justify-content-center
