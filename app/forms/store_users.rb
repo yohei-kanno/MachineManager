@@ -33,6 +33,10 @@ class StoreUsers
   validates :agreement, acceptance: { allow_nil: false, message: "に同意して下さい" }
   validates :password, confirmation: true
   
+  def self.human(column)
+    human_attribute_name(column)
+  end
+  
   def save
     return false if invalid?
 
