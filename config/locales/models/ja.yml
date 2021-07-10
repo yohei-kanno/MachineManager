@@ -5,8 +5,17 @@ ja:
       
     attributes:
       store_users:
-        name: 店舗名を入力して下さい
-        pachinko_num: パチンコの設置台数を入力して下さい
+        name: 店舗名
+        pachinko_num: パチンコの設置台数
+        slot_num: スロットの設置台数
+        code: 店舗コード
+        first_name: 名字
+        last_name: 名前
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード(確認)
+        agreement: 利用規約とプライバシーポリシー
+        
         
         
   activerecord:

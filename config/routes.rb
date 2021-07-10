@@ -17,21 +17,7 @@ Rails.application.routes.draw do
   resources :places
   
   
-  resources :stores, only: [:new, :create, :edit, :update] do
-    namespace :admin do
-      resources :users  do
-        member do
-          get :activate
-        end
-      end
-    end
-    collection do
-      get :back
-      post :back_create
-    end
-    
-    
-  end
+  resources :stores, only: [:new, :create, :edit, :update]
           
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
         

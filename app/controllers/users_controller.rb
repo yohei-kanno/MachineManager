@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_store, only:[ :index, :new, :create, :edit, :update, :destroy, :add_admin, :add_general]
+  before_action :set_store, only: [ :index, :new, :create, :edit, :update, :destroy, :add_admin, :add_general]
   before_action :set_user, only: [ :update, :destroy, :add_admin, :add_general]
   before_action :current_user_redirect, only: [:add_admin, :add_general, :destroy]
   
