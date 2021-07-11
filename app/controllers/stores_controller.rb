@@ -10,7 +10,6 @@ class StoresController < ApplicationController
   def create
     @admin_store = StoreUsers.new(params_store)
     if @admin_store.save
-      UserMailer.activation_needed_email(@admin_store).deliver_now
       redirect_to root_path
       flash[:mysuccess] = t("flash.send_mail")
     else

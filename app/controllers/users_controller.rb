@@ -17,7 +17,6 @@ class UsersController < ApplicationController
   def create
     @user = @store.users.build(user_params)
     if @user.save
-      UserMailer.activation_needed_email(@user).deliver_now
       redirect_to users_path
       flash[:mysuccess] = t("flash.send_mail")
     else
@@ -78,7 +77,6 @@ class UsersController < ApplicationController
     
   def activate
     if (@user = User.load_from_activation_token(params[:id]))
-      UserMailer.activation_success_email(@user).deliver_now
       @user.activate!
       flash[:mysuccess] = t("flash.success_activate")
       auto_login(@user)
