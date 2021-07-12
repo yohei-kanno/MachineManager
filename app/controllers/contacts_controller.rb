@@ -1,5 +1,5 @@
 class ContactsController < ApplicationController
-  before_action :set_store_user, only: %i[ new confirm create ]
+  before_action :set_store_user, only: %i[new confirm create]
   
   skip_before_action :user_admin?
   skip_before_action :require_login
@@ -11,9 +11,7 @@ class ContactsController < ApplicationController
   
   def confirm
     @contact = Contact.new(contact_params)
-    if @contact.invalid?
-      render :new
-    end
+    render :new if @contact.invalid?
   end
   
   def create
@@ -39,9 +37,9 @@ class ContactsController < ApplicationController
   end
   
   def set_store_user
-    if current_user
-      @user = current_user
-      @store = current_user.store
-    end
+    return unless current_user
+
+    @user = current_user
+    @store = current_user.store
   end
 end
