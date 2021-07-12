@@ -6,8 +6,9 @@ ja:
     address: test@example.com
     password: 半角英数字 6文字以上
     store: 千葉
-    first_name: "山田"
-    last_name: "太郎"
+    first_name: 山田
+    last_name: 太郎
+    full_name: 山田  太郎
     ware: 2F倉庫
     maker: 株式会社  パチンコ物産
     machine_name: Pスーパーパチンコ物語NSD
@@ -21,6 +22,10 @@ ja:
     
   dict:
     menu: メニュー
+    back: 戻る
+    send: 送信
+    contact: お問い合わせ
+    confirm: 入力内容確認
     number: 番号
     show: 詳細
     search_lg: 検索する

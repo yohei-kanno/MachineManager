@@ -1,0 +1,14 @@
+= "お問い合わせを受け付けました。"
+br/
+= "=========================="
+p 
+  = "お名前:"
+  = "#{@contact.name}"
+p
+  = "返信先:"
+  = "#{@contact.email}"
+p
+  = "お問い合わせ内容:"
+  br/
+  = simple_format(h(@contact.content),{},sanitize:false)
+= "=========================="

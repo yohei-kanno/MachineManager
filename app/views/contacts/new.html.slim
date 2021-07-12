@@ -1,0 +1,31 @@
+= render "shared/errors",{object: @contact}
+h4 = t("dict.contact")
+br/
+= form_with model: @contact, url: confirm_contacts_path do |f|
+  .form-group
+    = f.label :name, Contact.human(:name)
+    .row.justify-content-center
+      .input-group.col-sm-4
+        .input-group-prepend
+          .input-group-text
+            span
+              i.fas.fa-user
+        = f.text_field :name, class: 'form-control', placeholder: t("placeholder.full_name")
+        
+  .form-group
+    = f.label :email, Contact.human(:email)
+    .row.justify-content-center
+      .input-group.col-sm-4
+        .input-group-prepend
+          .input-group-text
+            span
+              i.far.fa-envelope
+        = f.text_field :email, class: 'form-control', placeholder: t("placeholder.address")
+
+  .form-group
+    = f.label :content, Contact.human(:content)
+    .row.justify-content-center
+      .col-sm-4
+        = f.text_area :content, size: '10x10', class: 'form-control'
+
+  = f.submit t("dict.confirm"), class: "btn-primary button-submit"

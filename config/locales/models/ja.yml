@@ -65,3 +65,8 @@ ja:
         name: 保管場所
         created_at: 作成日時
         updated_at: 更新日時
+        
+      contact:
+        name: お名前
+        email: 返信先メールアドレス
+        content: お問い合わせ内容

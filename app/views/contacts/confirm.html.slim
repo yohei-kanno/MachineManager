@@ -1,0 +1,34 @@
+h4 = t("dict.confirm")
+br/
+= form_with model: @contact do |f|
+  table.table.table-hover style="width :50%; margin: auto; "
+    tbody
+      tr
+        th style="width: 30%"
+          .text-left
+            = Contact.human(:name)
+        td style="width: 70%"
+          .text-left 
+            = @contact.name
+          = f.hidden_field :name
+          
+      tr
+        th style="width: 30%"
+          .text-left
+            = Contact.human(:email)
+        td style="width: 70%"
+          .text-left 
+            = @contact.email
+          = f.hidden_field :email
+          
+      tr
+        th style="width: 30%"
+          .text-left
+            = Contact.human(:content)
+        td style="width: 70%"
+          .text-left 
+            = simple_format(@contact.content)
+          = f.hidden_field :content
+          
+  = f.submit t("dict.back"), name: "back", class: "btn-info button-submit mr-4"
+  = f.submit t("dict.send"), class: "btn-primary button-submit"
