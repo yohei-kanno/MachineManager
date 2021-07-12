@@ -47,9 +47,7 @@ class StoreUsers
       code: code,
       agreement: agreement
     )
-    unless store.save
-      return false
-    end
+    return false unless store.save
     
     user = store.users.build(
       first_name: first_name,

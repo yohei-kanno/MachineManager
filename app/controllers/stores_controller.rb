@@ -26,10 +26,10 @@ class StoresController < ApplicationController
     @store = current_user.store
     respond_to do |format|
       if @store.update(params_update_store)
-        format.html{
+        format.html do
           redirect_to machines_path
           flash[:mysuccess] = t("flash.success_update")
-        }
+        end
       else
         format.js
       end
