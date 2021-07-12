@@ -23,6 +23,7 @@ gem 'ransack'
 gem 'font-awesome-sass'
 gem 'kaminari'
 gem 'kaminari-bootstrap'
+gem 'dotenv-rails'
 
 group :production do
   gem 'pg'
