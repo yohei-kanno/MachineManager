@@ -1,20 +1,20 @@
 #alert-message
-tbody id="user-#{user.id}"
-- if user.active?
-  td = user.first_name
-  td = user.last_name
-  td id="add-admin-#{user.id}" = user.admin_i18n
-  td = user.created_at.to_s(:datetime_jp)
-  td = render "edit", {user: user}
-  - unless current_user == user
-    td = render "destroy", {user: user, store: store}
-  - else
-    td = nil
-  - unless current_user == user
-    td = link_to User.human(:add_admin), add_admin_user_path(user.id), method: :patch, data: {confirm: t("dict.admin?"),remote: true},class: "link-primary"
-  - else
-    td = nil
-  - unless current_user == user
-    td = link_to User.human(:remove_admin),add_general_user_path(user.id), method: :patch, class:"link-warning", data: { confirm: t("dict.general?"),remote: true } 
-  - else
-   td = nil
+  tbody id="user-#{user.id}"
+    - if user.active?
+      td = user.first_name
+      td = user.last_name
+      td id="add-admin-#{user.id}" = user.admin_i18n
+      td = user.created_at.to_s(:datetime_jp)
+      td = render "edit", {user: user}
+      - unless current_user == user
+        td = render "destroy", {user: user, store: store}
+      - else
+        td = nil
+      - unless current_user == user
+        td = link_to User.human(:add_admin), add_admin_user_path(user.id), method: :patch, data: {confirm: t("dict.admin?"),remote: true},class: "link-primary"
+      - else
+        td = nil
+      - unless current_user == user
+        td = link_to User.human(:remove_admin),add_general_user_path(user.id), method: :patch, class:"link-warning", data: { confirm: t("dict.general?"),remote: true } 
+      - else
+        td = nil
