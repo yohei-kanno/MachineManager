@@ -1,5 +1,9 @@
-.form-group.flex
-  .col-sm-12
-    .text-left
-      = f.label :name, "※#{Place.human(:name)}"
-      = f.text_field :name, class: "form-control"
+.form-group
+  = f.label :name, "※#{Place.human(:name)}"
+  .row.justify-content-center
+    .input-group.col-sm-12
+      .input-group-prepend
+        .input-group-text
+          span
+            i.fas.fa-warehouse
+      = f.text_field :name, class: "form-control", placeholder: t("placeholder.ware")

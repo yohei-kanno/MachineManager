@@ -42,6 +42,6 @@ class StoresController < ApplicationController
   end
   
   def params_update_store
-    params.require(:store).permit(:name, :pachinko_num, :slot_num)
+    params.require(:store).permit(:name, :pachinko_num, :slot_num, :code)
   end
 end

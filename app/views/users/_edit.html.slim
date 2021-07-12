@@ -13,14 +13,22 @@ button.btn-success data-target="#Modal-#{user.id}" data-toggle="modal" type="but
             .form-group
               = f.label :first_name, User.human(:first_name)
               .row.justify-content-center
-                .col-sm-4
+                .input-group.col-sm-8
+                  .input-group-prepend
+                    .input-group-text
+                      span
+                        i.far.fa-user
                   = f.text_field :first_name, class: "form-control"
+                  
             .form-group
               = f.label :last_name, User.human(:last_name)
               .row.justify-content-center
-                .col-sm-4
+                .input-group.col-sm-8
+                  .input-group-prepend
+                    .input-group-text
+                      span
+                        i.far.fa-user
                   = f.text_field :last_name, class: "form-control"
                   
             div id="update-user-#{user.id}"
             = f.submit class: "btn-success button-submit"
-          button.close data-dismiss="modal" type="button"  ✖️

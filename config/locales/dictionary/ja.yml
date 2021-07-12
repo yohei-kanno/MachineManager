@@ -1,4 +1,19 @@
-ja: 
+ja:
+  
+  placeholder:
+    half-width-digit-num: 半角数字 4桁以内
+    half-width-digit-code: 半角数字 8桁指定
+    address: test@example.com
+    password: 半角英数字 6文字以上
+    store: 千葉
+    first_name: "山田"
+    last_name: "太郎"
+    ware: 2F倉庫
+    maker: 株式会社  パチンコ物産
+    machine_name: Pスーパーパチンコ物語NSD
+    remarks: "メモがあれば記載して下さい"
+    machine_number: "SY-J 090892"
+      
   password:
     reset: パスワードリセット
     send_reset: パスワード再設定用メール送信

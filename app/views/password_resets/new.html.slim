@@ -6,12 +6,14 @@ p = "MachineManagerにご登録頂いているメールアドレスを入力し�
 br/
 = form_with url: password_resets_path, local: true, method: :post do |f|
   = f.label :email, User.human(:email)
-  .row.justify-content-center
-    .col-sm-4
-      = f.email_field :email, class: "form-control use-icon", placeholder: User.human(:email)
-      br/
-      br/
+  .row.justify-content-center.mb-4
+    .input-group.col-sm-4
+      .input-group-prepend
+        .input-group-text
+          span
+            i.far.fa-envelope
+      = f.email_field :email, class: "form-control", placeholder: t("placeholder.address")
       .text-center
-        = f.submit class: "btn-primary button-submit", value: t("password.send_reset")
+  = f.submit class: "btn-primary button-submit", value: t("password.send_reset")
         
 p = "上記のメールアドレスに再設定用のメールアドレスを送信します。"

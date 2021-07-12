@@ -2,7 +2,7 @@
   .col-sm-4
     .text-left
       = f.label :maker, "※#{Machine.human(:maker)}"
-      = f.text_field :maker,class: "form-control" 
+      = f.text_field :maker,class: "form-control", placeholder: t("placeholder.maker")
       
   .col-sm-2
     .text-left
@@ -12,7 +12,7 @@
   .col-sm-6
     .text-left
         = f.label :name, "※#{Machine.human(:name)}"
-        = f.text_field :name, class: "form-control"
+        = f.text_field :name, class: "form-control", placeholder: t("placeholder.machine_name")
         
 .form-group.flex
   .col-sm-3
@@ -39,20 +39,20 @@
   .col-sm-12
     .text-left
       = f.label :remarks, Machine.human(:remarks)
-      = f.text_field :remarks, class: "form-control"
+      = f.text_field :remarks, class: "form-control", placeholder: t("placeholder.remarks")
       
 .form-group.flex
   .col-sm-4
     .text-left
       = f.label :front_number, Machine.human(:front_number)
-      = f.text_field :front_number, class: "form-control flont"
+      = f.text_field :front_number, class: "form-control flont", placeholder: t("placeholder.machine_number")
       
   .col-sm-4
     .text-left
       = f.label :flame_number, Machine.human(:flame_number)
-      = f.text_field :flame_number, class: "form-control flame"
+      = f.text_field :flame_number, class: "form-control flame", placeholder: t("placeholder.machine_number")
 
   .col-sm-4
     .text-left
       = f.label :board_number, Machine.human(:board_number)
-      = f.text_field :board_number, class: "form-control board"
+      = f.text_field :board_number, class: "form-control board",  placeholder: t("placeholder.machine_number")
