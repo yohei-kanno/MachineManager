@@ -1,0 +1,17 @@
+h4 = t("password.reset")
+br/
+br/
+p = "パスワードをリセットします。"
+p = "MachineManagerにご登録頂いているメールアドレスを入力して下さい。"
+br/
+= form_with url: password_resets_path, local: true, method: :post do |f|
+  = f.label :email, User.human(:email)
+  .row.justify-content-center
+    .col-sm-4
+      = f.email_field :email, class: "form-control use-icon", placeholder: User.human(:email)
+      br/
+      br/
+      .text-center
+        = f.submit class: "btn-primary button-submit", value: t("password.send_reset")
+        
+p = "上記のメールアドレスに再設定用のメールアドレスを送信します。"

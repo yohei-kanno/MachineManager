@@ -27,3 +27,9 @@ ja:
     send_mail: 有効化メールを送信しました
     
     error: 予期せぬエラー発生しました
+    
+    success_send_reset_password: パスワードリセットURLを送信しました
+    failure_send_reset_password: メールアドレスが正しくありません
+    
+    success_update_password: パスワードを更新しました
+    failure_update_password: 入力内容が正しくありません

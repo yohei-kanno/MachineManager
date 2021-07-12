@@ -4,14 +4,19 @@ class User < ApplicationRecord
   belongs_to :store
   
   enum admin: { general: false, admin: true }
-  
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email, presence: true, uniqueness: true
+  validates :reset_password_token, uniqueness: true, allow_nil: true
   validates :password, length: { minimum: 6 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
   validates :admin, inclusion: ["admin", "general"]
+  
+  with_options on: :password_resets do
+    validates :password, presence: true
+    validates :password_confirmation, presence: true
+  end
   
   def active?
     activation_state === "active"

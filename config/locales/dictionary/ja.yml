@@ -1,4 +1,9 @@
-ja:  
+ja: 
+  password:
+    reset: パスワードリセット
+    send_reset: パスワード再設定用メール送信
+    init_reset: 新しいパスワードを設定する
+    
   dict:
     menu: メニュー
     number: 番号

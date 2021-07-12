@@ -22,3 +22,5 @@
     = label_tag :remember, User.human(:remember)
     
   = f.submit t("dict.login"), class:'btn-primary button-submit'
+
+= link_to "パスワードを忘れた方はこちら", new_password_reset_path 

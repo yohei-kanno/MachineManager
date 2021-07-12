@@ -129,6 +129,17 @@ hr {
 .pagination{
   margin-left: 9px;
 }
+
+.use-icon{
+  display: inline-block;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
 @media (min-width: 500px) and (max-width:1250px) {
   .img-size{
     width: 500px;
