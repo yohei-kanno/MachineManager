@@ -24,9 +24,7 @@ class ApplicationController < ActionController::Base
   end
   
   def grandadmin?
-    if current_user
-      redirect_to root_url unless current_user.grandadmin?
-    end
+    redirect_to root_url if current_user && !current_user.grandadmin?
   end
   
   def detect_mobile_variant
