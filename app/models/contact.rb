@@ -4,4 +4,6 @@ class Contact < ApplicationRecord
     validates :email
     validates :content
   end
+  
+  has_many :answers
 end

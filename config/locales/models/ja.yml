@@ -26,6 +26,7 @@ ja:
       place: 保管場所
       contact: お問い合わせ
       comment: コメント
+      answer: 回答
       
     attributes:
       store:

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_13_195951) do
+ActiveRecord::Schema.define(version: 2021_07_13_203449) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -24,6 +24,14 @@ ActiveRecord::Schema.define(version: 2021_07_13_195951) do
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author"
     t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource"
+  end
+
+  create_table "answers", force: :cascade do |t|
+    t.integer "contact_id", null: false
+    t.text "content", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["contact_id"], name: "index_answers_on_contact_id"
   end
 
   create_table "contacts", force: :cascade do |t|
@@ -106,6 +114,7 @@ ActiveRecord::Schema.define(version: 2021_07_13_195951) do
     t.index ["store_id"], name: "index_users_on_store_id"
   end
 
+  add_foreign_key "answers", "contacts"
   add_foreign_key "machines", "stores"
   add_foreign_key "place_machines", "machines"
   add_foreign_key "place_machines", "places"

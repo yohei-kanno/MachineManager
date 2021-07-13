@@ -1,0 +1,12 @@
+= "#{@answer.contact.name}様"
+p
+  = "MachinesManagerをご利用頂きありがとうございます"
+  br/
+  = "お問い合わせの件でご返信致します。"
+p
+  = "以下回答になります:"
+  br/
+  = simple_format(h(@answer.content),{},sanitize:false)
+
+p 
+  = "今後ともMachinesManagerを宜しくお願い致します。"

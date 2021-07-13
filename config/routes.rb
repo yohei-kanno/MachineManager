@@ -22,11 +22,21 @@ Rails.application.routes.draw do
   resources :stores, only: %i[new create edit update]
      
   resources :password_resets, only: %i[new create edit update]
+  
   resources :contacts, only: %i[new create] do
     collection do
       post :confirm
     end
   end
+  
+  scope :manage do
+    resources :answers, only: %i[new create] do
+      collection do
+        post :confirm
+      end
+    end
+  end
+  
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
         
   
