@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :current_user?
   before_action :detect_mobile_variant
   
+  
   protected
   
   def not_authenticated
@@ -20,6 +21,12 @@ class ApplicationController < ActionController::Base
   
   def current_user?
     redirect_to root_path if current_user
+  end
+  
+  def grandadmin?
+    if current_user
+      redirect_to root_url unless current_user.grandadmin?
+    end
   end
   
   def detect_mobile_variant
