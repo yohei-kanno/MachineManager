@@ -24,6 +24,7 @@ gem 'font-awesome-sass'
 gem 'kaminari'
 gem 'kaminari-bootstrap'
 gem 'dotenv-rails'
+gem 'activeadmin'
 
 group :production do
   gem 'pg'

@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
-  get 'password_resets/new'
-  get 'password_resets/create'
-  get 'password_resets/edit'
-  get 'password_resets/update'
+  ActiveAdmin.routes(self)
+  
   root to: "welcomes#new"
   
   get "/login", to: "sessions#new"
@@ -27,7 +25,6 @@ Rails.application.routes.draw do
   resources :contacts, only: %i[new create] do
     collection do
       post :confirm
-      post :back
     end
   end
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
