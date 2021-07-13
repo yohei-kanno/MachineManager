@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   skip_before_action :current_user?
   
   def index
-    @users = @store.users.all
+    @users = @store.users.includes(:store).all
   end
   
   def new

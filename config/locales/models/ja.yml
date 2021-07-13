@@ -22,8 +22,10 @@ ja:
     models:
       store: 店舗
       user: ユーザー
-      machine: 機械
+      machine: 機械台
       place: 保管場所
+      contact: お問い合わせ
+      comment: コメント
       
     attributes:
       store:
