@@ -1,3 +1,4 @@
+h3 MachineManagerの特徴
 button.btn-menu data-target="#Modal-m" data-toggle="modal" type="button" style="margin-bottom:30px;"
   = "作った背景"
 #Modal-m.modal.fade  aria-labelledby="Modal" tabindex="-1" 
@@ -10,37 +11,69 @@ button.btn-menu data-target="#Modal-m" data-toggle="modal" type="button" style="
       .modal-body.text-left
         = render "m"
         button.close data-dismiss="modal" type="button"  ✖️
+hr/      
 
-
-.image-flame
-  .image_show
-    .under-blue = "Q.台運びに疲れていませんか？"
-    = image_tag "undraw_heavy_box_agqi",class: "img-size"
-    .under-yellow = "A.在庫台の番号が一目瞭然！"
-    .image
-      = image_tag "number_modal", class: "img-size"
-    hr/
-    
-  .image_show
-    .under-blue = "Q.情報共有はできてますか？"
-    = image_tag "undraw_accept_tasks_po1c", class: "img-size"
-    .under-yellow = "A.社員で情報共有も楽々！"
-    .image
-      = image_tag "index", class: "img-size"
-    hr/
-    
-  .image_show
-    .under-blue = "Q.どこにあるか把握してますか？"
-    = image_tag "undraw_Dev_focus_re_6iwt", class: "img-size"
-    .under-yellow = "A.どこに何台あるか一目瞭然！"
-    .image
-      = image_tag "ware", class: "img-size"
-    hr/ 
-    
-  .image_show
-    .under-blue = "Q.台が多すぎて困ってませんか？"
-    = image_tag "undraw_miro_qvwm", class: "img-size"
-    .under-yellow = "A.気になる台は一発検索！"
-    .image
-      = image_tag "search", class: "img-size"
-    hr/
+.swiper-container
+  .swiper-wrapper
+  
+    .swiper-slide
+      .image_flame
+      .image_show
+        .under-blue = "Q.台運びに疲れていませんか？"
+        = image_tag "undraw_heavy_box_agqi", class: "img-size"
+        
+    .swiper-slide
+      .image_flame
+      .image_show
+        .under-yellow = "A.在庫台の番号が一目瞭然！"
+        = image_tag "number_modal", class: "img-size"
+          
+    .swiper-slide
+      .image_flame
+        .image_show
+          .under-blue = "Q.情報共有はできてますか？"
+          = image_tag "undraw_accept_tasks_po1c", class: "img-size"
+                  
+    .swiper-slide
+      .image_flame
+        .image_show
+          .under-yellow = "A.社員で情報共有も楽々！"
+          = image_tag "index", class: "img-size"
+            
+            
+    .swiper-slide
+      .image_flame
+        .image_show
+          .under-blue = "Q.どこにあるか把握してますか？"
+          = image_tag "undraw_Dev_focus_re_6iwt", class: "img-size"
+                  
+    .swiper-slide
+      .image_flame
+        .image_show
+          .under-yellow = "A.どこに何台あるか一目瞭然！"
+          = image_tag "ware", class: "img-size"
+            
+            
+    .swiper-slide
+      .image_flame
+        .image_show
+          .under-blue = "Q.台が多すぎて困ってませんか？"
+          = image_tag "undraw_miro_qvwm", class: "img-size"
+                  
+    .swiper-slide
+      .image_flame
+        .image_show
+          .under-yellow = "A.気になる台は一発検索！"
+          = image_tag "search", class: "img-size"
+      
+  /! If we need pagination
+  .swiper-pagination.swiper-pagination-black
+  /! If we need navigation buttons
+  .swiper-button-prev.swiper-custom-button
+    i.fa.fa-angle-left
+  .swiper-button-next.swiper-custom-button
+    i.fa.fa-angle-right
+  
+script src="https://unpkg.com/swiper/swiper-bundle.js" 
+script src="https://unpkg.com/swiper/swiper-bundle.min.js" 
+= javascript_pack_tag "swiper/swiper.js"

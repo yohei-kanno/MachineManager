@@ -7,6 +7,7 @@
 @import "link";
 @import "error";
 @import "top";
+@import "swiper";
 
 
 body{
@@ -15,10 +16,15 @@ body{
   text-align: center;
 }
 
+
 .header-contain{
   margin-left: 10px;
   color: gray;
   text-decoration: none;
+}
+
+.header-black{
+  color: black;
 }
 
 .flex{
@@ -26,11 +32,17 @@ body{
   justify-content: space-around;
 }
 
+
 .flex-function{
   display: flex;
   justify-content: left;
 }
 
+
+.flex-container-footer{
+  margin-bottom: 20px;
+  justify-content: space-around;
+}
 .flex-container{
   margin-top: 50px;
 }
@@ -123,19 +135,12 @@ hr {
 
 
 .img-size{
-  width: 300px;
-  height: 200px;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .pagination{
   margin-left: 9px;
-}
-
-@media (min-width: 500px) and (max-width:1250px) {
-  .img-size{
-    width: 500px;
-    height: 350px;
-  }
 }
 
 @media screen and (max-width:500px){

@@ -1,0 +1,36 @@
+.swiper-container {
+  position: relative;
+  overflow: hidden;
+  padding: 20px 0;
+  height: 40vw;
+  max-height: 400px;
+  min-height: 600px; 
+    
+  .swiper-slide {
+    text-align: center;
+    line-height: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center; 
+
+    .img-size {
+      display: inline;
+      width: auto; 
+      max-width: 100%;
+      max-height: 100%;
+      align-self: center;
+    }
+  }
+}
+.swiper-custom-parent{
+  position: relative;
+}
+
+.swiper-custom-button{
+  background-image: none;
+  font-size: 36px;
+  text-align: center;
+}
+.swiper-button-next::after, .swiper-button-prev::after {
+  content: none !important;
+}

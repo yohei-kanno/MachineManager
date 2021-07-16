@@ -19,7 +19,9 @@
   width: 90%;
   margin: auto;
   padding-top: 10px;
-  font-size: 18px;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 30px;
 }
 
 .under-yellow {
@@ -27,6 +29,13 @@
   width: 90%;
   margin: auto;
   padding-top: 10px;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.fa-angle-left, .fa-angle-right{
+  color: yellow;
 }
 
 @media screen and (max-width:500px){

@@ -1,0 +1,19 @@
+hr/
+.flex
+  .flex-container-footer
+    - if logged_in?  && current_user.admin?
+      = link_to t("dict.contact"), new_contact_path, method: :get, class: "header-contain"
+      
+    - elsif logged_in? && !!current_user.admin
+      = link_to t("dict.contact"), new_contact_path, method: :get, class: "header-contain"
+      
+    - else
+      = link_to t("dict.contact"), new_contact_path, method: :get, class: "header-contain"
+      button.btn.btn-link.header-contain data-target="#Modal-term-of-use" data-toggle="modal" type="button"
+        = t("dict.term_of_use")
+      = render "shared/term_of_use"
+      button.btn.btn-link.header-contain data-target="#Modal-privacy" data-toggle="modal" type="button"
+        = t("dict.privacy_policy")
+      = render "shared/privacy"
+      span.header-contain
+        | &copy MachinesManager

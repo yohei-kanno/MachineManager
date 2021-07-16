@@ -8,6 +8,9 @@ html
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    link href="https://unpkg.com/swiper/swiper-bundle.css" rel="stylesheet" /
+    link href="https://unpkg.com/swiper/swiper-bundle.min.css" rel="stylesheet" /
+
     
     script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
     script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" 
@@ -20,3 +23,4 @@ html
       p class=("alert alert-#{key}") 
         = value
     = yield
+    = render 'shared/footer'

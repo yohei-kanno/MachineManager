@@ -9,9 +9,13 @@ h4 = t("dict.initial_setting")
   .form-group
     = f.check_box :agreement, :as => :boolean, checked:false
     = f.label :agreement do
-      = render "term_of_use"
+      button.btn.btn-link data-target="#Modal-term-of-use" data-toggle="modal" type="button"
+        = t("dict.term_of_use")
+      = render "shared/term_of_use"
       span と
-      = render "privacy"
+      button.btn.btn-link data-target="#Modal-privacy" data-toggle="modal" type="button"
+        = t("dict.privacy_policy")
+      = render "shared/privacy"
       span に同意して下さい
 
   = f.submit class: "btn-primary button-submit"
